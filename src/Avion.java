@@ -42,6 +42,18 @@ public class Avion extends Vehicule{
     }
 
 
+    @Override
+    public String toString() {
+        return "Avion{" +
+                "km=" + km +
+                ", prixLoc=" + prixLoc +
+                ", nbMoteur=" + nbMoteur +
+                "marque='" + super.marque + '\'' +
+                ", modele='" + super.modele + '\'' +
+                ", vitesseMax=" + super.vitesseMax +
+                ", etat=" +super.etat +
+                '}';
+    }
 }
 
 

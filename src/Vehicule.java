@@ -1,11 +1,11 @@
 public class Vehicule {
 
-    private String marque;
-    private String modele;
-    private float vitesseMax;
-    private boolean etat;
+    String marque;
+    String modele;
+    float vitesseMax;
+    boolean etat;
 
-    public Vehicule(){
+    Vehicule(){
         marque="";
         modele="";
         etat=true;
@@ -37,6 +37,7 @@ public class Vehicule {
         return vitesseMax;
     }
 
+
     public void setVitesseMax(float vitesseMax) {
         this.vitesseMax = vitesseMax;
     }
@@ -47,5 +48,16 @@ public class Vehicule {
 
     public void setEtat(boolean etat) {
         this.etat = etat;
+    }
+
+    @Override
+
+    public String toString() {
+        return "Vehicule{" +
+                "marque='" + marque + '\'' +
+                ", modele='" + modele + '\'' +
+                ", vitesseMax=" + vitesseMax +
+                ", etat=" + etat +
+                '}';
     }
 }

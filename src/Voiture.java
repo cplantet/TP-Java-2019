@@ -5,7 +5,7 @@ public class Voiture extends Vehicule{
     private int puissance;
     private float prixLoc;
 
-    public Voiture(){
+    Voiture(){
         km=0;
         nbPlaces=0;
         puissance = 0;
@@ -55,4 +55,17 @@ public class Voiture extends Vehicule{
         return puissance;
     }
 
+    @Override
+    public String toString() {
+        return "Voiture{" +
+                "km=" + km +
+                ", nbPlaces=" + nbPlaces +
+                ", puissance=" + puissance +
+                ", prixLoc=" + prixLoc +
+                "marque='" + super.marque + '\'' +
+                ", modele='" + super.modele + '\'' +
+                ", vitesseMax=" + super.vitesseMax +
+                ", etat=" +super.etat +
+                '}';
+    }
 }
