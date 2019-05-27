@@ -89,4 +89,5 @@ public class Moto{
     public void setVitesseMax(int vitesseMax) {
         this.vitesseMax = vitesseMax;
     }
+
 }
