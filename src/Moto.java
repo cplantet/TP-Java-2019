@@ -1,10 +1,11 @@
 public class Moto{
-    private int km;
+
+    private float km;
     private int nbPlace;
     private String marque;
     private String modele;
     private int puissance;
-    private int prixLoc;
+    private float prixLoc;
     private String etat;
     private int vitesseMax;
 
@@ -21,7 +22,7 @@ public class Moto{
 
     //All of the get..();
 
-    public int getKm() {
+    public float getKm() {
         return km;
     }
 
@@ -41,7 +42,7 @@ public class Moto{
         return puissance;
     }
 
-    public int getPrixLoc() {
+    public float getPrixLoc() {
         return prixLoc;
     }
 
@@ -57,7 +58,7 @@ public class Moto{
     //All f the set..();
 
 
-    public void setKm(int km) {
+    public void setKm(float km) {
         this.km = km;
     }
 
@@ -77,7 +78,7 @@ public class Moto{
         this.puissance = puissance;
     }
 
-    public void setPrixLoc(int prixLoc) {
+    public void setPrixLoc(float prixLoc) {
         this.prixLoc = prixLoc;
     }
 
