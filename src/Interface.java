@@ -13,16 +13,46 @@ public class Interface extends JFrame {//implements ActionListener, KeyListener{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
 
+// Panel Texte
 
         JPanel txt1 = new JPanel();
         txt1.setLayout(new BoxLayout(txt1, BoxLayout.LINE_AXIS));
         txt1.add(new JLabel("Location Véhicule"));
 
+// Panel Boutons
+
         JPanel boutons = new JPanel();
 
         boutons.setLayout(new BoxLayout(boutons, BoxLayout.LINE_AXIS));
-        boutons.add(new JButton("Clients"));
-        boutons.add(new JButton("Véhicules"));
+
+
+        JPanel b1 = new JPanel();
+        JPanel b2 = new JPanel();
+
+        JButton bout1 = new JButton("Clients");
+        JButton bout2 = new JButton("Véhicules");
+
+
+        b1.add(bout1);
+        b2.add(bout2);
+
+
+        GridLayout grille = new GridLayout(1,2);
+        boutons.setLayout(grille);
+
+        //bout1.setSize(70,30);
+        //bout2.setSize(70,30);
+
+        b1.setLayout(new FlowLayout(FlowLayout.CENTER,0,boutons.getHeight()/2 - bout1.getHeight()/2));
+        b2.setLayout(new FlowLayout(FlowLayout.CENTER,0,boutons.getHeight()/2 - bout2.getHeight()/2));
+        boutons.add(b1);
+        boutons.add(b2);
+
+
+
+
+
+// Panel Global
 
 
         JPanel global = new JPanel();
@@ -37,5 +67,6 @@ public class Interface extends JFrame {//implements ActionListener, KeyListener{
 
     public static void main(String[] args) {
         Interface accueil = new Interface();
+
     }
 }
