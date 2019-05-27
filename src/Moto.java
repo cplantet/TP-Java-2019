@@ -1,23 +1,16 @@
-public class Moto{
+public class Moto extends Vehicule{
 
     private float km;
     private int nbPlace;
-    private String marque;
-    private String modele;
     private int puissance;
     private float prixLoc;
-    private String etat;
-    private int vitesseMax;
 
-    public Moto() {
+    Moto() {
         km=0;
         nbPlace=0;
-        marque="";
-        modele="";
         puissance=0;
         prixLoc=0;
-        etat="";
-        vitesseMax=0;
+
     }
 
     //All of the get..();
@@ -30,14 +23,6 @@ public class Moto{
         return nbPlace;
     }
 
-    public String getMarque() {
-        return marque;
-    }
-
-    public String getModele() {
-        return modele;
-    }
-
     public int getPuissance() {
         return puissance;
     }
@@ -46,16 +31,9 @@ public class Moto{
         return prixLoc;
     }
 
-    public String getEtat() {
-        return etat;
-    }
-
-    public int getVitesseMax() {
-        return vitesseMax;
-    }
 
 
-    //All f the set..();
+    //All of the set..();
 
 
     public void setKm(float km) {
@@ -66,13 +44,6 @@ public class Moto{
         this.nbPlace = nbPlace;
     }
 
-    public void setMarque(String marque) {
-        this.marque = marque;
-    }
-
-    public void setModele(String modele) {
-        this.modele = modele;
-    }
 
     public void setPuissance(int puissance) {
         this.puissance = puissance;
@@ -82,12 +53,18 @@ public class Moto{
         this.prixLoc = prixLoc;
     }
 
-    public void setEtat(String etat) {
-        this.etat = etat;
-    }
 
-    public void setVitesseMax(int vitesseMax) {
-        this.vitesseMax = vitesseMax;
+    @Override
+    public String toString() {
+        return "Moto{" +
+                "km=" + km +
+                ", nbPlace=" + nbPlace +
+                ", puissance=" + puissance +
+                ", prixLoc=" + prixLoc +
+                "marque='" + super.marque + '\'' +
+                ", modele='" + super.modele + '\'' +
+                ", vitesseMax=" + super.vitesseMax +
+                ", etat=" +super.etat +
+                '}';
     }
-
 }

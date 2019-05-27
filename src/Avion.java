@@ -1,22 +1,15 @@
-public class Avion {
+public class Avion extends Vehicule{
 
     private float km;
-    private String modele;
-    private String marque;
-    private String Etat;
     private float prixLoc;
     private int nbMoteur;
-    private int vitesseMax;
 
     public Avion(){
 
         km = 0;
-        modele = "";
-        marque = "";
-        Etat = "";
         prixLoc = 0;
         nbMoteur = 0;
-        vitesseMax = 0;
+
     }
 
     /* ------------------------------------------Accesseurs-----------------------------------*/
@@ -25,17 +18,6 @@ public class Avion {
         this.km = km;
     }
 
-    public void setEtat(String etat) {
-        Etat = etat;
-    }
-
-    public void setMarque(String marque) {
-        this.marque = marque;
-    }
-
-    public void setModele(String model) {
-        this.modele = model;
-    }
 
     public void setNbMoteur(int nbMoteur) {
         this.nbMoteur = nbMoteur;
@@ -43,10 +25,6 @@ public class Avion {
 
     public void setPrixLoc(float prixLoc) {
         this.prixLoc = prixLoc;
-    }
-
-    public void setVitesseMax(int vMax) {
-        this.vitesseMax = vMax;
     }
 
     /* -------------------------------------------------Mutateurs-------------------------------------*/
@@ -63,23 +41,19 @@ public class Avion {
         return nbMoteur;
     }
 
-    public String getEtat() {
-        return Etat;
+
+    @Override
+    public String toString() {
+        return "Avion{" +
+                "km=" + km +
+                ", prixLoc=" + prixLoc +
+                ", nbMoteur=" + nbMoteur +
+                "marque='" + super.marque + '\'' +
+                ", modele='" + super.modele + '\'' +
+                ", vitesseMax=" + super.vitesseMax +
+                ", etat=" +super.etat +
+                '}';
     }
-
-    public String getMarque() {
-        return marque;
-    }
-
-    public String getModele() {
-        return modele;
-    }
-
-    public int getvitesseMax() {
-        return vitesseMax;
-    }
-
-
 }
 
 
