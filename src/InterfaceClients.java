@@ -10,7 +10,48 @@ public class InterfaceClients extends JFrame{
         fenetre.setBounds(350, 100, 700, 500);
         fenetre.setResizable(false);
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        String [] tab = {"---"};
+
+
+        JComboBox listeClients = new JComboBox(tab);
+        JButton ajout = new JButton("Ajouter Client");
+        JButton ficheClient = new JButton("Fiche Client");
+        JPanel panBoutons = new JPanel();
+        JPanel panBouton1 = new JPanel();
+        JPanel panBouton2 = new JPanel();
+        JPanel panListe = new JPanel();
+
+
+        panBouton1.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/4 - ajout.getHeight()/2));
+        panBouton2.setLayout(new FlowLayout(FlowLayout.CENTER, 0, fenetre.getHeight()/4- ajout.getHeight()/2));
+
+        panListe.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/4 - ajout.getHeight()/2));
+
+        listeClients.setSize(10,20);
+        panBouton1.add(ajout);
+        panBouton2.add(ficheClient);
+
+        GridLayout grilleGlobale = new GridLayout(1,2);
+        GridLayout grilleBoutons = new GridLayout(2,1);
+
+        panBoutons.setLayout(grilleBoutons);
+        panBoutons.add(panBouton1);
+        panBoutons.add(panBouton2);
+        panListe.add(listeClients);
+
+        fenetre.setLayout(grilleGlobale);
+        fenetre.add(panListe,0);
+        fenetre.add(panBoutons,1);
+
+        panBouton1.setBackground(Color.ORANGE);
+        panBouton2.setBackground(Color.ORANGE);
+
         fenetre.setVisible(true);
+
+
+
+
 
     }
 
