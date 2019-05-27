@@ -1,22 +1,22 @@
 public class Avion {
 
     private float km;
-    private String model;
+    private String modele;
     private String marque;
     private String Etat;
     private float prixLoc;
     private int nbMoteur;
-    private int vMax;
+    private int vitesseMax;
 
     public Avion(){
 
         km = 0;
-        model = "";
+        modele = "";
         marque = "";
         Etat = "";
         prixLoc = 0;
         nbMoteur = 0;
-        vMax = 0;
+        vitesseMax = 0;
     }
 
     /* ------------------------------------------Accesseurs-----------------------------------*/
@@ -33,8 +33,8 @@ public class Avion {
         this.marque = marque;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setModele(String model) {
+        this.modele = model;
     }
 
     public void setNbMoteur(int nbMoteur) {
@@ -45,8 +45,8 @@ public class Avion {
         this.prixLoc = prixLoc;
     }
 
-    public void setvMax(int vMax) {
-        this.vMax = vMax;
+    public void setVitesseMax(int vMax) {
+        this.vitesseMax = vMax;
     }
 
     /* -------------------------------------------------Mutateurs-------------------------------------*/
@@ -71,12 +71,12 @@ public class Avion {
         return marque;
     }
 
-    public String getModel() {
-        return model;
+    public String getModele() {
+        return modele;
     }
 
-    public int getvMax() {
-        return vMax;
+    public int getvitesseMax() {
+        return vitesseMax;
     }
 
 
