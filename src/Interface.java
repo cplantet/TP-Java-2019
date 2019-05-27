@@ -8,10 +8,11 @@ public class Interface extends JFrame {//implements ActionListener, KeyListener{
     public Interface() {
 
         //JFrame fenetre = new JFrame();
-        this.setBounds(500, 10, 500, 250);
+        this.setBounds(500, 10, 500, 90);
         this.setTitle("Location de Véhicules");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
 
 // Panel Texte
 
@@ -43,8 +44,6 @@ public class Interface extends JFrame {//implements ActionListener, KeyListener{
         //bout1.setSize(70,30);
         //bout2.setSize(70,30);
 
-        b1.setLayout(new FlowLayout(FlowLayout.CENTER,0,boutons.getHeight()/2 - bout1.getHeight()/2));
-        b2.setLayout(new FlowLayout(FlowLayout.CENTER,0,boutons.getHeight()/2 - bout2.getHeight()/2));
         boutons.add(b1);
         boutons.add(b2);
 
