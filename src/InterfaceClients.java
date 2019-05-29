@@ -22,18 +22,22 @@ public class InterfaceClients extends JFrame{
         JPanel panBouton2 = new JPanel();
         JPanel panListe = new JPanel();
 
+        GridLayout grilleListe = new GridLayout(11,1);
+
 
         panBouton1.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/4 - ajout.getHeight()/2));
         panBouton2.setLayout(new FlowLayout(FlowLayout.CENTER, 0, fenetre.getHeight()/4- ajout.getHeight()/2));
 
         panListe.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/4 - ajout.getHeight()/2));
 
-        listeClients.setSize(10,20);
+        listeClients.setSize(100,20);
         panBouton1.add(ajout);
         panBouton2.add(ficheClient);
 
         GridLayout grilleGlobale = new GridLayout(1,2);
         GridLayout grilleBoutons = new GridLayout(2,1);
+
+        panListe.setLayout(grilleListe);
 
         panBoutons.setLayout(grilleBoutons);
         panBoutons.add(panBouton1);
@@ -44,8 +48,8 @@ public class InterfaceClients extends JFrame{
         fenetre.add(panListe,0);
         fenetre.add(panBoutons,1);
 
-        panBouton1.setBackground(Color.ORANGE);
-        panBouton2.setBackground(Color.ORANGE);
+        panBouton1.setBackground(Color.RED);
+        panBouton2.setBackground(Color.BLUE);
 
         fenetre.setVisible(true);
 
