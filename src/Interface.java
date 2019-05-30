@@ -3,7 +3,10 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-public class Interface extends JFrame {//implements ActionListener, KeyListener{
+public class Interface extends JFrame implements ActionListener{//KeyListener{
+
+    private JButton bout1;
+    private JButton bout2;
 
     public Interface() {
 
@@ -30,9 +33,11 @@ public class Interface extends JFrame {//implements ActionListener, KeyListener{
         JPanel b1 = new JPanel();
         JPanel b2 = new JPanel();
 
-        JButton bout1 = new JButton("Clients");
-        JButton bout2 = new JButton("Véhicules");
+        bout1 = new JButton("Clients");
+        bout1.addActionListener(this);
 
+        bout2 = new JButton("Véhicules");
+        bout2.addActionListener(this);
 
         b1.add(bout1);
         b2.add(bout2);
@@ -41,8 +46,6 @@ public class Interface extends JFrame {//implements ActionListener, KeyListener{
         GridLayout grille = new GridLayout(1,2);
         boutons.setLayout(grille);
 
-        //bout1.setSize(70,30);
-        //bout2.setSize(70,30);
 
         boutons.add(b1);
         boutons.add(b2);
@@ -67,5 +70,19 @@ public class Interface extends JFrame {//implements ActionListener, KeyListener{
     public static void main(String[] args) {
         Interface accueil = new Interface();
 
+    }
+
+    @Override
+
+    public void actionPerformed(ActionEvent e){
+
+        if(e.getSource()==bout1){
+            InterfaceClients fenetreClient = new InterfaceClients();
+            this.dispose();
+        }
+
+        if(e.getSource()==bout2){
+
+        }
     }
 }
