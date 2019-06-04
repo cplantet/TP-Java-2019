@@ -120,7 +120,7 @@ public class InterfaceAjoutAvion extends InterfaceAvion implements ActionListene
 
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==ajout) {
-
+            fenetreAjout.dispose();
 
 
             Avion aAvion = new Avion();
@@ -132,8 +132,9 @@ public class InterfaceAjoutAvion extends InterfaceAvion implements ActionListene
           //  aAvion.setEtat();
            // aAvion.setVitesseMax();
             super.ajoutAvion(aAvion);
-            fenetreAjout.dispose();
             System.out.println(aAvion.toString());
+
+
         }
 
     }
