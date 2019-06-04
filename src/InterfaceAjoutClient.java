@@ -85,7 +85,8 @@ public class InterfaceAjoutClient extends InterfaceClients implements ActionList
 
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==ajout) {
-            fenetreAjout.dispose();
+            this.setVisible(false);
+            InterfaceClients interfaceClient = new InterfaceClients();
             String element = textNom.getText() + " " + textPrenom.getText();
             super.ajoutClient(element);
 
