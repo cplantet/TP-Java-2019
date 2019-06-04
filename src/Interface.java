@@ -22,7 +22,7 @@ public class Interface extends JFrame implements ActionListener{//KeyListener{
 
         JPanel txt1 = new JPanel();
         txt1.setLayout(new BoxLayout(txt1, BoxLayout.LINE_AXIS));
-        txt1.add(new JLabel("Location Véhicule"));
+        txt1.add(new JLabel("Ajouter / Rechercher"));
 
 // Panel Boutons
 

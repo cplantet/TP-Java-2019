@@ -56,4 +56,6 @@ public class Location {
                 ", kmprevu=" + kmprevu +
                 '}';
     }
+
+
 }
