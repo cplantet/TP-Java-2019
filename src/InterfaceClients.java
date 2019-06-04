@@ -11,7 +11,7 @@ public class InterfaceClients extends JFrame implements ActionListener{
     private JButton ficheClient;
     private static ArrayList<String> client;
     private static JComboBox listeClients;
-    private DefaultComboBoxModel model;
+
 
     public InterfaceClients(){
 
@@ -28,7 +28,7 @@ public class InterfaceClients extends JFrame implements ActionListener{
 
 
         listeClients = new JComboBox(client.toArray());
-        comboBoxInit();
+
 
 
         ajout = new JButton("Ajouter Client");
@@ -127,7 +127,10 @@ public class InterfaceClients extends JFrame implements ActionListener{
         String element = aClient.getPrenom()+" "+ aClient.getNom();
 
         InterfaceClients.client.add(element);
+
         comboBoxInit();
+
+
     }
 
     private static void comboBoxInit(){
