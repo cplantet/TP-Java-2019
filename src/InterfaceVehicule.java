@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class InterfaceVehicule {
+public class InterfaceVehicule extends Interface implements ActionListener {
 
     private JButton avion;
     private JButton voiture;
@@ -46,6 +46,13 @@ public class InterfaceVehicule {
 
 
 
+    }
+    public void actionPerformed(ActionEvent e){
+
+        if(e.getSource()==avion){
+            InterfaceAvion fenetreAvion = new InterfaceAvion();
+            this.dispose();
+        }
     }
 
 }
