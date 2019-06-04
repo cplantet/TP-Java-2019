@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class InterfaceAjoutClient extends InterfaceClients implements ActionListener{
+public class InterfaceAjoutClient extends JFrame implements ActionListener{
 
     private JButton ajout ;
     private JTextField textNom;
@@ -17,7 +17,7 @@ public class InterfaceAjoutClient extends InterfaceClients implements ActionList
         fenetreAjout = new JFrame();
         fenetreAjout.setBounds(350, 100, 700, 500);
         fenetreAjout.setTitle("Ajout Client");
-        fenetreAjout.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         fenetreAjout.setResizable(false);
 
         JLabel nom = new JLabel("Nom");
@@ -85,9 +85,11 @@ public class InterfaceAjoutClient extends InterfaceClients implements ActionList
 
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==ajout) {
-            fenetreAjout.dispose();
+            this.setVisible(false);
+
+            InterfaceClients interfaceClient = new InterfaceClients();
             String element = textNom.getText() + " " + textPrenom.getText();
-            super.ajoutClient(element);
+            InterfaceClients.ajoutClient(element);
 
 
         }

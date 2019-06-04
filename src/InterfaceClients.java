@@ -9,21 +9,27 @@ public class InterfaceClients extends JFrame implements ActionListener{
     private JButton retour;
     private JButton ajout;
     private JButton ficheClient;
-    private ArrayList client;
+    private static ArrayList<String> client;
     private JComboBox listeClients;
+    private DefaultComboBoxModel model;
 
     public InterfaceClients(){
+
+
 
         JFrame fenetre = new JFrame();
         fenetre.setBounds(350, 100, 700, 500);
         fenetre.setResizable(false);
         fenetre.setTitle(" Clients");
-        fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         client = new ArrayList();
 
 
 
+        model = modelInit();
+
         listeClients = new JComboBox(client.toArray());
+        listeClients.setModel(model);
+
         ajout = new JButton("Ajouter Client");
         ajout.addActionListener(this);
         JButton ficheClient = new JButton("Fiche Client");
@@ -91,22 +97,38 @@ public class InterfaceClients extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
 
         if(e.getSource()==retour){
-            this.dispose();
+
             Interface menu = new Interface();
+            this.setVisible(false);
 
         }
 
         if(e.getSource()==ajout){
-            this.dispose();
+
+
             InterfaceAjoutClient client = new InterfaceAjoutClient();
+            this.setVisible(false);
+
 
         }
 
 
     }
 
-    public void ajoutClient(String aClient){
-        client.add(aClient);
+    public static void ajoutClient(String aClient){
+
+
+        InterfaceClients.client.add(aClient);
+    }
+
+    private DefaultComboBoxModel modelInit(){
+        DefaultComboBoxModel m = new DefaultComboBoxModel();
+        for (String c:client){
+            m.addElement(c);
+
+        }
+        return m;
+
     }
 }
 
