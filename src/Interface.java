@@ -82,6 +82,8 @@ public class Interface extends JFrame implements ActionListener{//KeyListener{
         }
 
         if(e.getSource()==bout2){
+            InterfaceVehicule fenetreVehicule = new InterfaceVehicule();
+            this.dispose();
 
         }
     }

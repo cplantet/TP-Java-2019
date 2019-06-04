@@ -1,12 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+
 
 public class InterfaceClients extends JFrame implements ActionListener{
 
-
-
-
+    private JButton retour;
+    private JButton ajout;
+    private JButton ficheClient;
+    private ArrayList client;
+    private JComboBox listeClients;
 
     public InterfaceClients(){
 
@@ -15,20 +19,24 @@ public class InterfaceClients extends JFrame implements ActionListener{
         fenetre.setResizable(false);
         fenetre.setTitle(" Clients");
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        client = new ArrayList();
 
-        String [] tab = {"---","Nicolas","Mathieu"};
 
 
-        JComboBox listeClients = new JComboBox(tab);
-        JButton ajout = new JButton("Ajouter Client");
+        listeClients = new JComboBox(client.toArray());
+        ajout = new JButton("Ajouter Client");
+        ajout.addActionListener(this);
         JButton ficheClient = new JButton("Fiche Client");
-        JButton retour = new JButton("Retour");
+
+        retour = new JButton("Retour");
+        retour.addActionListener(this);
 
         JPanel panBoutons = new JPanel();
         JPanel panBouton1 = new JPanel();
         JPanel panBouton2 = new JPanel();
         JPanel panListe = new JPanel();
         JPanel panRetour = new JPanel();
+
 
         GridLayout grilleListe = new GridLayout(11,1);
 
@@ -60,6 +68,7 @@ public class InterfaceClients extends JFrame implements ActionListener{
 
         fenetre.setLayout(grilleGlobale);
         fenetre.add(panListe,0);
+
         fenetre.add(panBoutons,1);
 
         panBouton1.setBackground(Color.LIGHT_GRAY);
@@ -77,9 +86,27 @@ public class InterfaceClients extends JFrame implements ActionListener{
         InterfaceClients fenetreClients = new InterfaceClients();
     }
 
+    @Override
+
     public void actionPerformed(ActionEvent e){
 
+        if(e.getSource()==retour){
+            this.dispose();
+            Interface menu = new Interface();
 
+        }
+
+        if(e.getSource()==ajout){
+            this.dispose();
+            InterfaceAjoutClient client = new InterfaceAjoutClient();
+
+        }
+
+
+    }
+
+    public void ajoutClient(String aClient){
+        client.add(aClient);
     }
 }
 
