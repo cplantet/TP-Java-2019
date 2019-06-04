@@ -10,6 +10,9 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
     private JButton ajout ;
     private JTextField textNom;
     private JTextField textPrenom;
+    private JTextField textDateDeNaissance;
+    private JTextField textAdresse;
+    private JTextField textTelephone;
     private JFrame fenetreAjout;
 
     public InterfaceAjoutClient() {
@@ -30,10 +33,10 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
 
         textNom = new JTextField();
         textPrenom = new JTextField();
-        JTextField textDateDeNaissance = new JTextField();
-        JTextField textNumPermis = new JTextField();
-        JTextField textAdresse = new JTextField();
-        JTextField textTelephone = new JTextField();
+        textDateDeNaissance = new JTextField();
+
+        textAdresse = new JTextField();
+        textTelephone = new JTextField();
 
         JPanel panInfos = new JPanel();
         JPanel panAjout = new JPanel();
@@ -42,7 +45,7 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
         JPanel panPrenom =new JPanel();
         JPanel panAdresse =new JPanel();
         JPanel panTelephone =new JPanel();
-        JPanel panPermis =new JPanel();
+
         JPanel panNaissance =new JPanel();
 
 
@@ -50,6 +53,7 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
         panAjout.setBackground(Color.LIGHT_GRAY);
 
         ajout = new JButton("Ajouter");
+        ajout.addActionListener(this);
 
         fenetreAjout.add(panAjout);
         fenetreAjout.add(panInfos);
@@ -85,11 +89,13 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==ajout) {
-            this.setVisible(false);
 
-            InterfaceClients interfaceClient = new InterfaceClients();
-            String element = textNom.getText() + " " + textPrenom.getText();
-            InterfaceClients.ajoutClient(element);
+
+            Client personne = InterfaceClients.ajoutClient(textNom.getText(),textPrenom.getText(),textDateDeNaissance.getText(),textTelephone.getText(),textAdresse.getText());
+
+            InterfaceClients.ajoutListe(personne);
+            //InterfaceClients interfaceClient = new InterfaceClients()
+            fenetreAjout.dispose();
 
 
         }
