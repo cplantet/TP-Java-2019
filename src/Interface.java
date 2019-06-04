@@ -10,12 +10,13 @@ public class Interface extends JFrame implements ActionListener{//KeyListener{
 
     public Interface() {
 
+
         //JFrame fenetre = new JFrame();
         this.setBounds(500, 10, 500, 90);
         this.setTitle("Location de Véhicules");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 // Panel Texte
 

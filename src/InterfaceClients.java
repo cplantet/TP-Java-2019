@@ -9,7 +9,7 @@ public class InterfaceClients extends JFrame implements ActionListener{
     private JButton retour;
     private JButton ajout;
     private JButton ficheClient;
-    private ArrayList<String> client;
+    private static ArrayList<String> client;
     private JComboBox listeClients;
     private DefaultComboBoxModel model;
 
@@ -21,9 +21,8 @@ public class InterfaceClients extends JFrame implements ActionListener{
         fenetre.setBounds(350, 100, 700, 500);
         fenetre.setResizable(false);
         fenetre.setTitle(" Clients");
-        fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         client = new ArrayList();
-        client.add("Michel");
+
 
 
         model = modelInit();
@@ -98,22 +97,28 @@ public class InterfaceClients extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
 
         if(e.getSource()==retour){
-            this.setVisible(false);
+
             Interface menu = new Interface();
+            this.setVisible(false);
 
         }
 
         if(e.getSource()==ajout){
-            this.setVisible(false);
+
+
             InterfaceAjoutClient client = new InterfaceAjoutClient();
+            this.setVisible(false);
+
 
         }
 
 
     }
 
-    public void ajoutClient(String aClient){
-        client.add(aClient);
+    public static void ajoutClient(String aClient){
+
+
+        InterfaceClients.client.add(aClient);
     }
 
     private DefaultComboBoxModel modelInit(){
