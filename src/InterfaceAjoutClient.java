@@ -11,7 +11,9 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
     private JTextField textNom;
     private JTextField textPrenom;
     private JFrame fenetreAjout;
-
+    private JTextField textAdresse;
+    private JTextField textDateDeNaissance;
+    private JTextField textTelephone;
 
     public InterfaceAjoutClient() {
 
@@ -31,10 +33,10 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
 
         textNom = new JTextField();
         textPrenom = new JTextField();
-        JTextField textDateDeNaissance = new JTextField();
-        JTextField textNumPermis = new JTextField();
-        JTextField textAdresse = new JTextField();
-        JTextField textTelephone = new JTextField();
+        textDateDeNaissance = new JTextField();
+
+        textAdresse = new JTextField();
+        textTelephone = new JTextField();
 
         JPanel panInfos = new JPanel();
         JPanel panAjout = new JPanel();
@@ -51,6 +53,7 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
         panAjout.setBackground(Color.LIGHT_GRAY);
 
         ajout = new JButton("Ajouter");
+        ajout.addActionListener(this);
 
         fenetreAjout.add(panAjout);
         fenetreAjout.add(panInfos);
@@ -86,12 +89,13 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==ajout) {
-            this.setVisible(false);
 
-            InterfaceClients interfaceClient = new InterfaceClients();
-            String element = textNom.getText() + " " + textPrenom.getText();
-          //  InterfaceClients.ajoutClient(element);
 
+
+            Client aClient =InterfaceClients.ajoutClient(textNom.getText(),textPrenom.getText(),textAdresse.getText(),textTelephone.getText(),textDateDeNaissance.getText());
+            InterfaceClients.ajoutListe(aClient);
+
+            fenetreAjout.dispose();
 
         }
 
