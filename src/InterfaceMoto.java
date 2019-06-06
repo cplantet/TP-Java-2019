@@ -5,11 +5,6 @@ import java.util.ArrayList;
 
 public class InterfaceMoto  extends JFrame implements ActionListener {
 
-    private float km;
-    private int nbPlace;
-    private float puissance;
-    private float prixLoc;
-
     private JButton retour;
     private JButton ajout;
     private JButton ficheMoto;
@@ -88,14 +83,14 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
             fenetre.dispose();
 
         }
-/*
+
         if(e.getSource()==ajout){
 
 
-            InterfaceAjoutAvion avion = new InterfaceAjoutAvion();
+            InterfaceAjoutMoto aMoto = new InterfaceAjoutMoto();
             fenetre.dispose();
 
-        }*/
+        }
 
 
     }

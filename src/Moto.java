@@ -2,10 +2,10 @@ public class Moto extends Vehicule{
 
     private float km;
     private int nbPlace;
-    private int puissance;
+    private float puissance;
     private float prixLoc;
 
-    public Moto(String marque, String modele, float vitesseMax, String etat, float km, int nbPlace, int puissance, float prixLoc) {
+    public Moto(String marque, String modele, float vitesseMax, String etat, float km, int nbPlace, float puissance, float prixLoc) {
         super(marque, modele, vitesseMax, etat);
         this.km = km;
         this.nbPlace = nbPlace;
@@ -23,7 +23,7 @@ public class Moto extends Vehicule{
         return nbPlace;
     }
 
-    public int getPuissance() {
+    public float getPuissance() {
         return puissance;
     }
 
@@ -45,7 +45,7 @@ public class Moto extends Vehicule{
     }
 
 
-    public void setPuissance(int puissance) {
+    public void setPuissance(float puissance) {
         this.puissance = puissance;
     }
 
