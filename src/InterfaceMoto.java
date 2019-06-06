@@ -3,38 +3,31 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
+public class InterfaceMoto  extends JFrame implements ActionListener {
 
-public class InterfaceClients extends JFrame implements ActionListener{
+    private float km;
+    private int nbPlace;
+    private float puissance;
+    private float prixLoc;
 
     private JButton retour;
     private JButton ajout;
-    private JButton ficheClient;
-    private static ArrayList<String> client;
-    private static JComboBox listeClients;
-    private DefaultComboBoxModel model;
+    private JButton ficheMoto;
+
     private JFrame fenetre;
 
-    public InterfaceClients(){
 
-
+    public InterfaceMoto(){
 
         fenetre = new JFrame();
         fenetre.setBounds(350, 100, 700, 500);
         fenetre.setResizable(false);
-        fenetre.setTitle(" Clients");
-        client = new ArrayList();
+        fenetre.setTitle(" Avion");
 
 
-
-
-
-        listeClients = new JComboBox(client.toArray());
-        comboBoxInit();
-
-
-        ajout = new JButton("Ajouter Client");
+        ajout = new JButton("Ajouter Moto");
         ajout.addActionListener(this);
-        JButton ficheClient = new JButton("Fiche Client");
+        JButton ficheClient = new JButton("Fiche Moto");
 
         retour = new JButton("Retour");
         retour.addActionListener(this);
@@ -53,13 +46,8 @@ public class InterfaceClients extends JFrame implements ActionListener{
 
         panBouton2.setLayout(new FlowLayout(FlowLayout.CENTER, 0, fenetre.getHeight()/4- ajout.getHeight()/2));
 
-        //panListe.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/4 - ajout.getHeight()/2));
-
-
-
-        listeClients.setSize(100,20);
         panBouton1.add(ajout);
-        panBouton2.add(ficheClient);
+        //   panBouton2.add(ficheAvion);
 
         GridLayout grilleGlobale = new GridLayout(1,2);
         GridLayout grilleBoutons = new GridLayout(2,1);
@@ -71,8 +59,7 @@ public class InterfaceClients extends JFrame implements ActionListener{
         panBoutons.add(panBouton1);
         panBoutons.add(panBouton2);
 
-        panListe.add(listeClients);
-        panListe.add(panRetour);
+
 
         fenetre.setLayout(grilleGlobale);
         fenetre.add(panListe,0);
@@ -90,53 +77,29 @@ public class InterfaceClients extends JFrame implements ActionListener{
 
     }
 
+
     @Override
 
     public void actionPerformed(ActionEvent e){
 
         if(e.getSource()==retour){
 
-            Interface menu = new Interface();
-            this.setVisible(false);
+            InterfaceVehicule menu = new InterfaceVehicule();
+            fenetre.dispose();
 
         }
-
+/*
         if(e.getSource()==ajout){
 
 
-            InterfaceAjoutClient client = new InterfaceAjoutClient();
+            InterfaceAjoutAvion avion = new InterfaceAjoutAvion();
+            fenetre.dispose();
 
-
-        }
+        }*/
 
 
     }
 
-    public static Client ajoutClient(String nom,String prenom,String adresse,String telephone,String dateDeNaissance){
-
-        Client aClient = new Client(nom, prenom, dateDeNaissance, telephone, adresse);
-
-        return aClient;
-    }
-
-    public static void ajoutListe(Client aClient){
-
-        String element = aClient.getPrenom()+" "+ aClient.getNom();
-
-        InterfaceClients.client.add(element);
-        comboBoxInit();
-    }
-
-    private static void comboBoxInit(){
-
-        listeClients.removeAllItems();
-        for (String c:client){
 
 
-            listeClients.addItem(c);
-
-        }
-
-    }
 }
-

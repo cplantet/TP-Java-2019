@@ -9,21 +9,26 @@ public class InterfaceAvion extends JFrame implements ActionListener{
     private JButton retour;
     private JButton ajout;
     private JButton ficheAvion;
-    private ArrayList avion;
-    private JComboBox listeAvions;
+    private static JComboBox listeAvions;
+    private JFrame fenetre;
+
+
+    private static ArrayList<Avion> avion;
+    private DefaultComboBoxModel model;
 
     public InterfaceAvion(){
 
-        JFrame fenetre = new JFrame();
+        fenetre = new JFrame();
         fenetre.setBounds(350, 100, 700, 500);
         fenetre.setResizable(false);
         fenetre.setTitle(" Avion");
-        fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         avion = new ArrayList();
 
 
 
         listeAvions = new JComboBox(avion.toArray());
+        comboBoxInit();
+
         ajout = new JButton("Ajouter Avion");
         ajout.addActionListener(this);
         JButton ficheClient = new JButton("Fiche Avion");
@@ -82,32 +87,45 @@ public class InterfaceAvion extends JFrame implements ActionListener{
 
     }
 
-    public static void main(String[] args) {
-        InterfaceAvion fenetreAvion = new InterfaceAvion();
-    }
 
     @Override
 
     public void actionPerformed(ActionEvent e){
 
         if(e.getSource()==retour){
-            this.dispose();
-            Interface menu = new Interface();
+
+            InterfaceVehicule menu = new InterfaceVehicule();
+            fenetre.dispose();
 
         }
 
         if(e.getSource()==ajout){
 
+
             InterfaceAjoutAvion avion = new InterfaceAjoutAvion();
-            this.dispose();
+            fenetre.dispose();
+
         }
 
 
     }
 
-    public void ajoutAvion(Avion aAvion){
-        avion.add(aAvion);
+
+    public static void ajoutListe(Avion aAvion){
+
+        InterfaceAvion.avion.add(aAvion);
+        comboBoxInit();
+    }
+
+    private static void comboBoxInit(){
+
+        listeAvions.removeAllItems();
+        for (Avion c:avion){
+            listeAvions.addItem(c);
+
+        }
 
     }
-}
+    }
+
 

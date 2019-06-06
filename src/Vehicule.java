@@ -1,17 +1,18 @@
 public class Vehicule {
 
-    String marque;
-    String modele;
-    float vitesseMax;
-    boolean etat;
+    private String marque;
+    private String modele;
+    private float vitesseMax;
+    private String etat;
 
-    Vehicule(){
-        marque="";
-        modele="";
-        etat=true;
-        vitesseMax=0;
-
+    public Vehicule(String marque, String modele,float vitesseMax,String etat){
+        this.marque=marque;
+        this.modele=modele;
+        this.etat=etat;
+        this.vitesseMax=vitesseMax;
     }
+
+
 
     //All of the get..();
 
@@ -23,31 +24,19 @@ public class Vehicule {
         this.marque = marque;
     }
 
-    public String getModele() {
-        return modele;
+    public void setEtat(String etat) {
+        this.etat = etat;
     }
 
-    //All of the set..();
+//All of the set..();
+
 
     public void setModele(String modele) {
         this.modele = modele;
     }
 
-    public float getVitesseMax() {
-        return vitesseMax;
-    }
-
-
-    public void setVitesseMax(float vitesseMax) {
+    public void setVitesseMax(int vitesseMax) {
         this.vitesseMax = vitesseMax;
-    }
-
-    public boolean isEtat() {
-        return etat;
-    }
-
-    public void setEtat(boolean etat) {
-        this.etat = etat;
     }
 
     @Override

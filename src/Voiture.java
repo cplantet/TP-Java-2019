@@ -5,12 +5,12 @@ public class Voiture extends Vehicule{
     private int puissance;
     private float prixLoc;
 
-    Voiture(){
-        km=0;
-        nbPlaces=0;
-        puissance = 0;
-        prixLoc = 0;
-
+    public Voiture(String marque, String modele, float vitesseMax, String etat, float km, int nbPlaces, int puissance, float prixLoc) {
+        super(marque, modele, vitesseMax, etat);
+        this.km = km;
+        this.nbPlaces = nbPlaces;
+        this.puissance = puissance;
+        this.prixLoc = prixLoc;
     }
 
     /*--------------------------------------Accesseurs---------------------------------------*/
@@ -61,11 +61,9 @@ public class Voiture extends Vehicule{
                 "km=" + km +
                 ", nbPlaces=" + nbPlaces +
                 ", puissance=" + puissance +
-                ", prixLoc=" + prixLoc +
-                "marque='" + super.marque + '\'' +
-                ", modele='" + super.modele + '\'' +
-                ", vitesseMax=" + super.vitesseMax +
-                ", etat=" +super.etat +
-                '}';
+                ", prixLoc=" + prixLoc
+                +
+                "}"
+               ;
     }
 }

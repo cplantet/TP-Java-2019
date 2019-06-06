@@ -5,9 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class InterfaceAjoutAvion extends InterfaceAvion implements ActionListener{
+public class InterfaceAjoutAvion extends JFrame implements ActionListener{
 
     private JButton ajout ;
+    private JButton annuler ;
     private JTextField km;
     private JTextField prixLoc;
     private JTextField nbMoteur;
@@ -31,7 +32,7 @@ public class InterfaceAjoutAvion extends InterfaceAvion implements ActionListene
     public InterfaceAjoutAvion() {
 
         fenetreAjout = new JFrame();
-        fenetreAjout.setBounds(350, 100, 700, 500);
+        fenetreAjout.setBounds(350, 100, 700, 700);
         fenetreAjout.setTitle("Ajout Avion");
         fenetreAjout.setResizable(false);
 
@@ -54,8 +55,8 @@ public class InterfaceAjoutAvion extends InterfaceAvion implements ActionListene
         JTextField textprixLoc = new JTextField();
         JTextField textnbMoteur = new JTextField();
 
+        textmarque.setForeground(Color.BLUE);
         JPanel panInfos = new JPanel();
-        JPanel panAjout = new JPanel();
 
 
         JPanel panMarque = new JPanel();
@@ -66,20 +67,27 @@ public class InterfaceAjoutAvion extends InterfaceAvion implements ActionListene
         JPanel panMot = new JPanel();
         JPanel panEtat = new JPanel();
 
-        panAjout.setBackground(Color.LIGHT_GRAY);
+
 
         ajout = new JButton("Ajouter");
+        ajout.addActionListener(this);
+        annuler = new JButton("Annuler");
+        annuler.addActionListener(this);
 
-        fenetreAjout.add(panAjout);
-        fenetreAjout.add(panInfos);
 
-        panAjout.setBounds(0,425,700,100);
-        panAjout.add(ajout);
 
-        GridLayout grilleInfos = new GridLayout(7,2);
+       //panAjout.setBounds(0,650,700,50);
+
+
+
+        GridLayout grilleInfos = new GridLayout(8,2);
 
         // on affiche les cases et les noms des lignes dans les cases de la grille du tableau
-        panInfos.setBounds(0,0,600,300);
+       // panInfos.setBounds(0,0,700,600);
+        //panInfos.setSize(700,600);
+        panInfos.setPreferredSize(new Dimension(700,600));
+
+       // textmarque.setPreferredSize( new Dimension( 200, 24 ) );
         panInfos.setLayout(grilleInfos);
              panInfos.add(panMarque);
              panInfos.add(textmarque);
@@ -95,13 +103,18 @@ public class InterfaceAjoutAvion extends InterfaceAvion implements ActionListene
             panInfos.add(textprixLoc);
             panInfos.add(panMot);
             panInfos.add(textnbMoteur);
+
             panPrix.add(prixLoc);
             panEtat.add(etat);
             panVit.add(vitesseMax);
             panKm.add(km);
             panModele.add(modele);
             panMarque.add(marque);
+            panMot.add(nbMoteur);
 
+         panInfos.add(annuler);
+            panInfos.add(ajout);
+        fenetreAjout.add(panInfos);
         //varaibles qui contiennt les valeurs de ce qu'on tape
 
         kmS=textmarque.getText();
@@ -112,6 +125,9 @@ public class InterfaceAjoutAvion extends InterfaceAvion implements ActionListene
         vitesseMaxS=textvitesseMax.getText();
         etatS=textetat.getText();
 
+
+
+
         fenetreAjout.setVisible(true);
 
     }
@@ -120,19 +136,28 @@ public class InterfaceAjoutAvion extends InterfaceAvion implements ActionListene
 
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==ajout) {
+
+
+            //zone de conversion
+
+            float kmf = Float.parseFloat(kmS);
+            Integer nbMoteurI = Integer.parseInt(nbMoteurS);
+            float prixLocf = Float.parseFloat(prixLocS);
+            float vitesseMaxf = Float.parseFloat(vitesseMaxS);
+
+            Avion aAvion = new Avion(marqueS,modeleS,vitesseMaxf,etatS,kmf,prixLocf,nbMoteurI);
+
+            InterfaceAvion.ajoutListe(aAvion);
+            InterfaceAvion intAvion= new InterfaceAvion();
             fenetreAjout.dispose();
 
 
-            Avion aAvion = new Avion();
-            aAvion.setMarque(marqueS);
-            aAvion.setModele(modeleS);
-           // aAvion.setKm(kmS);
-          //  aAvion.setNbMoteur();
-           // aAvion.setPrixLoc();
-          //  aAvion.setEtat();
-           // aAvion.setVitesseMax();
-            super.ajoutAvion(aAvion);
-            System.out.println(aAvion.toString());
+
+        }
+        if(e.getSource()==annuler){
+            InterfaceAvion intAvion= new InterfaceAvion();
+            fenetreAjout.dispose();
+
 
 
         }

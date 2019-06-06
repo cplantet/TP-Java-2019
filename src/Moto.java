@@ -5,12 +5,12 @@ public class Moto extends Vehicule{
     private int puissance;
     private float prixLoc;
 
-    Moto() {
-        km=0;
-        nbPlace=0;
-        puissance=0;
-        prixLoc=0;
-
+    public Moto(String marque, String modele, float vitesseMax, String etat, float km, int nbPlace, int puissance, float prixLoc) {
+        super(marque, modele, vitesseMax, etat);
+        this.km = km;
+        this.nbPlace = nbPlace;
+        this.puissance = puissance;
+        this.prixLoc = prixLoc;
     }
 
     //All of the get..();
@@ -61,10 +61,7 @@ public class Moto extends Vehicule{
                 ", nbPlace=" + nbPlace +
                 ", puissance=" + puissance +
                 ", prixLoc=" + prixLoc +
-                "marque='" + super.marque + '\'' +
-                ", modele='" + super.modele + '\'' +
-                ", vitesseMax=" + super.vitesseMax +
-                ", etat=" +super.etat +
+
                 '}';
     }
 }

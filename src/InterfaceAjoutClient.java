@@ -12,6 +12,7 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
     private JTextField textPrenom;
     private JFrame fenetreAjout;
 
+
     public InterfaceAjoutClient() {
 
         fenetreAjout = new JFrame();
@@ -89,7 +90,7 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
 
             InterfaceClients interfaceClient = new InterfaceClients();
             String element = textNom.getText() + " " + textPrenom.getText();
-            InterfaceClients.ajoutClient(element);
+          //  InterfaceClients.ajoutClient(element);
 
 
         }

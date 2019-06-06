@@ -4,12 +4,11 @@ public class Avion extends Vehicule{
     private float prixLoc;
     private int nbMoteur;
 
-    public Avion(){
-
-        km = 0;
-        prixLoc = 0;
-        nbMoteur = 0;
-
+    public Avion(String marque, String modele, float vitesseMax, String etat, float km, float prixLoc, int nbMoteur) {
+        super(marque, modele, vitesseMax, etat);
+        this.km = km;
+        this.prixLoc = prixLoc;
+        this.nbMoteur = nbMoteur;
     }
 
     /* ------------------------------------------Accesseurs-----------------------------------*/
@@ -48,11 +47,7 @@ public class Avion extends Vehicule{
                 "km=" + km +
                 ", prixLoc=" + prixLoc +
                 ", nbMoteur=" + nbMoteur +
-                "marque='" + super.marque + '\'' +
-                ", modele='" + super.modele + '\'' +
-                ", vitesseMax=" + super.vitesseMax +
-                ", etat=" +super.etat +
-                '}';
+              '}';
     }
 }
 
