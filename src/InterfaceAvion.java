@@ -31,7 +31,7 @@ public class InterfaceAvion extends JFrame implements ActionListener{
 
         ajout = new JButton("Ajouter Avion");
         ajout.addActionListener(this);
-        JButton ficheClient = new JButton("Fiche Avion");
+        JButton ficheAvion = new JButton("Fiche Avion");
 
         retour = new JButton("Retour");
         retour.addActionListener(this);
@@ -56,14 +56,14 @@ public class InterfaceAvion extends JFrame implements ActionListener{
 
         listeAvions.setSize(100,20);
         panBouton1.add(ajout);
-     //   panBouton2.add(ficheAvion);
+        panBouton2.add(ficheAvion);
 
         GridLayout grilleGlobale = new GridLayout(1,2);
         GridLayout grilleBoutons = new GridLayout(2,1);
 
         panListe.setLayout(grilleListe);
         panRetour.add(retour);
-
+        panRetour.setBackground(Color.GRAY);
         panBoutons.setLayout(grilleBoutons);
         panBoutons.add(panBouton1);
         panBoutons.add(panBouton2);
@@ -77,7 +77,8 @@ public class InterfaceAvion extends JFrame implements ActionListener{
         fenetre.add(panBoutons,1);
 
         panBouton1.setBackground(Color.LIGHT_GRAY);
-        panBouton2.setBackground(Color.GRAY);
+        panBouton2.setBackground(Color.DARK_GRAY);
+        panListe.setBackground(Color.GRAY);
 
         fenetre.setVisible(true);
 

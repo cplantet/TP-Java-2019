@@ -13,7 +13,7 @@ public class InterfaceVehicule extends JFrame implements ActionListener {
     public InterfaceVehicule(){
 
         fenetre = new JFrame();
-        fenetre.setBounds(500, 10, 700, 500);
+        fenetre.setBounds(500, 10, 500, 300);
         fenetre.setTitle("Véhicule");
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenetre.setLocationRelativeTo(null);
@@ -37,6 +37,17 @@ public class InterfaceVehicule extends JFrame implements ActionListener {
         //panAvion.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/3 - avion.getHeight()/2));
         //panVoiture.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/3 - voiture.getHeight()/2));
         //panMoto.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/3 - moto.getHeight()/2));
+/*
+        avion.setBackground(Color.GRAY);
+        voiture.setBackground(Color.LIGHT_GRAY);
+        moto.setBackground(Color.GRAY);
+        menu.setBackground(Color.LIGHT_GRAY);
+*/
+        panAvion.setBackground(Color.GRAY);
+        panVoiture.setBackground(Color.LIGHT_GRAY);
+        panMoto.setBackground(Color.GRAY);
+        panMenu.setBackground(Color.LIGHT_GRAY);
+
 
         panAvion.add(avion);
         panVoiture.add(voiture);
