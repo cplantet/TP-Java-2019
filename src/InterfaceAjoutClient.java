@@ -92,8 +92,8 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
 
 
 
-            Client aClient =InterfaceClients.ajoutClient(textNom.getText(),textPrenom.getText(),textAdresse.getText(),textTelephone.getText(),textDateDeNaissance.getText());
-            InterfaceClients.ajoutListe(aClient);
+            InterfaceClients.ajoutClient(textNom.getText(),textPrenom.getText(),textAdresse.getText(),textTelephone.getText(),textDateDeNaissance.getText());
+            InterfaceClients.ajoutListe();
 
             fenetreAjout.dispose();
 

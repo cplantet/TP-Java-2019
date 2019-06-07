@@ -1,3 +1,6 @@
+import java.beans.XMLEncoder;
+import java.io.FileOutputStream;
+
 public class Vehicule {
 
     private String marque;
@@ -20,6 +23,20 @@ public class Vehicule {
         return marque;
     }
 
+    public String getModele() {
+        return modele;
+    }
+
+    public String getEtat() {
+        return etat;
+    }
+
+    public float getVitesseMax() {
+        return vitesseMax;
+    }
+
+//All of the set..();
+
     public void setMarque(String marque) {
         this.marque = marque;
     }
@@ -27,9 +44,6 @@ public class Vehicule {
     public void setEtat(String etat) {
         this.etat = etat;
     }
-
-//All of the set..();
-
 
     public void setModele(String modele) {
         this.modele = modele;
@@ -49,4 +63,7 @@ public class Vehicule {
                 ", etat=" + etat +
                 '}';
     }
+
+
+
 }

@@ -2,19 +2,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class InterfaceFicheClient extends JFrame {
 
-    public InterfaceFicheClient(Client aClient){
-
-        JLabel nom = new JLabel(aClient.getNom());
-        JLabel prenom = new JLabel(aClient.getPrenom());
-        JLabel  dateDeNaissance = new JLabel(aClient.getDateDeNaissance());
-        JLabel adresse = new JLabel(aClient.getAdresse());
-        JLabel telephone = new JLabel(aClient.getTelephone());
+    public InterfaceFicheClient(Client leGars){
+       // Client leGars = new Client("lo","l","kf","u","t");
+        JLabel nom = new JLabel(leGars.getNom());
+        JLabel prenom = new JLabel(leGars.getPrenom());
+        JLabel  dateDeNaissance = new JLabel(leGars.getDateDeNaissance());
+        JLabel adresse = new JLabel(leGars.getAdresse());
+        JLabel telephone = new JLabel(leGars.getTelephone());
 
         JFrame fenetreFiche = new JFrame();
-        fenetreFiche.setBounds(350, 100, 400, 500);
+        fenetreFiche.setBounds(350, 100, 200, 400);
         fenetreFiche.setResizable(false);
         fenetreFiche.setTitle("Fiche Client");
 

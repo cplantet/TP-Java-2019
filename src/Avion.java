@@ -1,3 +1,6 @@
+import java.beans.XMLEncoder;
+import java.io.FileOutputStream;
+
 public class Avion extends Vehicule{
 
     private float km;
@@ -49,6 +52,21 @@ public class Avion extends Vehicule{
                 ", nbMoteur=" + nbMoteur +
               '}';
     }
+
+    public static void ecrireAvion(Avion anAvion) {
+
+        try {
+            FileOutputStream plane = new FileOutputStream("./Vehicule/Avion/"+anAvion.getMarque()+" "+anAvion.getModele()+".xml");
+            XMLEncoder encoder = new XMLEncoder(plane);
+            encoder.writeObject(anAvion);
+            encoder.close();
+            plane.close();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+
 }
 
 

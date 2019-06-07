@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 
 
 public class Interface extends JFrame implements ActionListener{//KeyListener{
@@ -69,6 +70,21 @@ public class Interface extends JFrame implements ActionListener{//KeyListener{
     }
 
     public static void main(String[] args) {
+
+        File dossClient = new File("./Client/");
+        File dossVehicule = new File("./Vehicule/");
+        File dossAvion = new File("./Vehicule/Avion/");
+        File dossMoto = new File("./Vehicule/Moto/");
+        File dossVoiture = new File("./Vehicule/Voiture/");
+        File dossLocation = new File("./Location/");
+
+        dossClient.mkdirs();
+        dossVehicule.mkdirs();
+        dossAvion.mkdirs();
+        dossMoto.mkdirs();
+        dossVoiture.mkdirs();
+        dossLocation.mkdirs();
+
         Interface accueil = new Interface();
 
     }
