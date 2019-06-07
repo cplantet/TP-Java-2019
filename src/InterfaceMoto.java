@@ -38,8 +38,6 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
         JPanel panListe = new JPanel();
         JPanel panRetour = new JPanel();
 
-
-
         GridLayout grilleListe = new GridLayout(11,1);
 
 
@@ -49,8 +47,6 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
 
         panBouton1.add(ajout);
         panBouton2.add(ficheMoto);
-
-
 
         GridLayout grilleGlobale = new GridLayout(1,2);
         GridLayout grilleBoutons = new GridLayout(2,1);
@@ -75,15 +71,11 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
 
         fenetre.add(panBoutons,1);
 
-
         panBouton1.setBackground(Color.LIGHT_GRAY);
         panBouton2.setBackground(Color.DARK_GRAY);
         panListe.setBackground(Color.GRAY);
         panRetour.setBackground(Color.GRAY);
         fenetre.setVisible(true);
-
-
-
 
 
     }
@@ -101,7 +93,6 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
         }
 
         if(e.getSource()==ajout){
-
 
             InterfaceAjoutMoto aMoto = new InterfaceAjoutMoto();
             fenetre.dispose();

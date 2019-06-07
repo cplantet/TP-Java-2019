@@ -5,7 +5,7 @@ import java.awt.event.*;
 public class InterfaceVehicule extends JFrame implements ActionListener {
 
     private JButton avion;
-    private JButton voiture;
+    private JButton voit;
     private JButton moto;
     private JButton menu;
     private JFrame fenetre;
@@ -20,14 +20,14 @@ public class InterfaceVehicule extends JFrame implements ActionListener {
         fenetre.setResizable(false);
 
         JPanel panAvion =new JPanel();
-        JPanel panVoiture = new JPanel();
+        JPanel panVoit = new JPanel();
         JPanel panMoto = new JPanel();
         JPanel panMenu = new JPanel();
 
         avion = new JButton("Avion");
         avion.addActionListener(this);
-        voiture = new JButton("Voiture");
-        voiture.addActionListener(this);
+        voit = new JButton("Voiture");
+        voit.addActionListener(this);
         moto = new JButton("Moto");
         moto.addActionListener(this);
 
@@ -44,28 +44,24 @@ public class InterfaceVehicule extends JFrame implements ActionListener {
         menu.setBackground(Color.LIGHT_GRAY);
 */
         panAvion.setBackground(Color.GRAY);
-        panVoiture.setBackground(Color.LIGHT_GRAY);
+        panVoit.setBackground(Color.LIGHT_GRAY);
         panMoto.setBackground(Color.GRAY);
         panMenu.setBackground(Color.LIGHT_GRAY);
 
-
         panAvion.add(avion);
-        panVoiture.add(voiture);
+        panVoit.add(voit);
         panMoto.add(moto);
         panMenu.add(menu);
-
 
         GridLayout grilleVehicule = new GridLayout(4,1);
 
         fenetre.setLayout(grilleVehicule);
         fenetre.add(panAvion);
-        fenetre.add(panVoiture);
+        fenetre.add(panVoit);
         fenetre.add(panMoto);
         fenetre.add(panMenu);
 
         fenetre.setVisible(true);
-
-
 
 
     }
@@ -74,19 +70,24 @@ public class InterfaceVehicule extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e){
 
         if(e.getSource()==avion){
-
             InterfaceAvion fenetreAvion = new InterfaceAvion();
             fenetre.dispose();
         }
-        if(e.getSource()==menu){
+        else if(e.getSource()==menu){
             Interface fenetreInt = new Interface();
 
             this.fenetre.dispose();
         }
-
+        else
         if(e.getSource()==moto){
             InterfaceMoto fenetreMoto = new InterfaceMoto();
 
+            this.fenetre.dispose();
+        }
+        else if(e.getSource()==voit){
+            System.out.println("rentrer");
+            InterfaceVoiture fenetreVoiture = new InterfaceVoiture();
+            System.out.println("fenetre créer");
             this.fenetre.dispose();
         }
     }

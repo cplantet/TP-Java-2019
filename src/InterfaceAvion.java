@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-
 public class InterfaceAvion extends JFrame implements ActionListener{
 
     private JButton retour;
@@ -11,7 +10,6 @@ public class InterfaceAvion extends JFrame implements ActionListener{
     private JButton ficheAvion;
     private static JComboBox listeAvions;
     private JFrame fenetre;
-
 
     private static ArrayList<Avion> avion;
     private DefaultComboBoxModel model;
@@ -23,8 +21,6 @@ public class InterfaceAvion extends JFrame implements ActionListener{
         fenetre.setResizable(false);
         fenetre.setTitle(" Avion");
         avion = new ArrayList();
-
-
 
         listeAvions = new JComboBox(avion.toArray());
         comboBoxInit();
@@ -42,17 +38,13 @@ public class InterfaceAvion extends JFrame implements ActionListener{
         JPanel panListe = new JPanel();
         JPanel panRetour = new JPanel();
 
-
         GridLayout grilleListe = new GridLayout(11,1);
-
 
         panBouton1.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/4 - ajout.getHeight()/2));
 
         panBouton2.setLayout(new FlowLayout(FlowLayout.CENTER, 0, fenetre.getHeight()/4- ajout.getHeight()/2));
 
         //panListe.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/4 - ajout.getHeight()/2));
-
-
 
         listeAvions.setSize(100,20);
         panBouton1.add(ajout);
@@ -82,10 +74,6 @@ public class InterfaceAvion extends JFrame implements ActionListener{
 
         fenetre.setVisible(true);
 
-
-
-
-
     }
 
 
@@ -94,21 +82,14 @@ public class InterfaceAvion extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
 
         if(e.getSource()==retour){
-
             InterfaceVehicule menu = new InterfaceVehicule();
             fenetre.dispose();
-
         }
 
         if(e.getSource()==ajout){
-
-
             InterfaceAjoutAvion avion = new InterfaceAjoutAvion();
             fenetre.dispose();
-
         }
-
-
     }
 
 
@@ -123,10 +104,6 @@ public class InterfaceAvion extends JFrame implements ActionListener{
         listeAvions.removeAllItems();
         for (Avion c:avion){
             listeAvions.addItem(c);
-
         }
-
     }
-    }
-
-
+}
