@@ -8,41 +8,39 @@ import java.io.FilenameFilter;
 import java.util.ArrayList;
 
 
-public class InterfaceClients extends JFrame implements ActionListener {
+public class InterfaceClients extends JFrame implements ActionListener{
 
     private JButton retour;
     private JButton ajout;
     private JButton ficheClient;
-    private JFrame fenetre;
+    private static ArrayList<String> client;
+    private static JComboBox listeClients;
+    private static String man;
 
 
-    private static String client;
-    private static ArrayList<String> locataire;
-
-    public static JComboBox listeClients;
+    public InterfaceClients(){
 
 
-    public InterfaceClients() {
 
-
-        fenetre = new JFrame();
+        JFrame fenetre = new JFrame();
         fenetre.setBounds(350, 100, 700, 500);
         fenetre.setResizable(false);
         fenetre.setTitle(" Clients");
+        client = new ArrayList();
 
-        locataire = new ArrayList();
+
+
 
 
         listeClients = new JComboBox();
         listeClients.addActionListener(this);
-        ajoutListe();
+        ajoutListeClient();
+
 
 
         ajout = new JButton("Ajouter Client");
         ajout.addActionListener(this);
-
-        ficheClient = new JButton("Fiche Client");
-        ficheClient.addActionListener(this);
+        JButton ficheClient = new JButton("Fiche Client");
 
         retour = new JButton("Retour");
         retour.addActionListener(this);
@@ -54,22 +52,23 @@ public class InterfaceClients extends JFrame implements ActionListener {
         JPanel panRetour = new JPanel();
 
 
-        GridLayout grilleListe = new GridLayout(11, 1);
+        GridLayout grilleListe = new GridLayout(11,1);
 
 
-        panBouton1.setLayout(new FlowLayout(FlowLayout.CENTER, 0, fenetre.getHeight() / 4 - ajout.getHeight() / 2));
+        panBouton1.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/4 - ajout.getHeight()/2));
 
-        panBouton2.setLayout(new FlowLayout(FlowLayout.CENTER, 0, fenetre.getHeight() / 4 - ajout.getHeight() / 2));
+        panBouton2.setLayout(new FlowLayout(FlowLayout.CENTER, 0, fenetre.getHeight()/4- ajout.getHeight()/2));
 
         //panListe.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/4 - ajout.getHeight()/2));
 
 
-        listeClients.setSize(100, 20);
+
+        listeClients.setSize(100,20);
         panBouton1.add(ajout);
         panBouton2.add(ficheClient);
 
-        GridLayout grilleGlobale = new GridLayout(1, 2);
-        GridLayout grilleBoutons = new GridLayout(2, 1);
+        GridLayout grilleGlobale = new GridLayout(1,2);
+        GridLayout grilleBoutons = new GridLayout(2,1);
 
         panListe.setLayout(grilleListe);
         panRetour.add(retour);
@@ -82,32 +81,37 @@ public class InterfaceClients extends JFrame implements ActionListener {
         panListe.add(panRetour);
 
         fenetre.setLayout(grilleGlobale);
-        fenetre.add(panListe, 0);
+        fenetre.add(panListe,0);
 
-        fenetre.add(panBoutons, 1);
+        fenetre.add(panBoutons,1);
 
         panBouton1.setBackground(Color.LIGHT_GRAY);
         panBouton2.setBackground(Color.GRAY);
 
-
         fenetre.setVisible(true);
+
+
+
 
 
     }
 
+    public static void main(String[] args) {
+        InterfaceClients fenetreClients = new InterfaceClients();
+    }
 
     @Override
 
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e){
 
-        if (e.getSource() == retour) {
+        if(e.getSource()==retour){
 
             Interface menu = new Interface();
-            fenetre.dispose();
+            this.setVisible(false);
 
         }
 
-        if (e.getSource() == ajout) {
+        if(e.getSource()==ajout){
 
 
             InterfaceAjoutClient client = new InterfaceAjoutClient();
@@ -115,25 +119,17 @@ public class InterfaceClients extends JFrame implements ActionListener {
 
         }
 
-        if (e.getSource() == ficheClient) {
-
-            Client aClient = ficheInit((String) listeClients.getSelectedItem());
-            InterfaceFicheClient interfaceFiche = new InterfaceFicheClient(aClient);
-            this.setVisible(false);
-
-        }
-
 
     }
 
-    public static void ajoutClient(String nom, String prenom, String adresse, String telephone, String dateDeNaissance) {
+    public static void ajoutClient(String nom,String prenom,String adresse,String telephone,String dateDeNaissance){
 
         Client aClient = new Client(nom, prenom, dateDeNaissance, telephone, adresse);
-        Client.ecrireClient(aClient);
 
+        Client.ecrireClient(aClient);
     }
 
-    public static void ajoutListe() {
+    public static void ajoutListeClient(){
 
         FilenameFilter filtre = new FilenameFilter() {
             @Override
@@ -143,53 +139,53 @@ public class InterfaceClients extends JFrame implements ActionListener {
         };
 
         int i;
-        File dossier = new File("./Client");
-        File[] fichiersIencli = dossier.listFiles(filtre);
-        for (i = 0; i < fichiersIencli.length; i++) {
+        File dossier = new File("./Client/");
+        File[] fichiersClient = dossier.listFiles(filtre);
+        for (i = 0; i < fichiersClient.length; i++) {
 
-            String[] tab = fichiersIencli[i].toString().split("/");
+            String[] tab = fichiersClient[i].toString().split("/");
             String[] nomFichier = tab[2].split(".xml");
             String[] nomFichierh = nomFichier[0].split(" ");
-            String nom = nomFichierh[1];
             String prenom = nomFichierh[0];
-            client = prenom + " " + nom;
-            locataire.add(client);
+            String nom = nomFichierh[1];
+            man= prenom + " " + nom;
+
+            client.add(man);
         }
+
         comboBoxInit();
 
 
     }
-
-    private static void comboBoxInit() {
-
-
+    private static void comboBoxInit(){
         listeClients.removeAllItems();
-
-        for (String c : locataire) {
+        for (String c:client){
 
 
             listeClients.addItem(c);
+
         }
+
+
     }
 
-    public static Client ficheInit(String personne) {
+    public static Client ficheInit(String client) {
 
-        Client leGars = null;
+        Client mec = null;
         try {
-            FileInputStream fichier = new FileInputStream("./Client/" + personne + ".xml");
+            FileInputStream fichier = new FileInputStream("./Vehicule/Avion/" + mec + ".xml");
             XMLDecoder decoder = new XMLDecoder(fichier);
-            leGars = (Client) decoder.readObject();
+            mec = (Client) decoder.readObject();
             decoder.close();
             fichier.close();
-            return leGars;
+
         }
 
         catch(Exception e){
             System.out.println(e);
         }
-        return leGars;
+        return mec;
     }
 }
-
 
 

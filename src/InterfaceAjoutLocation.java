@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class InterfaceAjoutClient extends JFrame implements ActionListener{
+public class InterfaceAjoutLocation extends JFrame implements ActionListener{
 
     private JButton ajout ;
     private JTextField textNom;
@@ -15,21 +15,20 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
     private JTextField textDateDeNaissance;
     private JTextField textTelephone;
 
-    public InterfaceAjoutClient() {
+    public InterfaceAjoutLocation() {
 
         fenetreAjout = new JFrame();
         fenetreAjout.setBounds(350, 100, 700, 500);
-        fenetreAjout.setTitle("Ajout Client");
+        fenetreAjout.setTitle("Ajout Location");
 
         fenetreAjout.setResizable(false);
 
-        JLabel nom = new JLabel("Nom");
-        JLabel prenom = new JLabel("Prénom");
-        JLabel dateDeNaissance = new JLabel("Date de Naissance (jj/mm/aaaa)");
-        JLabel numPermis = new JLabel("Numéro de Permis");
-        JLabel adresse = new JLabel("Adresse");
-        JLabel telephone = new JLabel("Téléphone");
-        JLabel entrer = new JLabel("Appuyez sur la touche ENTREE pour valider");
+        JLabel client = new JLabel("Client");
+        JLabel vehicue = new JLabel("Vehicule");
+        JLabel dateDeDebut = new JLabel("Date de Début");
+        JLabel dateDeFin = new JLabel("Date de Fin");
+        JLabel prix = new JLabel("Prix");
+
 
         textNom = new JTextField();
         textPrenom = new JTextField();
@@ -65,7 +64,7 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
 
         panInfos.setBounds(0,0,700,300);
         panInfos.setLayout(grilleInfos);
-
+/*
         panInfos.add(prenom);
         panInfos.add(textPrenom);
         panInfos.add(nom);
@@ -75,7 +74,7 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
         panInfos.add(adresse);
         panInfos.add(textAdresse);
         panInfos.add(telephone);
-        panInfos.add(textTelephone);
+        panInfos.add(textTelephone);*/
 
 
         fenetreAjout.setVisible(true);
@@ -86,17 +85,13 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
     }
 
     @Override
-
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==ajout) {
 
 
 
-            InterfaceClients.ajoutClient(textNom.getText(),textPrenom.getText(),textAdresse.getText(),textTelephone.getText(),textDateDeNaissance.getText());
-            InterfaceClients.ajoutListeClient();
-            InterfaceClients interfacePlane = new InterfaceClients();
-
-
+            //Client aClient =InterfaceClients.ajoutClient(textNom.getText(),textPrenom.getText(),textAdresse.getText(),textTelephone.getText(),textDateDeNaissance.getText());
+            //InterfaceClients.ajoutListe(aClient);
 
             fenetreAjout.dispose();
 

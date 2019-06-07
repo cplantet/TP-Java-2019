@@ -1,11 +1,11 @@
 public class Voiture extends Vehicule{
 
-    private float km;
-    private int nbPlaces;
-    private int puissance;
-    private float prixLoc;
+    private String km;
+    private String nbPlaces;
+    private String puissance;
+    private String prixLoc;
 
-    public Voiture(String marque, String modele, String vitesseMax, String etat, float km, int nbPlaces, int puissance, float prixLoc) {
+    public Voiture(String marque, String modele, String vitesseMax, String etat, String km, String nbPlaces, String puissance, String prixLoc) {
         super(marque, modele, vitesseMax, etat);
         this.km = km;
         this.nbPlaces = nbPlaces;
@@ -15,22 +15,22 @@ public class Voiture extends Vehicule{
 
     /*--------------------------------------Accesseurs---------------------------------------*/
 
-    public void setPrixLoc(float prixLoc) {
+    public void setPrixLoc(String prixLoc) {
         this.prixLoc = prixLoc;
     }
 
 
-    public void setKm(float km) {
+    public void setKm(String km) {
         this.km = km;
     }
 
 
 
-    public void setNbPlaces(int nbPlaces) {
+    public void setNbPlaces(String nbPlaces) {
         this.nbPlaces = nbPlaces;
     }
 
-    public void setPuissance(int puissance) {
+    public void setPuissance(String puissance) {
         this.puissance = puissance;
     }
 
@@ -39,19 +39,19 @@ public class Voiture extends Vehicule{
     /* ----------------------------------------Mutateurs--------------------------------------*/
 
 
-    public float getPrixLoc() {
+    public String getPrixLoc() {
         return prixLoc;
     }
 
-    public float getKm() {
+    public String getKm() {
         return km;
     }
 
-    public int getNbPlaces() {
+    public String getNbPlaces() {
         return nbPlaces;
     }
 
-    public int getPuissance() {
+    public String getPuissance() {
         return puissance;
     }
 

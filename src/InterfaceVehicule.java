@@ -5,7 +5,7 @@ import java.awt.event.*;
 public class InterfaceVehicule extends JFrame implements ActionListener {
 
     private JButton avion;
-    private JButton voiture;
+    private JButton voit;
     private JButton moto;
     private JButton menu;
     private JFrame fenetre;
@@ -13,48 +13,52 @@ public class InterfaceVehicule extends JFrame implements ActionListener {
     public InterfaceVehicule(){
 
         fenetre = new JFrame();
-        fenetre.setBounds(500, 10, 700, 500);
+        fenetre.setBounds(500, 10, 500, 300);
         fenetre.setTitle("Véhicule");
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenetre.setLocationRelativeTo(null);
         fenetre.setResizable(false);
 
         JPanel panAvion =new JPanel();
-        JPanel panVoiture = new JPanel();
+        JPanel panVoit = new JPanel();
         JPanel panMoto = new JPanel();
         JPanel panMenu = new JPanel();
 
         avion = new JButton("Avion");
         avion.addActionListener(this);
-        voiture = new JButton("Voiture");
-        voiture.addActionListener(this);
+        voit = new JButton("Voiture");
+        voit.addActionListener(this);
         moto = new JButton("Moto");
         moto.addActionListener(this);
 
         menu = new JButton("Retour");
         menu.addActionListener(this);
 
-        //panAvion.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/3 - avion.getHeight()/2));
-        //panVoiture.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/3 - voiture.getHeight()/2));
-        //panMoto.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/3 - moto.getHeight()/2));
+        avion.setBackground(Color.white);
+        voit.setBackground(Color.white);
+        moto.setBackground(Color.white.brighter());
+        menu.setBackground(Color.WHITE.darker());
 
-        panAvion.add(avion);
-        panVoiture.add(voiture);
-        panMoto.add(moto);
-        panMenu.add(menu);
+        avion.setForeground(Color.black);
+        voit.setForeground(Color.black);
+        moto.setForeground(Color.black);
+        menu.setForeground(Color.black);
 
+
+        panAvion.setBackground(Color.GRAY);
+        panVoit.setBackground(Color.LIGHT_GRAY);
+        panMoto.setBackground(Color.GRAY);
+        panMenu.setBackground(Color.BLUE.brighter());
 
         GridLayout grilleVehicule = new GridLayout(4,1);
 
         fenetre.setLayout(grilleVehicule);
-        fenetre.add(panAvion);
-        fenetre.add(panVoiture);
-        fenetre.add(panMoto);
-        fenetre.add(panMenu);
+        fenetre.add(avion);
+        fenetre.add(voit);
+        fenetre.add(moto);
+        fenetre.add(menu);
 
         fenetre.setVisible(true);
-
-
 
 
     }
@@ -63,19 +67,24 @@ public class InterfaceVehicule extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e){
 
         if(e.getSource()==avion){
-
             InterfaceAvion fenetreAvion = new InterfaceAvion();
             fenetre.dispose();
         }
-        if(e.getSource()==menu){
+        else if(e.getSource()==menu){
             Interface fenetreInt = new Interface();
 
             this.fenetre.dispose();
         }
-
+        else
         if(e.getSource()==moto){
             InterfaceMoto fenetreMoto = new InterfaceMoto();
 
+            this.fenetre.dispose();
+        }
+        else if(e.getSource()==voit){
+            System.out.println("rentrer");
+            InterfaceVoiture fenetreVoiture = new InterfaceVoiture();
+            System.out.println("fenetre créer");
             this.fenetre.dispose();
         }
     }

@@ -7,7 +7,6 @@ import java.io.FileInputStream;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
 
-
 public class InterfaceAvion extends JFrame implements ActionListener{
 
     private JButton retour;
@@ -19,8 +18,13 @@ public class InterfaceAvion extends JFrame implements ActionListener{
 
 
 
+
     private static ArrayList<String> avion;
     private static String chaineAvion;
+
+
+    private DefaultComboBoxModel model;
+
 
     public InterfaceAvion(){
 
@@ -30,15 +34,13 @@ public class InterfaceAvion extends JFrame implements ActionListener{
         fenetre.setTitle(" Avion");
         avion = new ArrayList<>();
 
-
-
         listeAvions = new JComboBox(avion.toArray());
         listeAvions.addActionListener(this);
         ajoutListeAvion();
 
         ajout = new JButton("Ajouter Avion");
         ajout.addActionListener(this);
-        JButton ficheClient = new JButton("Fiche Avion");
+        JButton ficheAvion = new JButton("Fiche Avion");
 
         retour = new JButton("Retour");
         retour.addActionListener(this);
@@ -49,9 +51,7 @@ public class InterfaceAvion extends JFrame implements ActionListener{
         JPanel panListe = new JPanel();
         JPanel panRetour = new JPanel();
 
-
         GridLayout grilleListe = new GridLayout(11,1);
-
 
         panBouton1.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/4 - ajout.getHeight()/2));
 
@@ -59,18 +59,16 @@ public class InterfaceAvion extends JFrame implements ActionListener{
 
         //panListe.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/4 - ajout.getHeight()/2));
 
-
-
         listeAvions.setSize(100,20);
         panBouton1.add(ajout);
-     //   panBouton2.add(ficheAvion);
+        panBouton2.add(ficheAvion);
 
         GridLayout grilleGlobale = new GridLayout(1,2);
         GridLayout grilleBoutons = new GridLayout(2,1);
 
         panListe.setLayout(grilleListe);
         panRetour.add(retour);
-
+        panRetour.setBackground(Color.GRAY);
         panBoutons.setLayout(grilleBoutons);
         panBoutons.add(panBouton1);
         panBoutons.add(panBouton2);
@@ -83,14 +81,16 @@ public class InterfaceAvion extends JFrame implements ActionListener{
 
         fenetre.add(panBoutons,1);
 
+
         panBouton1.setBackground(Color.BLUE);
         panBouton2.setBackground(Color.LIGHT_GRAY);
 
+        panBouton1.setBackground(Color.LIGHT_GRAY);
+        panBouton2.setBackground(Color.DARK_GRAY);
+        panListe.setBackground(Color.GRAY);
+
+
         fenetre.setVisible(true);
-
-
-
-
 
     }
 
@@ -100,21 +100,14 @@ public class InterfaceAvion extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
 
         if(e.getSource()==retour){
-
             InterfaceVehicule menu = new InterfaceVehicule();
             fenetre.dispose();
-
         }
 
         if(e.getSource()==ajout){
-
-
             InterfaceAjoutAvion avion = new InterfaceAjoutAvion();
             fenetre.dispose();
-
         }
-
-
     }
 
     public static void ajoutAvion(String marque, String modele, String vitesseMax, String etat, String nbMoteur , String prixloc) {
@@ -145,7 +138,6 @@ public class InterfaceAvion extends JFrame implements ActionListener{
             String marque = nomFichierh[0];
             String modele = nomFichierh[1];
             chaineAvion= marque + " " + modele;
-            System.out.println(chaineAvion);
             avion.add(chaineAvion);
         }
         comboBoxInit();
@@ -158,10 +150,9 @@ public class InterfaceAvion extends JFrame implements ActionListener{
         listeAvions.removeAllItems();
         for (String c: avion){
             listeAvions.addItem(c);
-
         }
-
     }
+
 
     public static Avion ficheInit(String avion) {
 
@@ -181,5 +172,8 @@ public class InterfaceAvion extends JFrame implements ActionListener{
         return plane;
     }
 }
+
+
+
 
 

@@ -146,22 +146,16 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
         if(e.getSource()==ajout) {
 
 
-            //zone de conversion
-
 
             InterfaceAvion.ajoutAvion(textMarque.getText(),textModele.getText(),textVitesseMax.getText(),textEtat.getText(),textNbMoteur.getText(),textPrixLoc.getText());
             InterfaceAvion.ajoutListeAvion();
             fenetreAjout.dispose();
             InterfaceAvion interfacePlane = new InterfaceAvion();
 
-
-
         }
         if(e.getSource()==annuler){
             InterfaceAvion intAvion= new InterfaceAvion();
             fenetreAjout.dispose();
-
-
 
         }
 

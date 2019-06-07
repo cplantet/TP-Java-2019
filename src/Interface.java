@@ -8,23 +8,24 @@ public class Interface extends JFrame implements ActionListener{//KeyListener{
 
     private JButton bout1;
     private JButton bout2;
+    private JButton bout3;
 
     public Interface() {
 
 
         //JFrame fenetre = new JFrame();
-        this.setBounds(500, 10, 500, 90);
+        this.setBounds(500, 10, 800, 150);
         this.setTitle("Location de Véhicules");
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 // Panel Texte
-
+/*
         JPanel txt1 = new JPanel();
         txt1.setLayout(new BoxLayout(txt1, BoxLayout.LINE_AXIS));
         txt1.add(new JLabel("Ajouter / Rechercher"));
-
+*/
 // Panel Boutons
 
         JPanel boutons = new JPanel();
@@ -34,25 +35,34 @@ public class Interface extends JFrame implements ActionListener{//KeyListener{
 
         JPanel b1 = new JPanel();
         JPanel b2 = new JPanel();
+        JPanel b3 = new JPanel();
 
-        bout1 = new JButton("Clients");
+        bout1 = new JButton("Gérer les clients");
         bout1.addActionListener(this);
 
-        bout2 = new JButton("Véhicules");
+        bout2 = new JButton("Gérer les Véhicules");
         bout2.addActionListener(this);
 
-        b1.add(bout1);
-        b2.add(bout2);
+        bout3 = new JButton("Gérer les Locations");
+        bout3.addActionListener(this);
+    bout1.setForeground(Color.black);
+        bout2.setForeground(Color.black);
+        bout3.setForeground(Color.black);
 
+       // b1.add(bout1);
+        //b2.add(bout2);
+        //b3.add(bout3);
 
-        GridLayout grille = new GridLayout(1,2);
+        GridLayout grille = new GridLayout(1,3);
         boutons.setLayout(grille);
 
+        bout1.setBackground(Color.white);
+        bout2.setBackground(Color.white);
+        bout3.setBackground(Color.white);
+        boutons.add(bout1);
 
-        boutons.add(b1);
-        boutons.add(b2);
-
-
+        boutons.add(bout3);
+        boutons.add(bout2);
 
 
 
@@ -61,7 +71,7 @@ public class Interface extends JFrame implements ActionListener{//KeyListener{
 
         JPanel global = new JPanel();
         global.setLayout(new BoxLayout(global, BoxLayout.PAGE_AXIS));
-        global.add(txt1);
+       // global.add(txt1);
         global.add(boutons);
 
         this.getContentPane().add(global);
@@ -102,6 +112,10 @@ public class Interface extends JFrame implements ActionListener{//KeyListener{
             InterfaceVehicule fenetreVehicule = new InterfaceVehicule();
             this.dispose();
 
+        }
+        if(e.getSource()==bout3){
+            InterfaceLocation fenetreLocation = new InterfaceLocation();
+            this.dispose();
         }
     }
 }
