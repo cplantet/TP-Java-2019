@@ -34,32 +34,29 @@ public class InterfaceVehicule extends JFrame implements ActionListener {
         menu = new JButton("Retour");
         menu.addActionListener(this);
 
-        //panAvion.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/3 - avion.getHeight()/2));
-        //panVoiture.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/3 - voiture.getHeight()/2));
-        //panMoto.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/3 - moto.getHeight()/2));
-/*
-        avion.setBackground(Color.GRAY);
-        voiture.setBackground(Color.LIGHT_GRAY);
-        moto.setBackground(Color.GRAY);
-        menu.setBackground(Color.LIGHT_GRAY);
-*/
+        avion.setBackground(Color.white);
+        voit.setBackground(Color.white);
+        moto.setBackground(Color.white.brighter());
+        menu.setBackground(Color.WHITE.darker());
+
+        avion.setForeground(Color.black);
+        voit.setForeground(Color.black);
+        moto.setForeground(Color.black);
+        menu.setForeground(Color.black);
+
+
         panAvion.setBackground(Color.GRAY);
         panVoit.setBackground(Color.LIGHT_GRAY);
         panMoto.setBackground(Color.GRAY);
-        panMenu.setBackground(Color.LIGHT_GRAY);
-
-        panAvion.add(avion);
-        panVoit.add(voit);
-        panMoto.add(moto);
-        panMenu.add(menu);
+        panMenu.setBackground(Color.BLUE.brighter());
 
         GridLayout grilleVehicule = new GridLayout(4,1);
 
         fenetre.setLayout(grilleVehicule);
-        fenetre.add(panAvion);
-        fenetre.add(panVoit);
-        fenetre.add(panMoto);
-        fenetre.add(panMenu);
+        fenetre.add(avion);
+        fenetre.add(voit);
+        fenetre.add(moto);
+        fenetre.add(menu);
 
         fenetre.setVisible(true);
 

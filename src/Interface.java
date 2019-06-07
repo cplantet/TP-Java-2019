@@ -13,7 +13,7 @@ public class Interface extends JFrame implements ActionListener{//KeyListener{
 
 
         //JFrame fenetre = new JFrame();
-        this.setBounds(500, 10, 500, 200);
+        this.setBounds(500, 10, 800, 150);
         this.setTitle("Location de Véhicules");
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -44,23 +44,24 @@ public class Interface extends JFrame implements ActionListener{//KeyListener{
 
         bout3 = new JButton("Gérer les Locations");
         bout3.addActionListener(this);
+    bout1.setForeground(Color.black);
+        bout2.setForeground(Color.black);
+        bout3.setForeground(Color.black);
 
+       // b1.add(bout1);
+        //b2.add(bout2);
+        //b3.add(bout3);
 
-        b1.add(bout1);
-        b2.add(bout2);
-        b3.add(bout3);
-
-        GridLayout grille = new GridLayout(3,1);
+        GridLayout grille = new GridLayout(1,3);
         boutons.setLayout(grille);
 
-        b1.setBackground(Color.GRAY);
-        b2.setBackground(Color.LIGHT_GRAY);
-        b3.setBackground(Color.GRAY);
+        bout1.setBackground(Color.white);
+        bout2.setBackground(Color.white);
+        bout3.setBackground(Color.white);
+        boutons.add(bout1);
 
-        boutons.add(b1);
-        boutons.add(b2);
-        boutons.add(b3);
-
+        boutons.add(bout3);
+        boutons.add(bout2);
 
 
 

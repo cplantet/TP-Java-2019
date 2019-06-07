@@ -11,13 +11,14 @@ public class InterfaceClients extends JFrame implements ActionListener{
     private JButton ficheClient;
     private static ArrayList<String> client;
     private static JComboBox listeClients;
+    private JFrame fenetre;
 
 
     public InterfaceClients(){
 
 
 
-        JFrame fenetre = new JFrame();
+        fenetre = new JFrame();
         fenetre.setBounds(350, 100, 700, 500);
         fenetre.setResizable(false);
         fenetre.setTitle(" Clients");
@@ -100,7 +101,7 @@ public class InterfaceClients extends JFrame implements ActionListener{
         if(e.getSource()==retour){
 
             Interface menu = new Interface();
-            this.setVisible(false);
+            this.fenetre.dispose();
 
         }
 

@@ -88,7 +88,7 @@ public class InterfaceLocation extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
 
         if(e.getSource()==retour){
-            InterfaceVehicule menu = new InterfaceVehicule();
+            Interface menu = new Interface();
             fenetreL.dispose();
         }
 
