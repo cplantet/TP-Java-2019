@@ -5,7 +5,7 @@ public class Voiture extends Vehicule{
     private int puissance;
     private float prixLoc;
 
-    public Voiture(String marque, String modele, float vitesseMax, String etat, float km, int nbPlaces, int puissance, float prixLoc) {
+    public Voiture(String marque, String modele, String vitesseMax, String etat, float km, int nbPlaces, int puissance, float prixLoc) {
         super(marque, modele, vitesseMax, etat);
         this.km = km;
         this.nbPlaces = nbPlaces;

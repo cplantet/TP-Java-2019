@@ -26,6 +26,14 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
     private String vitesseMaxS;
     private String etatS;
 
+    private JTextField  textMarque ;
+    private JTextField textModele ;
+    private JTextField textVitesseMax;
+    private JTextField textEtat ;
+    private JTextField textKm ;
+    private JTextField textPrixLoc ;
+    private JTextField textNbMoteur;
+
 
 
 
@@ -47,15 +55,15 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
 
         JLabel entrer = new JLabel("Appuyez sur la touche ENTREE pour valider");
 
-        JTextField  textmarque = new JTextField();
-        JTextField textmodele  = new JTextField();
-        JTextField textvitesseMax = new JTextField();
-        JTextField textetat = new JTextField();
-        JTextField textkm = new JTextField();
-        JTextField textprixLoc = new JTextField();
-        JTextField textnbMoteur = new JTextField();
+         textMarque = new JTextField();
+         textModele = new JTextField();
+         textVitesseMax = new JTextField();
+        textEtat = new JTextField();
+        textKm = new JTextField();
+        textPrixLoc = new JTextField();
+        textNbMoteur = new JTextField();
 
-        textmarque.setForeground(Color.BLUE);
+        textMarque.setForeground(Color.BLUE);
         JPanel panInfos = new JPanel();
 
 
@@ -90,19 +98,19 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
        // textmarque.setPreferredSize( new Dimension( 200, 24 ) );
         panInfos.setLayout(grilleInfos);
              panInfos.add(panMarque);
-             panInfos.add(textmarque);
+             panInfos.add(textMarque);
              panInfos.add(panModele);
-            panInfos.add(textmodele);
+            panInfos.add(textModele);
              panInfos.add(panVit);
-             panInfos.add(textvitesseMax);
+             panInfos.add(textVitesseMax);
              panInfos.add(panEtat);
-            panInfos.add(textetat);
+            panInfos.add(textEtat);
              panInfos.add(panKm);
-             panInfos.add(textkm);
+             panInfos.add(textKm);
             panInfos.add(panPrix);
-            panInfos.add(textprixLoc);
+            panInfos.add(textPrixLoc);
             panInfos.add(panMot);
-            panInfos.add(textnbMoteur);
+            panInfos.add(textNbMoteur);
 
             panPrix.add(prixLoc);
             panEtat.add(etat);
@@ -117,13 +125,13 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
         fenetreAjout.add(panInfos);
         //varaibles qui contiennt les valeurs de ce qu'on tape
 
-        kmS=textmarque.getText();
-        prixLocS=textprixLoc.getText();
-        nbMoteurS=textnbMoteur.getText();
-        marqueS=textmarque.getText();
-        modeleS=textmodele.getText();
-        vitesseMaxS=textvitesseMax.getText();
-        etatS=textetat.getText();
+        kmS=textKm.getText();
+        prixLocS=textPrixLoc.getText();
+        nbMoteurS=textNbMoteur.getText();
+        marqueS=textMarque.getText();
+        modeleS=textModele.getText();
+        vitesseMaxS=textVitesseMax.getText();
+        etatS=textEtat.getText();
 
 
 
@@ -140,16 +148,11 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
 
             //zone de conversion
 
-            float kmf = Float.parseFloat(kmS);
-            Integer nbMoteurI = Integer.parseInt(nbMoteurS);
-            float prixLocf = Float.parseFloat(prixLocS);
-            float vitesseMaxf = Float.parseFloat(vitesseMaxS);
 
-            Avion aAvion = new Avion(marqueS,modeleS,vitesseMaxf,etatS,kmf,prixLocf,nbMoteurI);
-
-            InterfaceAvion.ajoutListe(aAvion);
-            InterfaceAvion intAvion= new InterfaceAvion();
+            InterfaceAvion.ajoutAvion(textMarque.getText(),textModele.getText(),textVitesseMax.getText(),textEtat.getText(),textNbMoteur.getText(),textPrixLoc.getText());
+            InterfaceAvion.ajoutListeAvion();
             fenetreAjout.dispose();
+            InterfaceAvion interfacePlane = new InterfaceAvion();
 
 
 

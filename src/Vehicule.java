@@ -5,16 +5,17 @@ public class Vehicule {
 
     private String marque;
     private String modele;
-    private float vitesseMax;
+    private String vitesseMax;
     private String etat;
 
-    public Vehicule(String marque, String modele,float vitesseMax,String etat){
+    public Vehicule(String marque, String modele,String vitesseMax,String etat){
         this.marque=marque;
         this.modele=modele;
         this.etat=etat;
         this.vitesseMax=vitesseMax;
     }
 
+    public Vehicule(){}
 
 
     //All of the get..();
@@ -31,7 +32,7 @@ public class Vehicule {
         return etat;
     }
 
-    public float getVitesseMax() {
+    public String getVitesseMax() {
         return vitesseMax;
     }
 
@@ -49,7 +50,7 @@ public class Vehicule {
         this.modele = modele;
     }
 
-    public void setVitesseMax(int vitesseMax) {
+    public void setVitesseMax(String vitesseMax) {
         this.vitesseMax = vitesseMax;
     }
 

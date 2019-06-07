@@ -145,13 +145,13 @@ public class InterfaceAjoutMoto extends JFrame implements ActionListener{
 
             //zone de conversion
 
-            float kmf = Float.parseFloat(kmS);
-            Integer nbPlacef = Integer.parseInt(nbPlaceS);
-            float prixLocf = Float.parseFloat(prixLocS);
-            float vitesseMaxf = Float.parseFloat(vitesseMaxS);
-            float puissancef = Float.parseFloat(puissanceS);
+            //float kmf = Float.parseFloat(kmS);
+            //Integer nbPlacef = Integer.parseInt(nbPlaceS);
+            //float prixLocf = Float.parseFloat(prixLocS);
+            //float vitesseMaxf = Float.parseFloat(vitesseMaxS);
+            //float puissancef = Float.parseFloat(puissanceS);
 
-            Moto aMoto = new Moto(marqueS,modeleS,vitesseMaxf,etatS,kmf,nbPlacef,puissancef,prixLocf);
+            Moto aMoto = new Moto(marqueS,modeleS,vitesseMaxS,etatS,kmS,nbPlaceS,puissanceS,prixLocS);
             InterfaceMoto intMoto= new InterfaceMoto();
             fenetreAjout.dispose();
 

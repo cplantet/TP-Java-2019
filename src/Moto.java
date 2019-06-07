@@ -1,11 +1,11 @@
 public class Moto extends Vehicule{
 
-    private float km;
-    private int nbPlace;
-    private float puissance;
-    private float prixLoc;
+    private String km;
+    private String nbPlace;
+    private String puissance;
+    private String prixLoc;
 
-    public Moto(String marque, String modele, float vitesseMax, String etat, float km, int nbPlace, float puissance, float prixLoc) {
+    public Moto(String marque, String modele, String vitesseMax, String etat, String km, String nbPlace, String puissance, String prixLoc) {
         super(marque, modele, vitesseMax, etat);
         this.km = km;
         this.nbPlace = nbPlace;
@@ -15,19 +15,19 @@ public class Moto extends Vehicule{
 
     //All of the get..();
 
-    public float getKm() {
+    public String getKm() {
         return km;
     }
 
-    public int getNbPlace() {
+    public String getNbPlace() {
         return nbPlace;
     }
 
-    public float getPuissance() {
+    public String getPuissance() {
         return puissance;
     }
 
-    public float getPrixLoc() {
+    public String getPrixLoc() {
         return prixLoc;
     }
 
@@ -36,20 +36,20 @@ public class Moto extends Vehicule{
     //All of the set..();
 
 
-    public void setKm(float km) {
+    public void setKm(String km) {
         this.km = km;
     }
 
-    public void setNbPlace(int nbPlace) {
+    public void setNbPlace(String nbPlace) {
         this.nbPlace = nbPlace;
     }
 
 
-    public void setPuissance(float puissance) {
+    public void setPuissance(String puissance) {
         this.puissance = puissance;
     }
 
-    public void setPrixLoc(float prixLoc) {
+    public void setPrixLoc(String prixLoc) {
         this.prixLoc = prixLoc;
     }
 

@@ -1,6 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.beans.XMLDecoder;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FilenameFilter;
 import java.util.ArrayList;
 
 
@@ -13,8 +17,10 @@ public class InterfaceAvion extends JFrame implements ActionListener{
     private JFrame fenetre;
 
 
-    private static ArrayList<Avion> avion;
-    private DefaultComboBoxModel model;
+
+
+    private static ArrayList<String> avion;
+    private static String chaineAvion;
 
     public InterfaceAvion(){
 
@@ -22,12 +28,13 @@ public class InterfaceAvion extends JFrame implements ActionListener{
         fenetre.setBounds(350, 100, 700, 500);
         fenetre.setResizable(false);
         fenetre.setTitle(" Avion");
-        avion = new ArrayList();
+        avion = new ArrayList<>();
 
 
 
         listeAvions = new JComboBox(avion.toArray());
-        comboBoxInit();
+        listeAvions.addActionListener(this);
+        ajoutListeAvion();
 
         ajout = new JButton("Ajouter Avion");
         ajout.addActionListener(this);
@@ -76,8 +83,8 @@ public class InterfaceAvion extends JFrame implements ActionListener{
 
         fenetre.add(panBoutons,1);
 
-        panBouton1.setBackground(Color.LIGHT_GRAY);
-        panBouton2.setBackground(Color.GRAY);
+        panBouton1.setBackground(Color.BLUE);
+        panBouton2.setBackground(Color.LIGHT_GRAY);
 
         fenetre.setVisible(true);
 
@@ -110,22 +117,69 @@ public class InterfaceAvion extends JFrame implements ActionListener{
 
     }
 
+    public static void ajoutAvion(String marque, String modele, String vitesseMax, String etat, String nbMoteur , String prixloc) {
 
-    public static void ajoutListe(Avion aAvion){
+        Avion anAvion = new Avion(marque,modele,vitesseMax,etat,prixloc,nbMoteur);
+        Avion.ecrireAvion(anAvion);
 
-        InterfaceAvion.avion.add(aAvion);
+    }
+
+
+    public static void ajoutListeAvion(){
+
+        FilenameFilter filtre = new FilenameFilter() {
+            @Override
+            public boolean accept(File file, String s) {
+                return s.endsWith(".xml");
+            }
+        };
+
+        int i;
+        File dossier = new File("./Vehicule/Avion/");
+        File[] fichiersVehicule = dossier.listFiles(filtre);
+        for (i = 0; i < fichiersVehicule.length; i++) {
+
+            String[] tab = fichiersVehicule[i].toString().split("/");
+            String[] nomFichier = tab[3].split(".xml");
+            String[] nomFichierh = nomFichier[0].split(" ");
+            String marque = nomFichierh[0];
+            String modele = nomFichierh[1];
+            chaineAvion= marque + " " + modele;
+            System.out.println(chaineAvion);
+            avion.add(chaineAvion);
+        }
         comboBoxInit();
+
+
     }
 
     private static void comboBoxInit(){
 
         listeAvions.removeAllItems();
-        for (Avion c:avion){
+        for (String c: avion){
             listeAvions.addItem(c);
 
         }
 
     }
+
+    public static Avion ficheInit(String avion) {
+
+        Avion plane = null;
+        try {
+            FileInputStream fichier = new FileInputStream("./Vehicule/Avion/" + avion + ".xml");
+            XMLDecoder decoder = new XMLDecoder(fichier);
+            plane = (Avion) decoder.readObject();
+            decoder.close();
+            fichier.close();
+            return plane;
+        }
+
+        catch(Exception e){
+            System.out.println(e);
+        }
+        return plane;
     }
+}
 
 

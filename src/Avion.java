@@ -1,48 +1,71 @@
+import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 public class Avion extends Vehicule{
 
-    private float km;
-    private float prixLoc;
-    private int nbMoteur;
+    private String km;
+    private String prixLoc;
+    private String nbMoteur;
 
-    public Avion(String marque, String modele, float vitesseMax, String etat, float km, float prixLoc, int nbMoteur) {
+    public Avion(String marque, String modele, String vitesseMax, String etat, String prixLoc, String nbMoteur) {
         super(marque, modele, vitesseMax, etat);
         this.km = km;
         this.prixLoc = prixLoc;
         this.nbMoteur = nbMoteur;
     }
 
+    public Avion(){}
+
     /* ------------------------------------------Accesseurs-----------------------------------*/
 
-    public void setKm(float km) {
+    public void setKm(String km) {
         this.km = km;
     }
 
 
-    public void setNbMoteur(int nbMoteur) {
+    public void setNbMoteur(String nbMoteur) {
         this.nbMoteur = nbMoteur;
     }
 
-    public void setPrixLoc(float prixLoc) {
+    public void setPrixLoc(String prixLoc) {
         this.prixLoc = prixLoc;
     }
 
     /* -------------------------------------------------Mutateurs-------------------------------------*/
 
-    public float getKm() {
+    public String getKm() {
         return km;
     }
 
-    public float getPrixLoc() {
+    public String getPrixLoc() {
         return prixLoc;
     }
 
-    public int getNbMoteur() {
+    public String getNbMoteur() {
         return nbMoteur;
     }
 
+    @Override
+    public String getModele() {
+        return super.getModele();
+    }
+
+    @Override
+    public String getEtat() {
+        return super.getEtat();
+    }
+
+    @Override
+    public String getMarque() {
+        return super.getMarque();
+    }
+
+    @Override
+    public String getVitesseMax() {
+        return super.getVitesseMax();
+    }
 
     @Override
     public String toString() {
@@ -67,6 +90,24 @@ public class Avion extends Vehicule{
         }
     }
 
+
+    public static Avion lireAvion(String marque,String modele) {
+        Avion decodedAvion=null;
+
+        try {
+            FileInputStream plane = new FileInputStream("./Client/"+marque + " " + modele + ".xml");
+            XMLDecoder decoder = new XMLDecoder(plane);
+            decodedAvion = (Avion) decoder.readObject();
+            decoder.close();
+            plane.close();
+
+        }
+        catch (Exception e) {
+            System.out.println(e);
+
+        }
+        return decodedAvion;
+    }
 }
 
 
