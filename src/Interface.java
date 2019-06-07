@@ -96,5 +96,9 @@ public class Interface extends JFrame implements ActionListener{//KeyListener{
             this.dispose();
 
         }
+        if(e.getSource()==bout3){
+            InterfaceLocation fenetreLocation = new InterfaceLocation();
+            this.dispose();
+        }
     }
 }
