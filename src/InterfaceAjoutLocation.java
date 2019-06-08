@@ -20,8 +20,8 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
     private static JComboBox vehiculeJComboBox2;
     private static ArrayList<String> clientLoc;
     private static String man;
-    private static String vehicule;
-    private static ArrayList<String> vehiculeLoc;
+
+
     private static ArrayList<String> vehiculeTypeLoc;
     private String[] typeVehicule= {"Avion","Moto","Voiture"};
 
@@ -40,7 +40,7 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
         fenetreAjout = new JFrame();
         fenetreAjout.setBounds(350, 100, 800, 125);
         fenetreAjout.setTitle("Ajout Location");
-        vehiculeLoc = new ArrayList<>();
+
         clientLoc = new ArrayList<>();
         vehiculeTypeLoc = new ArrayList<>();
         fenetreAjout.setResizable(false);
@@ -53,7 +53,7 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
         vehiculeJComboBox2.addActionListener(this);
         clientJComboBox.addActionListener(this);
         ajoutListeClientLoc();
-        ajoutListeVehiculeLoc();
+
 
      ajout = new JButton("Ajout");
         retour = new JButton("Retour");
@@ -93,7 +93,7 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==ajout) {
 
-            InterfaceAjoutLocationAvance intajoutlocav = new InterfaceAjoutLocationAvance();
+            InterfaceAjoutLocationAvance intajoutlocav = new InterfaceAjoutLocationAvance((String)vehiculeJComboBox.getSelectedItem());
             fenetreAjout.dispose();
 
         }
@@ -102,6 +102,7 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
         }
         if(e.getSource()==retour){
             InterfaceLocation intLoc = new InterfaceLocation();
+            fenetreAjout.dispose();
         }
 
     }
@@ -145,34 +146,6 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
 
     }
 
-    public static void ajoutListeVehiculeLoc(){
 
-        int i;
-        File dossier = new File("./Vehicule/"+vehiculeJComboBox.getSelectedItem()+"/");
-        File[] fichiersClient = dossier.listFiles();
-        for (i = 0; i < fichiersClient.length; i++) {
-
-            String[] tab = fichiersClient[i].toString().split("/");
-            String[] nomFichier = tab[3].split(".xml");
-            String[] nomFichierh = nomFichier[0].split(" ");
-            String prenom = nomFichierh[1];
-            String nom = nomFichierh[0];
-            vehicule= nom + " " + prenom;
-
-
-            vehiculeLoc.add(vehicule);
-        }
-        comboBoxInitVehicule();
-
-    }
-
-    private static void comboBoxInitVehicule(){
-        vehiculeJComboBox2.removeAllItems();
-        for (String c:vehiculeLoc){
-
-            vehiculeJComboBox2.addItem(c);
-        }
-
-    }
 
 }
