@@ -17,7 +17,7 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
     public InterfaceMoto(){
 
         fenetre = new JFrame();
-        fenetre.setBounds(350, 100, 700, 500);
+        fenetre.setBounds(350, 100, 700, 400);
         fenetre.setResizable(false);
         fenetre.setTitle(" Avion");
 
@@ -38,7 +38,7 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
         JPanel panListe = new JPanel();
         JPanel panRetour = new JPanel();
 
-        GridLayout grilleListe = new GridLayout(11,1);
+        //GridLayout grilleListe = new GridLayout(11,1);
 
 
         panBouton1.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/4 - ajout.getHeight()/2));
@@ -48,10 +48,31 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
         panBouton1.add(ajout);
         panBouton2.add(ficheMoto);
 
-        GridLayout grilleGlobale = new GridLayout(1,2);
-        GridLayout grilleBoutons = new GridLayout(2,1);
+        //GridLayout grilleGlobale = new GridLayout(1,2);
+       // GridLayout grilleBoutons = new GridLayout(2,1);
+
+       // panListe.setLayout(grilleListe);
+
+
+        GridLayout grilleListe = new GridLayout(4,1);
+
+        listeMoto.setSize(100,20);
 
         panListe.setLayout(grilleListe);
+        panListe.add(ficheMoto);
+        panListe.add(ajout);
+
+        panListe.add(listeMoto);
+        panListe.add(retour);
+
+        ficheMoto.setBackground(Color.white);
+        ficheMoto.setForeground(Color.black);
+        ajout.setBackground(Color.white);
+        ajout.setForeground(Color.black);
+        retour.setBackground(Color.white.darker());
+        retour.setForeground(Color.black);
+
+        /*
         panRetour.add(retour);
         fenetre.add(panRetour);
 
@@ -60,10 +81,10 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
         panBoutons.add(panBouton2);
 
 
-        listeMoto.setSize(100,20);
+
         panListe.setLayout(grilleListe);
 
-        panListe.add(listeMoto);
+
         panListe.add(panRetour);
 
         fenetre.setLayout(grilleGlobale);
@@ -74,7 +95,9 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
         panBouton1.setBackground(Color.LIGHT_GRAY);
         panBouton2.setBackground(Color.DARK_GRAY);
         panListe.setBackground(Color.GRAY);
-        panRetour.setBackground(Color.GRAY);
+        panRetour.setBackground(Color.GRAY);*/
+
+        fenetre.add(panListe);
         fenetre.setVisible(true);
 
 

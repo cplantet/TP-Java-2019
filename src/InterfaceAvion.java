@@ -137,7 +137,7 @@ public class InterfaceAvion extends JFrame implements ActionListener{
             String[] nomFichierh = nomFichier[0].split(" ");
             String marque = nomFichierh[0];
             String modele = nomFichierh[1];
-            chaineAvion= marque + " " + modele;
+            chaineAvion= marque + " "+ modele;
             avion.add(chaineAvion);
         }
         comboBoxInit();

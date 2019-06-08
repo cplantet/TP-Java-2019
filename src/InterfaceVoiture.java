@@ -16,10 +16,9 @@ public class InterfaceVoiture extends JFrame implements ActionListener{
     public InterfaceVoiture(){
 
         fenetreV = new JFrame();
-        fenetreV.setBounds(350, 100, 700, 500);
+        fenetreV.setBounds(350, 100, 700, 300);
         fenetreV.setResizable(false);
         fenetreV.setTitle(" Voiture");
-
 
         ajout = new JButton("Ajouter Voiture");
         ajout.addActionListener(this);
@@ -36,47 +35,43 @@ public class InterfaceVoiture extends JFrame implements ActionListener{
 
 
 
-        panBouton1.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetreV.getHeight()/4 - ajout.getHeight()/2));
+        //panBouton1.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetreV.getHeight()/4 - ajout.getHeight()/2));
 
-        panBouton2.setLayout(new FlowLayout(FlowLayout.CENTER, 0, fenetreV.getHeight()/4- ajout.getHeight()/2));
+        //panBouton2.setLayout(new FlowLayout(FlowLayout.CENTER, 0, fenetreV.getHeight()/4- ajout.getHeight()/2));
 
         //panListe.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/4 - ajout.getHeight()/2));
 
-
-        panBouton1.add(ajout);
-        panBouton2.add(ficheVoiture);
-
-        GridLayout grilleListe = new GridLayout(11,1);
+        GridLayout grilleListe = new GridLayout(4,1);
 
         panListe.setLayout(grilleListe);
+        panListe.add(ficheVoiture);
+        panListe.add(ajout);
+        panListe.add(retour);
 
-        panRetour.add(retour);
-        panRetour.setBackground(Color.GRAY);
-        panListe.add(panRetour);
+        ficheVoiture.setBackground(Color.white);
+        ficheVoiture.setForeground(Color.black);
+        ajout.setBackground(Color.white);
+        ajout.setForeground(Color.black);
+        retour.setBackground(Color.white.darker());
+        retour.setForeground(Color.black);
 
+
+
+        /*
         GridLayout grilleBoutons = new GridLayout(2,1);
 
         panBoutons.setLayout(grilleBoutons);
         panBoutons.add(panBouton1);
-        panBoutons.add(panBouton2);
+        panBoutons.add(panBouton2)*/
 
 
+        fenetreV.add(panListe);
 
-
-
-
-        GridLayout grilleGlobale = new GridLayout(1,2);
-
-        fenetreV.setLayout(grilleGlobale);
-
-        fenetreV.add(panListe,0);
-
-        fenetreV.add(panBoutons,1);
-
-        panBouton1.setBackground(Color.LIGHT_GRAY);
-        panBouton2.setBackground(Color.DARK_GRAY);
+       // fenetreV.add(panBoutons,1);
+       // panBouton1.setBackground(Color.LIGHT_GRAY);
+       // panBouton2.setBackground(Color.DARK_GRAY);
         panListe.setBackground(Color.GRAY);
-        panRetour.setBackground(Color.GRAY);
+
 
         fenetreV.setVisible(true);
 

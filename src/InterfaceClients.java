@@ -16,14 +16,14 @@ public class InterfaceClients extends JFrame implements ActionListener{
     private static ArrayList<String> client;
     private static JComboBox listeClients;
     private static String man;
-
+    private JFrame fenetre;
 
     public InterfaceClients(){
 
 
 
-        JFrame fenetre = new JFrame();
-        fenetre.setBounds(350, 100, 700, 500);
+       fenetre = new JFrame();
+        fenetre.setBounds(350, 100, 700, 300);
         fenetre.setResizable(false);
         fenetre.setTitle(" Clients");
         client = new ArrayList();
@@ -53,6 +53,23 @@ public class InterfaceClients extends JFrame implements ActionListener{
         JPanel panRetour = new JPanel();
 
 
+        GridLayout grilleListe = new GridLayout(4,1);
+
+        panListe.setLayout(grilleListe);
+        panListe.add(listeClients);
+        panListe.add(ficheClient);
+        panListe.add(ajout);
+        panListe.add(retour);
+
+        ficheClient.setBackground(Color.white);
+        ficheClient.setForeground(Color.black);
+        ajout.setBackground(Color.white);
+        ajout.setForeground(Color.black);
+        retour.setBackground(Color.white.darker());
+        retour.setForeground(Color.black);
+
+
+/*
         GridLayout grilleListe = new GridLayout(11,1);
 
 
@@ -87,8 +104,8 @@ public class InterfaceClients extends JFrame implements ActionListener{
         fenetre.add(panBoutons,1);
 
         panBouton1.setBackground(Color.LIGHT_GRAY);
-        panBouton2.setBackground(Color.GRAY);
-
+        panBouton2.setBackground(Color.GRAY);*/
+        fenetre.add(panListe);
         fenetre.setVisible(true);
 
 
@@ -108,7 +125,7 @@ public class InterfaceClients extends JFrame implements ActionListener{
         if(e.getSource()==retour){
 
             Interface menu = new Interface();
-            this.setVisible(false);
+            this.fenetre.dispose();
 
         }
 
@@ -116,6 +133,7 @@ public class InterfaceClients extends JFrame implements ActionListener{
 
 
             InterfaceAjoutClient client = new InterfaceAjoutClient();
+            this.fenetre.dispose();
 
 
         }
@@ -125,6 +143,8 @@ public class InterfaceClients extends JFrame implements ActionListener{
 
 
         }
+
+
 
 
     }
