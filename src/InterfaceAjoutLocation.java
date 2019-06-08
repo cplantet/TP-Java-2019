@@ -76,7 +76,7 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
     panBouton.add(ajout);
     panBouton.add(info);
     panglobal.add(panBouton);
-fenetreAjout.add(panglobal);
+    fenetreAjout.add(panglobal);
 
         fenetreAjout.setVisible(true);
 
@@ -86,7 +86,7 @@ fenetreAjout.add(panglobal);
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==ajout) {
 
-
+            InterfaceAjoutLocationAvance intajoutlocav = new InterfaceAjoutLocationAvance();
             fenetreAjout.dispose();
 
         }
