@@ -40,7 +40,8 @@ public class InterfaceClients extends JFrame implements ActionListener{
 
         ajout = new JButton("Ajouter Client");
         ajout.addActionListener(this);
-        JButton ficheClient = new JButton("Fiche Client");
+        ficheClient = new JButton("Fiche Client");
+        ficheClient.addActionListener(this);
 
         retour = new JButton("Retour");
         retour.addActionListener(this);
@@ -118,6 +119,12 @@ public class InterfaceClients extends JFrame implements ActionListener{
 
 
         }
+        if(e.getSource()==ficheClient){
+
+            InterfaceFicheClient interfaceFiche = new InterfaceFicheClient(ficheInit((String)listeClients.getSelectedItem()));
+
+
+        }
 
 
     }
@@ -146,9 +153,10 @@ public class InterfaceClients extends JFrame implements ActionListener{
             String[] tab = fichiersClient[i].toString().split("/");
             String[] nomFichier = tab[2].split(".xml");
             String[] nomFichierh = nomFichier[0].split(" ");
-            String prenom = nomFichierh[0];
-            String nom = nomFichierh[1];
-            man= prenom + " " + nom;
+            String prenom = nomFichierh[1];
+            String nom = nomFichierh[0];
+            man= nom + " " + prenom;
+            System.out.println(man);
 
             client.add(man);
         }
@@ -173,7 +181,7 @@ public class InterfaceClients extends JFrame implements ActionListener{
 
         Client mec = null;
         try {
-            FileInputStream fichier = new FileInputStream("./Vehicule/Avion/" + mec + ".xml");
+            FileInputStream fichier = new FileInputStream("./Client/" + client + ".xml");
             XMLDecoder decoder = new XMLDecoder(fichier);
             mec = (Client) decoder.readObject();
             decoder.close();
