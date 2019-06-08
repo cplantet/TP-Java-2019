@@ -48,7 +48,7 @@ public class InterfaceClients extends JFrame implements ActionListener{
         retour = new JButton("Retour");
         retour.addActionListener(this);
 
-        modifier = new JButton("Modifier");
+        modifier = new JButton("Modifier Client");
         modifier.addActionListener(this);
 
 

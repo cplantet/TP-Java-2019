@@ -41,6 +41,13 @@ public class InterfaceModifierClient extends JFrame implements ActionListener{
             textAdresse = new JTextField();
             textTelephone = new JTextField();
 
+            textNom.setText(aClient.getNom());
+            textPrenom.setText(aClient.getPrenom());
+            textAdresse.setText(aClient.getAdresse());
+            textTelephone.setText(aClient.getTelephone());
+            textDateDeNaissance.setText(aClient.getDateDeNaissance());
+
+
             JPanel panInfos = new JPanel();
 
             modifier = new JButton("Modifier");
@@ -92,13 +99,7 @@ public class InterfaceModifierClient extends JFrame implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             if(e.getSource()==modifier) {
 
-
-
                 InterfaceClients.ajoutClient(textNom.getText(),textPrenom.getText(),textAdresse.getText(),textTelephone.getText(),textDateDeNaissance.getText());
-                InterfaceClients.ajoutListeClient();
-                InterfaceClients interfacePlane = new InterfaceClients();
-
-
 
                 fenetreAjout.dispose();
 
