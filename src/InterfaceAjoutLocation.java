@@ -89,6 +89,15 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
 
     }
 
+    /**
+     * *
+     *      *  * Procédure de ActionListener qui permet de
+     *      *  ouvrir une interface InterfaceLocationAvancé et fermer la fenêtre actuelle
+     *      *retourner à l'interface InterfaceAvion sans rien ajouter
+     *
+     * @param e
+     */
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==ajout) {
