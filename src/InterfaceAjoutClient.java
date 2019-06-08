@@ -8,6 +8,7 @@ import java.awt.event.KeyListener;
 public class InterfaceAjoutClient extends JFrame implements ActionListener{
 
     private JButton ajout ;
+    private JButton retour ;
     private JTextField textNom;
     private JTextField textPrenom;
     private JFrame fenetreAjout;
@@ -34,38 +35,28 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
         textNom = new JTextField();
         textPrenom = new JTextField();
         textDateDeNaissance = new JTextField();
-
         textAdresse = new JTextField();
         textTelephone = new JTextField();
 
         JPanel panInfos = new JPanel();
-        JPanel panAjout = new JPanel();
-
-        JPanel panNom =new JPanel();
-        JPanel panPrenom =new JPanel();
-        JPanel panAdresse =new JPanel();
-        JPanel panTelephone =new JPanel();
-        JPanel panPermis =new JPanel();
-        JPanel panNaissance =new JPanel();
-
-
-
-        panAjout.setBackground(Color.LIGHT_GRAY);
 
         ajout = new JButton("Ajouter");
         ajout.addActionListener(this);
 
-        fenetreAjout.add(panAjout);
+        retour = new JButton("Retour");
+        retour.addActionListener(this);
+
         fenetreAjout.add(panInfos);
 
-        panAjout.setBounds(0,425,700,100);
-        panAjout.add(ajout);
+
+
 
         GridLayout grilleInfos = new GridLayout(6,2);
 
         panInfos.setBounds(0,0,700,300);
         panInfos.setLayout(grilleInfos);
 
+            panInfos.setBackground(Color.white);
         panInfos.add(prenom);
         panInfos.add(textPrenom);
         panInfos.add(nom);
@@ -76,9 +67,22 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
         panInfos.add(textAdresse);
         panInfos.add(telephone);
         panInfos.add(textTelephone);
+        panInfos.add(retour);
+        panInfos.add(ajout);
+
+        prenom.setBackground(Color.white);
+        nom.setBackground(Color.white);
+        dateDeNaissance.setBackground(Color.white);
+        adresse.setBackground(Color.white);
+        telephone.setBackground(Color.white);
+
+retour.setBackground(Color.white.darker());
+ajout.setBackground(Color.white);
+retour.setForeground(Color.black);
+ajout.setForeground(Color.black);
 
 
-        fenetreAjout.setVisible(true);
+fenetreAjout.setVisible(true);
 
 
 
@@ -101,7 +105,10 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
             fenetreAjout.dispose();
 
         }
-
+        if(e.getSource()==retour){
+            this.fenetreAjout.dispose();
+            InterfaceClients intClient = new InterfaceClients();
+        }
     }
 
 }
