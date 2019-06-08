@@ -40,7 +40,8 @@ public class InterfaceAvion extends JFrame implements ActionListener{
 
         ajout = new JButton("Ajouter Avion");
         ajout.addActionListener(this);
-        JButton ficheAvion = new JButton("Fiche Avion");
+        ficheAvion = new JButton("Fiche Avion");
+        ficheAvion.addActionListener(this);
 
         retour = new JButton("Retour");
         retour.addActionListener(this);
@@ -108,6 +109,11 @@ public class InterfaceAvion extends JFrame implements ActionListener{
             InterfaceAjoutAvion avion = new InterfaceAjoutAvion();
             fenetre.dispose();
         }
+
+        if(e.getSource()==ficheAvion){
+            InterfaceFicheAvion interfaceFicheAvion = new InterfaceFicheAvion(ficheInitAvion((String)listeAvions.getSelectedItem()));
+        }
+
     }
 
     public static void ajoutAvion(String marque, String modele, String vitesseMax, String etat, String nbMoteur , String prixloc) {
@@ -154,7 +160,7 @@ public class InterfaceAvion extends JFrame implements ActionListener{
     }
 
 
-    public static Avion ficheInit(String avion) {
+    public static Avion ficheInitAvion(String avion) {
 
         Avion plane = null;
         try {

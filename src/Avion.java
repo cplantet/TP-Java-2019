@@ -5,13 +5,13 @@ import java.io.FileOutputStream;
 
 public class Avion extends Vehicule{
 
-    private String km;
+    private String heuresVol;
     private String prixLoc;
     private String nbMoteur;
 
     public Avion(String marque, String modele, String vitesseMax, String etat, String prixLoc, String nbMoteur) {
         super(marque, modele, vitesseMax, etat);
-        this.km = km;
+        this.heuresVol = heuresVol;
         this.prixLoc = prixLoc;
         this.nbMoteur = nbMoteur;
     }
@@ -21,7 +21,7 @@ public class Avion extends Vehicule{
     /* ------------------------------------------Accesseurs-----------------------------------*/
 
     public void setKm(String km) {
-        this.km = km;
+        this.heuresVol = km;
     }
 
 
@@ -36,7 +36,7 @@ public class Avion extends Vehicule{
     /* -------------------------------------------------Mutateurs-------------------------------------*/
 
     public String getKm() {
-        return km;
+        return heuresVol;
     }
 
     public String getPrixLoc() {
@@ -70,7 +70,7 @@ public class Avion extends Vehicule{
     @Override
     public String toString() {
         return "Avion{" +
-                "km=" + km +
+                "km=" + heuresVol +
                 ", prixLoc=" + prixLoc +
                 ", nbMoteur=" + nbMoteur +
               '}';

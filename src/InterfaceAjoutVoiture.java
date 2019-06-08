@@ -11,24 +11,16 @@ public class InterfaceAjoutVoiture extends JFrame implements ActionListener{
 
     private JButton ajout ;
     private JButton annuler ;
-    private JTextField km;
-    private JTextField prixLoc;
-    private JTextField nbMoteur;
-    private JTextField marque;
-    private JTextField modele;
-    private JTextField vitesseMax;
-    private JTextField etat;
-    private JTextField puissance;
+    private JTextField textKm;
+    private JTextField textPrixLoc;
+    private JTextField textNbPlace;
+    private JTextField textMarque;
+    private JTextField textModele;
+    private JTextField textVitesseMax;
+    private JTextField textEtat;
+    private JTextField textPuissance;
     private JFrame fenetreAjout;
 
-    private String kmS;
-    private String prixLocS;
-    private String nbPlaceS;
-    private String marqueS;
-    private String modeleS;
-    private String vitesseMaxS;
-    private String etatS;
-    private String puissanceS;
 
 
 
@@ -49,16 +41,16 @@ public class InterfaceAjoutVoiture extends JFrame implements ActionListener{
         JLabel nbPlace = new JLabel("nbPlace");
         JLabel puissance = new JLabel("Puissance");
 
-        JTextField  textmarque = new JTextField();
-        JTextField textmodele  = new JTextField();
-        JTextField textvitesseMax = new JTextField();
-        JTextField textetat = new JTextField();
-        JTextField textkm = new JTextField();
-        JTextField textprixLoc = new JTextField();
-        JTextField textnbPlace = new JTextField();
-        JTextField textpuissance = new JTextField();
+        textMarque = new JTextField();
+        textModele  = new JTextField();
+        textVitesseMax = new JTextField();
+        textEtat = new JTextField();
+        textKm = new JTextField();
+        textPrixLoc = new JTextField();
+        textNbPlace = new JTextField();
+        textPuissance = new JTextField();
 
-        textmarque.setForeground(Color.BLUE);
+        textMarque.setForeground(Color.BLUE);
         JPanel panInfos = new JPanel();
 
 
@@ -94,21 +86,21 @@ public class InterfaceAjoutVoiture extends JFrame implements ActionListener{
         // textmarque.setPreferredSize( new Dimension( 200, 24 ) );
         panInfos.setLayout(grilleInfos);
         panInfos.add(panMarque);
-        panInfos.add(textmarque);
+        panInfos.add(textMarque);
         panInfos.add(panModele);
-        panInfos.add(textmodele);
+        panInfos.add(textModele);
         panInfos.add(panVit);
-        panInfos.add(textvitesseMax);
+        panInfos.add(textVitesseMax);
         panInfos.add(panEtat);
-        panInfos.add(textetat);
+        panInfos.add(textEtat);
         panInfos.add(panKm);
-        panInfos.add(textkm);
+        panInfos.add(textKm);
         panInfos.add(panPrix);
-        panInfos.add(textprixLoc);
+        panInfos.add(textPrixLoc);
         panInfos.add(pannbPlace);
-        panInfos.add(textnbPlace);
+        panInfos.add(textNbPlace);
         panInfos.add(panpuissance);
-        panInfos.add(textpuissance);
+        panInfos.add(textPuissance);
 
         panPrix.add(prixLoc);
         panEtat.add(etat);
@@ -124,14 +116,6 @@ public class InterfaceAjoutVoiture extends JFrame implements ActionListener{
         fenetreAjout.add(panInfos);
         //varaibles qui contiennt les valeurs de ce qu'on tape
 
-        kmS=textmarque.getText();
-        prixLocS=textprixLoc.getText();
-        nbPlaceS=textnbPlace.getText();
-        marqueS=textmarque.getText();
-        modeleS=textmodele.getText();
-        vitesseMaxS=textvitesseMax.getText();
-        etatS=textetat.getText();
-        puissanceS=textpuissance.getText();
 
         fenetreAjout.setVisible(true);
 
@@ -142,18 +126,12 @@ public class InterfaceAjoutVoiture extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==ajout) {
 
+            InterfaceVoiture.ajoutVoiture(textMarque.getText(),textModele.getText(),textVitesseMax.getText(),textEtat.getText(),textNbPlace.getText(),textKm.getText(),textPuissance.getText(),textPrixLoc.getText());
 
-            //zone de conversion
-
-            float kmf = Float.parseFloat(kmS);
-            Integer nbPlacef = Integer.parseInt(nbPlaceS);
-            float prixLocf = Float.parseFloat(prixLocS);
-            float vitesseMaxf = Float.parseFloat(vitesseMaxS);
-            float puissancef = Float.parseFloat(puissanceS);
-
-            Voiture aVoiture = new Voiture(marqueS,modeleS,vitesseMaxS,etatS,kmS,nbPlaceS,puissanceS,prixLocS);
-            InterfaceVoiture intVoiture= new InterfaceVoiture();
+            InterfaceVoiture.ajoutListeVoiture();
             fenetreAjout.dispose();
+            InterfaceVoiture fenetreVoiture = new InterfaceVoiture();
+
 
         }
 
