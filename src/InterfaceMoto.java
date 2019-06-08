@@ -134,6 +134,10 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * Cette fonction créé un dossier Moto dans le dossier Moto ou l'on va stocker les fichiers .xml avec les informations des différents
+     * objets Moto
+     */
 
     public static void ajoutListeMoto(){
 
@@ -161,7 +165,9 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
 
 
     }
-
+    /**
+     * On remplit la JComboBox avec les informations contenues dans le tableau "moto" contenant des objets Moto.
+     */
     private static void comboBoxInit(){
 
         listeMoto.removeAllItems();
@@ -169,8 +175,11 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
             listeMoto.addItem(c);
         }
     }
-
-
+    /**
+     * Cette fonction renvoit l'objet Voiture asocié à un élément de type String.
+     * @param moto
+     * @return
+     */
     public static Moto ficheInitMoto(String moto) {
 
         Moto cycle = null;
