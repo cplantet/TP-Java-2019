@@ -13,6 +13,7 @@ public class InterfaceClients extends JFrame implements ActionListener{
     private JFrame fenetre;
     private JButton retour;
     private JButton ajout;
+    private JButton modifier;
     private JButton ficheClient;
     public static ArrayList<String> client;
     public static JComboBox listeClients;
@@ -47,12 +48,15 @@ public class InterfaceClients extends JFrame implements ActionListener{
         retour = new JButton("Retour");
         retour.addActionListener(this);
 
+        modifier = new JButton("Modifier");
+        modifier.addActionListener(this);
+
 
         listeClients.setSize(100,20);
         JPanel panListe = new JPanel();
 
 
-        GridLayout grilleListe = new GridLayout(4,1);
+        GridLayout grilleListe = new GridLayout(5,1);
 
         listeClients.setSize(100,20);
 
@@ -61,6 +65,7 @@ public class InterfaceClients extends JFrame implements ActionListener{
         panListe.add(listeClients);
         panListe.add(ficheClient);
         panListe.add(ajout);
+        panListe.add(modifier);
 
         panListe.add(retour);
 
@@ -68,6 +73,8 @@ public class InterfaceClients extends JFrame implements ActionListener{
         ficheClient.setForeground(Color.black);
         ajout.setBackground(Color.white);
         ajout.setForeground(Color.black);
+        modifier.setBackground(Color.white);
+        modifier.setForeground(Color.black);
         retour.setBackground(Color.white.darker());
         retour.setForeground(Color.black);
 
@@ -108,6 +115,14 @@ public class InterfaceClients extends JFrame implements ActionListener{
         if(e.getSource()==ficheClient){
 
             InterfaceFicheClient interfaceFiche = new InterfaceFicheClient(ficheInit((String)listeClients.getSelectedItem()));
+
+
+        }
+
+        if(e.getSource()==modifier){
+
+
+            InterfaceModifierClient client = new InterfaceModifierClient(ficheInit((String)listeClients.getSelectedItem()));
 
 
         }

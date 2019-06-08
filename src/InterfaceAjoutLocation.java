@@ -36,10 +36,7 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
         vehiculeLoc = new ArrayList<>();
         clientLoc = new ArrayList<>();
         vehiculeTypeLoc = new ArrayList<>();
-
-
         fenetreAjout.setResizable(false);
-
 
         vehiculeJComboBox = new JComboBox(typeVehicule);
         clientJComboBox = new JComboBox();
@@ -51,15 +48,11 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
         ajoutListeClientLoc();
         ajoutListeVehiculeLoc();
 
-
      ajout = new JButton("Ajout");
      info = new JButton("Information");
     ajout.addActionListener(this);
 
     GridLayout grilleGlobale = new GridLayout(1,3);
-
-
-
 
     JPanel panglobal = new JPanel();
     panglobal.setLayout(grilleGlobale);
@@ -85,12 +78,7 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
     panglobal.add(panBouton);
 fenetreAjout.add(panglobal);
 
-
-
         fenetreAjout.setVisible(true);
-
-
-
 
     }
 
@@ -135,18 +123,15 @@ fenetreAjout.add(panglobal);
 
         comboBoxInitClient();
 
-
     }
 
     private static void comboBoxInitClient(){
         clientJComboBox.removeAllItems();
         for (String c:clientLoc){
 
-
             clientJComboBox.addItem(c);
 
         }
-
 
     }
 
@@ -167,9 +152,7 @@ fenetreAjout.add(panglobal);
 
             vehiculeLoc.add(vehicule);
         }
-
         comboBoxInitVehicule();
-
 
     }
 
@@ -177,17 +160,9 @@ fenetreAjout.add(panglobal);
         vehiculeJComboBox2.removeAllItems();
         for (String c:vehiculeLoc){
 
-
             vehiculeJComboBox2.addItem(c);
-
         }
 
-
     }
-
-
-
-
-
 
 }
