@@ -17,24 +17,42 @@ public class InterfaceFicheVoiture extends JFrame {
         JLabel km = new JLabel(laVoiture.getKm());
         JLabel puissance = new JLabel(laVoiture.getPuissance());
 
+        JLabel marqueF = new JLabel("Marque");
+        JLabel modeleF = new JLabel("Modèle");
+        JLabel vitesseMaxF = new JLabel("Vitesse Maximale");
+        JLabel etatF = new JLabel("Etat");
+        JLabel puissanceF = new JLabel("Puissance");
+        JLabel kmF = new JLabel("Km");
+        JLabel prixLocF = new JLabel("Prix de Location");
+        JLabel nbPlaceF = new JLabel("Nombre de Places");
+
         JFrame fenetreFiche = new JFrame();
-        fenetreFiche.setBounds(350, 100, 200, 400);
+        fenetreFiche.setBounds(350, 100, 500, 400);
         fenetreFiche.setResizable(false);
-        fenetreFiche.setTitle("Fiche Client");
+        fenetreFiche.setTitle("Fiche Voiture");
+    JPanel panFiche = new JPanel();
 
-        GridLayout grille = new GridLayout(9,1);
-        fenetreFiche.setLayout(grille);
-        fenetreFiche.add(marque);
-        fenetreFiche.add(modele);
-        fenetreFiche.add(vitesseMax);
-        fenetreFiche.add(prixLoc);
-        fenetreFiche.add(etat);
-        fenetreFiche.add(nbPlace);
-        fenetreFiche.add(km);
-        fenetreFiche.add(puissance);
+        GridLayout grille = new GridLayout(9,2);
+        panFiche.setLayout(grille);
+        panFiche.add( marqueF);
+        panFiche.add(marque);
+        panFiche.add(modeleF);
+        panFiche.add(modele);
+        panFiche.add(vitesseMaxF);
+        panFiche.add(vitesseMax);
+        panFiche.add(etatF);
+        panFiche.add(etat);
+        panFiche.add(puissanceF);
+        panFiche.add(puissance);
+        panFiche.add(kmF);
+        panFiche.add(km);
+        panFiche.add(prixLocF);
+        panFiche.add(prixLoc);
+        panFiche.add(nbPlaceF);
+        panFiche.add(nbPlace);
 
 
-
+fenetreFiche.add(panFiche);
         fenetreFiche.setVisible(true);
 
     }
