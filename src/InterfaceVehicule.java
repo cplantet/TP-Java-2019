@@ -63,7 +63,13 @@ public class InterfaceVehicule extends JFrame implements ActionListener {
 
     }
 
-
+    /**
+     * En fonction des boutons cliqués, on fait une action diffrente.
+     * menu : on ferme la fenêtre et on ouvre une nouvelle fenêtre Interface().
+     *voiture : on ferme la fenêtre et on ouvre une nouvelle fenêtre de InterfaceVoiture().
+     * moto : on ferme la fenêtre et on ouvre une nouvelle fenêtre de InterfaceMoto().
+     * avion : on ferme la fenêtre et on ouvre une nouvelle fenêtre de InterfaceAvion().
+     */
     public void actionPerformed(ActionEvent e){
 
         if(e.getSource()==avion){

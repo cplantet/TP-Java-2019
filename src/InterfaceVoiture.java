@@ -122,7 +122,9 @@ public class InterfaceVoiture extends JFrame implements ActionListener{
 
     }
 
-
+    /**
+     * Cette fonction créé
+     */
     public static void ajoutListeVoiture(){
 
         FilenameFilter filtre = new FilenameFilter() {
@@ -161,7 +163,11 @@ public class InterfaceVoiture extends JFrame implements ActionListener{
         }
     }
 
-
+    /**
+     * Cette fonction renvoit l'objet Voiture asocié à un élément de type String.
+     * @param voiture
+     * @return
+     */
     public static Voiture ficheInitVoiture(String voiture) {
 
         Voiture car = null;

@@ -69,15 +69,11 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
     panglobal.add(clientJComboBox);
 
     JPanel panvehicule = new JPanel();
-    GridLayout grilleVehicule = new GridLayout(2,1);
-    panvehicule.setLayout(grilleVehicule);
-
     panvehicule.add(vehiculeJComboBox);
 
         //JPanel panListeVeh = new JPanel();
        // panListeVeh.add(vehiculeJList);
         //panglobal.add(panListeClient);
-    panvehicule.add(vehiculeJComboBox2);
     panglobal.add(panvehicule);
 
     JPanel panBouton = new JPanel();
