@@ -50,7 +50,12 @@ public class InterfaceFicheClient extends JFrame {
         fenetreFiche.add(telephoneF);
         fenetreFiche.add(telephone);
 
-        fenetreFiche.setBackground(Color.white);
+        nomF.setBackground(Color.white);
+        prenomF.setBackground(Color.white);
+        dateDeNaissanceF.setBackground(Color.white);
+        adresseF.setBackground(Color.white);
+        telephoneF.setBackground(Color.white);
+
 
         nom.setBackground(Color.white.darker());
         prenom.setBackground(Color.white.darker());
