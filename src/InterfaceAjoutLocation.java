@@ -93,7 +93,8 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==ajout) {
 
-            InterfaceAjoutLocationAvance intajoutlocav = new InterfaceAjoutLocationAvance((String)vehiculeJComboBox.getSelectedItem());
+
+            InterfaceAjoutLocationAvance intajoutlocav = new InterfaceAjoutLocationAvance((String)vehiculeJComboBox.getSelectedItem(),InterfaceClients.ficheInit((String)clientJComboBox.getSelectedItem()));
             fenetreAjout.dispose();
 
         }
@@ -135,11 +136,11 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
             clientLoc.add(man);
         }
 
-        comboBoxInitClient();
+        comboBoxInitLocation();
 
     }
 
-    private static void comboBoxInitClient(){
+    private static void comboBoxInitLocation(){
         clientJComboBox.removeAllItems();
         for (String c:clientLoc){
 

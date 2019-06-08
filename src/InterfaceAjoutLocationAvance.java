@@ -16,14 +16,18 @@ public class InterfaceAjoutLocationAvance extends JFrame implements ActionListen
     private JButton ajout;
     private JButton annuler;
     private static JComboBox vehiculeJComboBox2;
-    private JTextField dateDebut;
-    private JTextField dateFin;
+    private static JTextField dateDebut;
+    private static JTextField datefin;
     private JTextField nbKm;
     private JFrame fenetre;
     private static ArrayList<String> vehiculeLoc;
     private static String vehicule;
+    private static String unMec;
+    private static Client leIenclit;
+    private static Vehicule unVehicule;
+    private static String leType;
 
-    public InterfaceAjoutLocationAvance(String typeVehicule) {
+    public InterfaceAjoutLocationAvance(String typeVehicule,Client aClient) {
         fenetre = new JFrame();
         vehiculeLoc = new ArrayList<>();
         vehiculeJComboBox2 = new JComboBox();
@@ -31,6 +35,11 @@ public class InterfaceAjoutLocationAvance extends JFrame implements ActionListen
         vehiculeJComboBox2.setSize(100,20);
         vehiculeJComboBox2.addActionListener(this);
         ajoutListeVehiculeLoc(typeVehicule);
+
+        unMec = aClient.getNom()+" "+aClient.getPrenom();
+
+
+
 
         ajout = new JButton("Ajouter");
         ajout.addActionListener(this);
@@ -46,7 +55,7 @@ public class InterfaceAjoutLocationAvance extends JFrame implements ActionListen
 
 
         dateDebut = new JTextField();
-        dateFin = new JTextField();
+        datefin = new JTextField();
         nbKm=new JTextField();
 
         annuler = new JButton("Annuler");
@@ -61,7 +70,7 @@ public class InterfaceAjoutLocationAvance extends JFrame implements ActionListen
         panAjout.add(dateDebut1);
         panAjout.add(dateDebut);
         panAjout.add(dateFin1);
-        panAjout.add(dateFin);
+        panAjout.add(datefin);
         panAjout.add(nombreKm);
         panAjout.add(nbKm);
         panAjout.add(annuler);
@@ -75,6 +84,25 @@ public class InterfaceAjoutLocationAvance extends JFrame implements ActionListen
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == ajout) {
+
+            String[] tabClient = unMec.split(" ");
+            String dateDeb= dateDebut.getText();
+            String dateFin = datefin.getText();
+            String nbJour = "";
+            nbJour = Integer.toString(calculTempsLocation(dateDeb,dateFin));
+
+            if(leType=="Avion"){
+                unVehicule = InterfaceAvion.ficheInitAvion((String) vehiculeJComboBox2.getSelectedItem());
+            }
+            if(leType=="Moto"){
+                unVehicule = InterfaceMoto.ficheInitMoto((String) vehiculeJComboBox2.getSelectedItem());
+            }if(leType=="Voiture"){
+                unVehicule = InterfaceVoiture.ficheInitVoiture((String) vehiculeJComboBox2.getSelectedItem());
+            }
+
+            ajoutLocation(tabClient[0],tabClient[1],(String)vehiculeJComboBox2.getSelectedItem(),nbJour,dateDeb,dateFin,nbKm.getText(),leIenclit,unVehicule);
+            InterfaceLocation.ajoutListeLocation();
+
             fenetre.dispose();
             InterfaceLocation interloc = new InterfaceLocation();
 
@@ -88,10 +116,17 @@ public class InterfaceAjoutLocationAvance extends JFrame implements ActionListen
         }
     }
 
+    public static void ajoutLocation(String nom,String prenom,String vehicule,String prix,String debut,String fin,String nbKm,Client aClient,Vehicule aVehicule){
+
+        Location aLocation = new Location(nom, prenom, vehicule,debut,fin,nbKm,prix);
+
+        Location.ecrireLocation(aLocation,aClient,aVehicule);
+    }
+
     public static void ajoutListeVehiculeLoc(String typeVehicule){
 
         int i;
-        File dossier = new File("./Vehicule/"+typeVehicule+"/");
+        File dossier = new File("./Location/"+typeVehicule+"/");
         File[] fichiersClient = dossier.listFiles();
         for (i = 0; i < fichiersClient.length; i++) {
 
@@ -160,6 +195,12 @@ public class InterfaceAjoutLocationAvance extends JFrame implements ActionListen
 
         return prixLocation;
     }
+
+
+
+
+
+
 }
 
 

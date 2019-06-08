@@ -9,7 +9,8 @@ public class InterfaceFicheLocation extends JFrame {
     private JFrame fenetre;
 
 
-    public InterfaceFicheLocation() {
+    public InterfaceFicheLocation(Location aLocation,Client aClient,String aVehicule,String Km,String price ,String debut,String fin) {
+
         fenetre = new JFrame();
 
         JLabel nomclient = new JLabel("Nom :");
@@ -25,6 +26,27 @@ public class InterfaceFicheLocation extends JFrame {
         JLabel dateDebut1 = new JLabel("dateDebut");
 
         JLabel dateFin1 = new JLabel("dateFin");
+
+
+        JLabel nom = new JLabel(aClient.getNom());
+
+        JLabel prenom = new JLabel (aClient.getPrenom());
+
+        JLabel vehic = new JLabel(aVehicule);
+
+        JLabel nbKm = new JLabel(Km);
+
+        JLabel prix = new JLabel(price);
+
+        JLabel dateDebut = new JLabel(debut);
+
+        JLabel dateFin = new JLabel(fin);
+
+
+
+
+
+
 
 
         JPanel panGlobale = new JPanel();
@@ -48,6 +70,21 @@ public class InterfaceFicheLocation extends JFrame {
         panGlobale.add(dateDebut1);
 
         panGlobale.add(dateFin1);
+
+        panGlobale.add(nom);
+
+        panGlobale.add(prenom);
+
+        panGlobale.add(vehic);
+
+        panGlobale.add(nbKm);
+
+        panGlobale.add(prix);
+
+        panGlobale.add(dateDebut);
+
+        panGlobale.add(dateFin);
+
 
         fenetre.add(panGlobale);
         fenetre.setVisible(true);
