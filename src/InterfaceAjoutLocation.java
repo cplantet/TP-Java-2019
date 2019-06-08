@@ -15,39 +15,48 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
     public InterfaceAjoutLocation() {
 
         fenetreAjout = new JFrame();
-        fenetreAjout.setBounds(350, 100, 700, 500);
+        fenetreAjout.setBounds(350, 100, 800, 250);
         fenetreAjout.setTitle("Ajout Location");
 
         fenetreAjout.setResizable(false);
 
 
     JComboBox<Vehicule> vehiculeJComboBox = new JComboBox<Vehicule>();
-    JList<Client> clientJList=new JList<Client>();
+        JComboBox<Client> clientJComboBox = new JComboBox<Client>();
+        JComboBox<Vehicule> vehiculeJComboBox2 = new JComboBox<Vehicule>();
+   // JList<Client> clientJList=new JList<Client>();
      ajout = new JButton("Ajout");
      info = new JButton("Information");
     ajout.addActionListener(this);
-    JList<Vehicule> vehiculeJList = new JList<Vehicule>();
+    //JList<Vehicule> vehiculeJList = new JList<Vehicule>();
     GridLayout grilleGlobale = new GridLayout(1,3);
-    JPanel panglobal = new JPanel();
-    panglobal.setSize(700,500);
 
+
+
+
+    JPanel panglobal = new JPanel();
+    panglobal.setLayout(grilleGlobale);
     JPanel panListeClient = new JPanel();
-    panListeClient.add(clientJList);
-    panglobal.add(panListeClient);
+
+
+    panglobal.add(clientJComboBox);
 
     JPanel panvehicule = new JPanel();
     GridLayout grilleVehicule = new GridLayout(2,1);
     panvehicule.setLayout(grilleVehicule);
+
     panvehicule.add(vehiculeJComboBox);
-        JPanel panListeVeh = new JPanel();
-        panListeVeh.add(vehiculeJList);
-        panglobal.add(panListeClient);
-    panvehicule.add(panListeVeh);
+
+        //JPanel panListeVeh = new JPanel();
+       // panListeVeh.add(vehiculeJList);
+        //panglobal.add(panListeClient);
+    panvehicule.add(vehiculeJComboBox2);
     panglobal.add(panvehicule);
 
     JPanel panBouton = new JPanel();
     GridLayout grillebouton = new GridLayout(2,1);
     panBouton.setLayout(grillebouton);
+
     panBouton.add(ajout);
     panBouton.add(info);
     panglobal.add(panBouton);
