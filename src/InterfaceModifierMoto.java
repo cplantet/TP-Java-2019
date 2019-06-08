@@ -1,15 +1,16 @@
-import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class InterfaceAjoutMoto extends JFrame implements ActionListener{
+
+public class InterfaceModifierMoto extends JFrame implements ActionListener{
 
 
 
-    private JButton ajout ;
+    private JButton modifier ;
     private JButton annuler ;
     private JTextField textKm;
     private JTextField textPrixLoc;
@@ -21,22 +22,11 @@ public class InterfaceAjoutMoto extends JFrame implements ActionListener{
     private JTextField textPuissance;
     private JFrame fenetreAjout;
 
-    private String kmS;
-    private String prixLocS;
-    private String nbPlaceS;
-    private String marqueS;
-    private String modeleS;
-    private String vitesseMaxS;
-    private String etatS;
-    private String puissanceS;
-
-
-
-    public InterfaceAjoutMoto() {
+    public InterfaceModifierMoto(Moto laMoto) {
 
         fenetreAjout = new JFrame();
         fenetreAjout.setBounds(350, 100, 700, 700);
-        fenetreAjout.setTitle("Ajout Moto");
+        fenetreAjout.setTitle("Modifier Moto");
         fenetreAjout.setResizable(false);
 
         // declaration des Jlabel
@@ -59,8 +49,8 @@ public class InterfaceAjoutMoto extends JFrame implements ActionListener{
         textPuissance = new JTextField();
         JPanel panInfos = new JPanel();
 
-        ajout = new JButton("Ajouter");
-        ajout.addActionListener(this);
+        modifier = new JButton("Ajouter");
+        modifier.addActionListener(this);
         annuler = new JButton("Annuler");
         annuler.addActionListener(this);
 
@@ -88,7 +78,7 @@ public class InterfaceAjoutMoto extends JFrame implements ActionListener{
 
 
         panInfos.add(annuler);
-        panInfos.add(ajout);
+        panInfos.add(modifier);
         fenetreAjout.add(panInfos);
         fenetreAjout.setVisible(true);
 
@@ -97,7 +87,7 @@ public class InterfaceAjoutMoto extends JFrame implements ActionListener{
     @Override
 
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==ajout) {
+        if(e.getSource()==modifier) {
 
 
             InterfaceMoto.ajoutMoto(textMarque.getText(),textModele.getText(),textVitesseMax.getText(),textEtat.getText(),textNbPlace.getText(),textKm.getText(),textPuissance.getText(),textPrixLoc.getText());
@@ -116,6 +106,4 @@ public class InterfaceAjoutMoto extends JFrame implements ActionListener{
         }
 
     }
-
-
 }

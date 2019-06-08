@@ -11,6 +11,7 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
 
     private JButton retour;
     private JButton ajout;
+    private JButton modifier;
     private JButton ficheMoto;
 
     private JFrame fenetre;
@@ -24,11 +25,15 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
         fenetre = new JFrame();
         fenetre.setBounds(350, 100, 700, 400);
         fenetre.setResizable(false);
-        fenetre.setTitle(" Avion");
+        fenetre.setTitle("Moto");
 
 
         ajout = new JButton("Ajouter Moto");
         ajout.addActionListener(this);
+
+
+        modifier = new JButton("Modifier Moto");
+        modifier.addActionListener(this);
 
         ficheMoto = new JButton("Fiche Moto");
         ficheMoto.addActionListener(this);
@@ -44,7 +49,7 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
         JPanel panListe = new JPanel();
 
 
-        GridLayout grilleListe = new GridLayout(4,1);
+        GridLayout grilleListe = new GridLayout(5,1);
 
         listeMoto.setSize(100,20);
 
@@ -53,13 +58,15 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
         panListe.add(listeMoto);
         panListe.add(ficheMoto);
         panListe.add(ajout);
-
+        panListe.add(modifier);
         panListe.add(retour);
 
         ficheMoto.setBackground(Color.white);
         ficheMoto.setForeground(Color.black);
         ajout.setBackground(Color.white);
         ajout.setForeground(Color.black);
+        modifier.setBackground(Color.white);
+        modifier.setForeground(Color.black);
         retour.setBackground(Color.white.darker());
         retour.setForeground(Color.black);
 
@@ -98,6 +105,11 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
 
             InterfaceFicheMoto interfaceFicheMoto = new InterfaceFicheMoto(ficheInitMoto((String)listeMoto.getSelectedItem()));
 
+        }
+
+        if(e.getSource()==modifier){
+            InterfaceModifierMoto interfaceModifiermot = new InterfaceModifierMoto(ficheInitMoto((String)listeMoto.getSelectedItem()));
+            this.fenetre.dispose();
         }
 
 

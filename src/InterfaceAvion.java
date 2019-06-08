@@ -90,7 +90,7 @@ public class InterfaceAvion extends JFrame implements ActionListener{
             fenetre.dispose();
         }
         if(e.getSource()==modifier){
-            InterfaceModifierAvion avion = new InterfaceModifierAvion();
+            InterfaceModifierAvion avion = new InterfaceModifierAvion(ficheInitAvion((String)listeAvions.getSelectedItem()));
             fenetre.dispose();
         }
 

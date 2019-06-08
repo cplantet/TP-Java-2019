@@ -1,17 +1,16 @@
-import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class InterfaceAjoutAvion extends JFrame implements ActionListener{
 
-    private JButton ajout ;
+public class InterfaceModifierAvion extends JFrame implements ActionListener{
+
+    private JButton modifier ;
     private JButton annuler ;
     private JFrame fenetreAjout;
-
-
     private JTextField textMarque ;
     private JTextField textModele ;
     private JTextField textVitesseMax;
@@ -20,14 +19,11 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
     private JTextField textPrixLoc ;
     private JTextField textNbMoteur;
 
-
-
-
-    public InterfaceAjoutAvion() {
+    public InterfaceModifierAvion(Avion lAvion) {
 
         fenetreAjout = new JFrame();
         fenetreAjout.setBounds(350, 100, 700, 700);
-        fenetreAjout.setTitle("Ajout Avion");
+        fenetreAjout.setTitle("Modifier Avion");
         fenetreAjout.setResizable(false);
 
         // declaration des Jlabel
@@ -41,9 +37,9 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
 
         JLabel entrer = new JLabel("Appuyez sur la touche ENTREE pour valider");
 
-         textMarque = new JTextField();
-         textModele = new JTextField();
-         textVitesseMax = new JTextField();
+        textMarque = new JTextField();
+        textModele = new JTextField();
+        textVitesseMax = new JTextField();
         textEtat = new JTextField();
         textKm = new JTextField();
         textPrixLoc = new JTextField();
@@ -63,73 +59,64 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
 
 
 
-        ajout = new JButton("Ajouter");
-        ajout.addActionListener(this);
+        modifier = new JButton("Modifier");
+        modifier.addActionListener(this);
         annuler = new JButton("Annuler");
         annuler.addActionListener(this);
-
-
-
-       //panAjout.setBounds(0,650,700,50);
 
 
 
         GridLayout grilleInfos = new GridLayout(8,2);
 
         panInfos.setPreferredSize(new Dimension(700,600));
-
-       // textmarque.setPreferredSize( new Dimension( 200, 24 ) );
         panInfos.setLayout(grilleInfos);
-             panInfos.add(panMarque);
-             panInfos.add(textMarque);
-             panInfos.add(panModele);
-            panInfos.add(textModele);
-             panInfos.add(panVit);
-             panInfos.add(textVitesseMax);
-             panInfos.add(panEtat);
-            panInfos.add(textEtat);
-             panInfos.add(panKm);
-             panInfos.add(textKm);
-            panInfos.add(panPrix);
-            panInfos.add(textPrixLoc);
-            panInfos.add(panMot);
-            panInfos.add(textNbMoteur);
+        panInfos.add(panMarque);
+        panInfos.add(textMarque);
+        panInfos.add(panModele);
+        panInfos.add(textModele);
+        panInfos.add(panVit);
+        panInfos.add(textVitesseMax);
+        panInfos.add(panEtat);
+        panInfos.add(textEtat);
+        panInfos.add(panKm);
+        panInfos.add(textKm);
+        panInfos.add(panPrix);
+        panInfos.add(textPrixLoc);
+        panInfos.add(panMot);
+        panInfos.add(textNbMoteur);
 
-            panPrix.add(prixLoc);
-            panEtat.add(etat);
-            panVit.add(vitesseMax);
-            panKm.add(km);
-            panModele.add(modele);
-            panMarque.add(marque);
-            panMot.add(nbMoteur);
+        panPrix.add(prixLoc);
+        panEtat.add(etat);
+        panVit.add(vitesseMax);
+        panKm.add(km);
+        panModele.add(modele);
+        panMarque.add(marque);
+        panMot.add(nbMoteur);
 
-         panInfos.add(annuler);
-            panInfos.add(ajout);
+        panInfos.add(annuler);
+        panInfos.add(modifier);
         fenetreAjout.add(panInfos);
 
         fenetreAjout.setVisible(true);
 
     }
 
-    @Override
 
-    public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==ajout) {
-
+        public void actionPerformed(ActionEvent e) {
+            if(e.getSource()==modifier) {
 
 
-            InterfaceAvion.ajoutAvion(textMarque.getText(),textModele.getText(),textVitesseMax.getText(),textEtat.getText(),textNbMoteur.getText(),textPrixLoc.getText());
-            InterfaceAvion.ajoutListeAvion();
-            fenetreAjout.dispose();
-            InterfaceAvion interfacePlane = new InterfaceAvion();
 
-        }
+                InterfaceAvion.ajoutAvion(textMarque.getText(),textModele.getText(),textVitesseMax.getText(),textEtat.getText(),textNbMoteur.getText(),textPrixLoc.getText());
+                InterfaceAvion.ajoutListeAvion();
+                this.fenetreAjout.dispose();
+                InterfaceAvion interfacePlane = new InterfaceAvion();
+
+            }
         if(e.getSource()==annuler){
-            InterfaceAvion intAvion= new InterfaceAvion();
-            fenetreAjout.dispose();
-
+            this.fenetreAjout.dispose();
+            InterfaceAvion intClient = new InterfaceAvion();
         }
-
     }
 
 }
