@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class InterfaceClients extends JFrame implements ActionListener{
 
+    private JFrame fenetre;
     private JButton retour;
     private JButton ajout;
     private JButton ficheClient;
@@ -22,7 +23,7 @@ public class InterfaceClients extends JFrame implements ActionListener{
 
 
 
-        JFrame fenetre = new JFrame();
+        fenetre = new JFrame();
         fenetre.setBounds(350, 100, 700, 500);
         fenetre.setResizable(false);
         fenetre.setTitle(" Clients");
@@ -93,7 +94,7 @@ public class InterfaceClients extends JFrame implements ActionListener{
         if(e.getSource()==retour){
 
             Interface menu = new Interface();
-            this.setVisible(false);
+            this.fenetre.dispose();
 
         }
 
