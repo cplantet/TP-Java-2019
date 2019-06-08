@@ -13,6 +13,7 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
 
     private JButton ajout ;
   private JButton info;
+    private JButton retour;
     private JFrame fenetreAjout;
     private static JComboBox vehiculeJComboBox;
     private static JComboBox clientJComboBox;
@@ -24,6 +25,12 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
     private static ArrayList<String> vehiculeTypeLoc;
     private String[] typeVehicule= {"Avion","Moto","Voiture"};
 
+    /**
+     * Constructeur de InterfaceAjoutLocation qui permet de remplir des champs d'informations en fonction de ce qui est demandé
+     * en affichant des JLabel et des JTextField
+     * Il y a aussi des boutons ajouter et annuler
+     *
+     */
 
 
 
@@ -49,8 +56,11 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
         ajoutListeVehiculeLoc();
 
      ajout = new JButton("Ajout");
+        retour = new JButton("Retour");
      info = new JButton("Information");
+     info.addActionListener(this);
     ajout.addActionListener(this);
+        retour.addActionListener(this);
 
     GridLayout grilleGlobale = new GridLayout(1,3);
 
@@ -64,17 +74,14 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
 
     panglobal.add(vehiculeJComboBox);
 
-        //JPanel panListeVeh = new JPanel();
-       // panListeVeh.add(vehiculeJList);
-        //panglobal.add(panListeClient);
-
 
     JPanel panBouton = new JPanel();
-    GridLayout grillebouton = new GridLayout(2,1);
+    GridLayout grillebouton = new GridLayout(3,1);
     panBouton.setLayout(grillebouton);
 
     panBouton.add(ajout);
     panBouton.add(info);
+    panBouton.add(retour);
     panglobal.add(panBouton);
     fenetreAjout.add(panglobal);
 
@@ -92,6 +99,9 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
         }
         if(e.getSource()==info){
             System.out.println("bouton info is ok");
+        }
+        if(e.getSource()==retour){
+            InterfaceLocation intLoc = new InterfaceLocation();
         }
 
     }

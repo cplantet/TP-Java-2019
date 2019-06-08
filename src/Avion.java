@@ -11,7 +11,16 @@ public class Avion extends Vehicule{
     private String prixLoc;
     private String nbMoteur;
 
-
+    /**
+     * Constructeur de la classe avion, avec en paramètre les informations utiles pour l'utilisateur.
+     * @param marque
+     * @param modele
+     * @param vitesseMax
+     * @param etat
+     * @param heuresVol
+     * @param prixLoc
+     * @param nbMoteur
+     */
     public Avion(String marque, String modele, String vitesseMax, String etat,String heuresVol,String prixLoc, String nbMoteur) {
         super(marque, modele, vitesseMax, etat);
         this.heuresVol = heuresVol;
@@ -79,6 +88,12 @@ public class Avion extends Vehicule{
               '}';
     }
 
+    /**
+     *Cette fonction écrit les informations contenues dans un objet Avion dans un fichier .xml.
+     * @param anAvion
+     */
+
+
     public static void ecrireAvion(Avion anAvion) {
 
         try {
@@ -91,25 +106,6 @@ public class Avion extends Vehicule{
         catch(Exception e){
             System.out.println(e);
         }
-    }
-
-
-    public static Avion lireAvion(String marque,String modele) {
-        Avion decodedAvion=null;
-
-        try {
-            FileInputStream plane = new FileInputStream("./Client/"+marque + " " + modele + ".xml");
-            XMLDecoder decoder = new XMLDecoder(plane);
-            decodedAvion = (Avion) decoder.readObject();
-            decoder.close();
-            plane.close();
-
-        }
-        catch (Exception e) {
-            System.out.println(e);
-
-        }
-        return decodedAvion;
     }
 }
 

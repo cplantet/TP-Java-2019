@@ -10,6 +10,14 @@ public class Interface extends JFrame implements ActionListener{//KeyListener{
     private JButton bout2;
     private JButton bout3;
 
+    /**
+     * Constructeur de l'interface principale.
+     * Elle permet d'afficher les differents boutons qui accèdent à :
+     * interfaceClient
+     * InterfaceVehicule
+     * InterfaceLocation
+
+     */
     public Interface() {
 
 
@@ -19,15 +27,6 @@ public class Interface extends JFrame implements ActionListener{//KeyListener{
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-// Panel Texte
-/*
-        JPanel txt1 = new JPanel();
-        txt1.setLayout(new BoxLayout(txt1, BoxLayout.LINE_AXIS));
-        txt1.add(new JLabel("Ajouter / Rechercher"));
-*/
-// Panel Boutons
-
         JPanel boutons = new JPanel();
 
         boutons.setLayout(new BoxLayout(boutons, BoxLayout.LINE_AXIS));
@@ -49,10 +48,6 @@ public class Interface extends JFrame implements ActionListener{//KeyListener{
         bout2.setForeground(Color.black);
         bout3.setForeground(Color.black);
 
-       // b1.add(bout1);
-        //b2.add(bout2);
-        //b3.add(bout3);
-
         GridLayout grille = new GridLayout(1,3);
         boutons.setLayout(grille);
 
@@ -63,11 +58,6 @@ public class Interface extends JFrame implements ActionListener{//KeyListener{
 
         boutons.add(bout3);
         boutons.add(bout2);
-
-
-
-// Panel Global
-
 
         JPanel global = new JPanel();
         global.setLayout(new BoxLayout(global, BoxLayout.PAGE_AXIS));
@@ -100,7 +90,12 @@ public class Interface extends JFrame implements ActionListener{//KeyListener{
     }
 
     @Override
-
+/**
+ * Procédure de ActionListener qui permet de
+ * ouvrir une interface InterfaceClient si on clique sur le bouton client (bout1)
+ * ouvrir une interface InterfaceVehicule si on clique sur le bouton vehicule (bout2)
+ * ouvrir une interface InterfaceLocation si on clique sur le bouton location (bout3)
+ */
     public void actionPerformed(ActionEvent e){
 
         if(e.getSource()==bout1){

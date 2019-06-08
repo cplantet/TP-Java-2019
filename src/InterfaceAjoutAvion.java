@@ -11,7 +11,6 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
     private JButton annuler ;
     private JFrame fenetreAjout;
 
-
     private JTextField textMarque ;
     private JTextField textModele ;
     private JTextField textVitesseMax;
@@ -21,8 +20,12 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
     private JTextField textNbMoteur;
 
 
-
-
+    /**
+     * Constructeur de nterfaceAjoutAvion qui permet de remplir des champs d'informations en fonction de ce qui est demandé
+     * en affichant des JLabel et des JTextField
+     * Il y a aussi des boutons ajouter et annuler
+     *
+     */
     public InterfaceAjoutAvion() {
 
         fenetreAjout = new JFrame();
@@ -68,17 +71,10 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
         annuler = new JButton("Annuler");
         annuler.addActionListener(this);
 
-
-
-       //panAjout.setBounds(0,650,700,50);
-
-
-
         GridLayout grilleInfos = new GridLayout(8,2);
 
         panInfos.setPreferredSize(new Dimension(700,600));
 
-       // textmarque.setPreferredSize( new Dimension( 200, 24 ) );
         panInfos.setLayout(grilleInfos);
              panInfos.add(panMarque);
              panInfos.add(textMarque);
@@ -112,6 +108,12 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
     }
 
     @Override
+
+    /**
+     *  * Procédure de ActionListener qui permet de
+     *  ajouter un avion dans une liste (qui va l'écrire), fermer la fenêtre actuelle et en ouvrir une autre de InterfaceAvion
+     *retourner à l'interface InterfaceAvion sans rien ajouter
+     */
 
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==ajout) {

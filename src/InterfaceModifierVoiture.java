@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 
-public class InterfaceModifierMoto extends JFrame implements ActionListener{
+public class InterfaceModifierVoiture extends JFrame implements ActionListener{
 
 
 
@@ -22,11 +22,11 @@ public class InterfaceModifierMoto extends JFrame implements ActionListener{
     private JTextField textPuissance;
     private JFrame fenetreAjout;
 
-    public InterfaceModifierMoto(Moto aMoto) {
+    public InterfaceModifierVoiture(Voiture laVoiture) {
 
         fenetreAjout = new JFrame();
         fenetreAjout.setBounds(350, 100, 700, 700);
-        fenetreAjout.setTitle("Modifier Moto");
+        fenetreAjout.setTitle("Modifier Voiture");
         fenetreAjout.setResizable(false);
 
         // declaration des Jlabel
@@ -47,17 +47,6 @@ public class InterfaceModifierMoto extends JFrame implements ActionListener{
         textPrixLoc = new JTextField();
         textNbPlace = new JTextField();
         textPuissance = new JTextField();
-
-        textMarque.setText(aMoto.getMarque());
-        textModele.setText(aMoto.getModele());
-        textVitesseMax.setText(aMoto.getVitesseMax());
-        textEtat.setText(aMoto.getEtat());
-        textKm.setText(aMoto.getKm());
-        textPrixLoc.setText(aMoto.getPrixLoc());
-        textNbPlace.setText(aMoto.getNbPlace());
-        textPuissance.setText(aMoto.getPuissance());
-
-
         JPanel panInfos = new JPanel();
 
         modifier = new JButton("Modifier");
@@ -101,14 +90,17 @@ public class InterfaceModifierMoto extends JFrame implements ActionListener{
         if(e.getSource()==modifier) {
 
 
-            InterfaceMoto.ajoutMoto(textMarque.getText(),textModele.getText(),textVitesseMax.getText(),textEtat.getText(),textNbPlace.getText(),textKm.getText(),textPuissance.getText(),textPrixLoc.getText());
 
+            InterfaceVoiture.ajoutVoiture(textMarque.getText(),textModele.getText(),textVitesseMax.getText(),textEtat.getText(),textNbPlace.getText(),textKm.getText(),textPuissance.getText(),textPrixLoc.getText());
+
+            InterfaceVoiture.ajoutListeVoiture();
             fenetreAjout.dispose();
-            InterfaceMoto fenetreMoto = new InterfaceMoto();
+            InterfaceVoiture fenetreVoiture = new InterfaceVoiture();
+
 
         }
         if(e.getSource()==annuler){
-            InterfaceMoto intMoto= new InterfaceMoto();
+            InterfaceVoiture intVoit= new InterfaceVoiture();
             fenetreAjout.dispose();
 
 

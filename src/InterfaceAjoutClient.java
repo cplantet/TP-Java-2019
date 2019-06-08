@@ -16,6 +16,15 @@ public class InterfaceAjoutClient extends JFrame implements ActionListener{
     private JTextField textDateDeNaissance;
     private JTextField textTelephone;
 
+
+
+    /**
+     * Constructeur de InterfaceAjoutClient qui permet de remplir des champs d'informations en fonction de ce qui est demandé
+     * en affichant des JLabel et des JTextField
+     * Il y a aussi des boutons ajouter et annuler
+     *
+     */
+
     public InterfaceAjoutClient() {
 
         fenetreAjout = new JFrame();
@@ -90,6 +99,11 @@ fenetreAjout.setVisible(true);
     }
 
     @Override
+/**
+ *  * Procédure de ActionListener qui permet de
+ *  ajouter un client dans une liste (qui va l'écrire), fermer la fenêtre actuelle et en ouvrir une autre de InterfaceClient
+ *retourner à l'interface InterfaceClient sans rien ajouter
+ */
 
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==ajout) {

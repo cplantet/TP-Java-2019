@@ -11,6 +11,14 @@ public class Client {
     private String adresse;
     private String numero;
 
+    /**
+     * Constructeur de la classe Client. Il permet de créer un objet Clint avec les informations voulues par le loueur de Véhicules.
+     * @param nom
+     * @param prenom
+     * @param dateDeNaissance
+     * @param telephone
+     * @param adresse
+     */
     public Client(String nom,String prenom,String dateDeNaissance,String telephone,String adresse) {
 
         this.nom = nom;
@@ -98,24 +106,6 @@ public class Client {
         catch(Exception e){
             System.out.println(e);
         }
-    }
-
-    public static Client lireClient(String nom,String prenom) {
-        Client decodedClient=null;
-
-        try {
-            FileInputStream mec = new FileInputStream("./Client/"+prenom + " " + nom + ".xml");
-            XMLDecoder decoder = new XMLDecoder(mec);
-            decodedClient = (Client) decoder.readObject();
-            decoder.close();
-            mec.close();
-
-        }
-        catch (Exception e) {
-            System.out.println(e);
-
-        }
-        return decodedClient;
     }
 
 }
