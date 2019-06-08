@@ -47,6 +47,17 @@ public class InterfaceModifierVoiture extends JFrame implements ActionListener{
         textPrixLoc = new JTextField();
         textNbPlace = new JTextField();
         textPuissance = new JTextField();
+
+        textMarque.setText(laVoiture.getMarque());
+        textModele.setText(laVoiture.getModele());
+        textVitesseMax.setText(laVoiture.getVitesseMax());
+        textEtat.setText(laVoiture.getEtat());
+        textKm.setText(laVoiture.getKm());
+        textPrixLoc.setText(laVoiture.getPrixLoc());
+        textNbPlace.setText(laVoiture.getNbPlaces());
+        textPuissance.setText(laVoiture.getPuissance());
+
+
         JPanel panInfos = new JPanel();
 
         modifier = new JButton("Modifier");
@@ -92,8 +103,7 @@ public class InterfaceModifierVoiture extends JFrame implements ActionListener{
 
 
             InterfaceVoiture.ajoutVoiture(textMarque.getText(),textModele.getText(),textVitesseMax.getText(),textEtat.getText(),textNbPlace.getText(),textKm.getText(),textPuissance.getText(),textPrixLoc.getText());
-
-            InterfaceVoiture.ajoutListeVoiture();
+            
             fenetreAjout.dispose();
             InterfaceVoiture fenetreVoiture = new InterfaceVoiture();
 

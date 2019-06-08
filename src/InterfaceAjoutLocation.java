@@ -97,8 +97,11 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
             fenetreAjout.dispose();
 
         }
+
         if(e.getSource()==info){
-            System.out.println("bouton info is ok");
+            InterfaceFicheClient afficheClient = new InterfaceFicheClient(InterfaceClients.ficheInit((String)clientJComboBox.getSelectedItem()));
+
+
         }
         if(e.getSource()==retour){
             InterfaceLocation intLoc = new InterfaceLocation();
