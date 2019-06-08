@@ -14,8 +14,8 @@ public class InterfaceClients extends JFrame implements ActionListener{
     private JButton retour;
     private JButton ajout;
     private JButton ficheClient;
-    private static ArrayList<String> client;
-    private static JComboBox listeClients;
+    public static ArrayList<String> client;
+    public static JComboBox listeClients;
     private static String man;
 
 

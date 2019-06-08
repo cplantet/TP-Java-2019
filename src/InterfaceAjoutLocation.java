@@ -4,31 +4,58 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.FilenameFilter;
+import java.util.ArrayList;
+import java.util.EventObject;
 
 public class InterfaceAjoutLocation extends JFrame implements ActionListener{
 
     private JButton ajout ;
   private JButton info;
     private JFrame fenetreAjout;
+    private static JComboBox vehiculeJComboBox;
+    private static JComboBox clientJComboBox;
+    private static JComboBox vehiculeJComboBox2;
+    private static ArrayList<String> clientLoc;
+    private static String man;
+    private static String vehicule;
+    private static ArrayList<String> vehiculeLoc;
+    private static ArrayList<String> vehiculeTypeLoc;
+    private String[] typeVehicule= {"Avion","Moto","Voiture"};
+
+
 
 
     public InterfaceAjoutLocation() {
 
+
         fenetreAjout = new JFrame();
         fenetreAjout.setBounds(350, 100, 800, 250);
         fenetreAjout.setTitle("Ajout Location");
+        vehiculeLoc = new ArrayList<>();
+        clientLoc = new ArrayList<>();
+        vehiculeTypeLoc = new ArrayList<>();
+
 
         fenetreAjout.setResizable(false);
 
 
-    JComboBox<Vehicule> vehiculeJComboBox = new JComboBox<Vehicule>();
-        JComboBox<Client> clientJComboBox = new JComboBox<Client>();
-        JComboBox<Vehicule> vehiculeJComboBox2 = new JComboBox<Vehicule>();
-   // JList<Client> clientJList=new JList<Client>();
+        vehiculeJComboBox = new JComboBox(typeVehicule);
+        clientJComboBox = new JComboBox();
+        vehiculeJComboBox2 = new JComboBox();
+
+        vehiculeJComboBox.addActionListener(this);
+        vehiculeJComboBox2.addActionListener(this);
+        clientJComboBox.addActionListener(this);
+        ajoutListeClientLoc();
+        ajoutListeVehiculeLoc();
+
+
      ajout = new JButton("Ajout");
      info = new JButton("Information");
     ajout.addActionListener(this);
-    //JList<Vehicule> vehiculeJList = new JList<Vehicule>();
+
     GridLayout grilleGlobale = new GridLayout(1,3);
 
 
@@ -62,6 +89,8 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
     panglobal.add(panBouton);
 fenetreAjout.add(panglobal);
 
+
+
         fenetreAjout.setVisible(true);
 
 
@@ -82,5 +111,87 @@ fenetreAjout.add(panglobal);
         }
 
     }
+
+    public static void ajoutListeClientLoc(){
+
+        FilenameFilter filtre = new FilenameFilter() {
+            @Override
+            public boolean accept(File file, String s) {
+                return s.endsWith(".xml");
+            }
+        };
+
+        int i;
+        File dossier = new File("./Client/");
+        File[] fichiersClient = dossier.listFiles(filtre);
+        for (i = 0; i < fichiersClient.length; i++) {
+
+            String[] tab = fichiersClient[i].toString().split("/");
+            String[] nomFichier = tab[2].split(".xml");
+            String[] nomFichierh = nomFichier[0].split(" ");
+            String prenom = nomFichierh[1];
+            String nom = nomFichierh[0];
+            man= nom + " " + prenom;
+            System.out.println(man);
+
+            clientLoc.add(man);
+        }
+
+        comboBoxInitClient();
+
+
+    }
+
+    private static void comboBoxInitClient(){
+        clientJComboBox.removeAllItems();
+        for (String c:clientLoc){
+
+
+            clientJComboBox.addItem(c);
+
+        }
+
+
+    }
+
+    public static void ajoutListeVehiculeLoc(){
+
+        int i;
+        File dossier = new File("./Vehicule/"+vehiculeJComboBox.getSelectedItem()+"/");
+        File[] fichiersClient = dossier.listFiles();
+        for (i = 0; i < fichiersClient.length; i++) {
+
+            String[] tab = fichiersClient[i].toString().split("/");
+            String[] nomFichier = tab[3].split(".xml");
+            String[] nomFichierh = nomFichier[0].split(" ");
+            String prenom = nomFichierh[1];
+            String nom = nomFichierh[0];
+            vehicule= nom + " " + prenom;
+            System.out.println(vehicule);
+
+            vehiculeLoc.add(vehicule);
+        }
+
+        comboBoxInitVehicule();
+
+
+    }
+
+    private static void comboBoxInitVehicule(){
+        vehiculeJComboBox2.removeAllItems();
+        for (String c:vehiculeLoc){
+
+
+            vehiculeJComboBox2.addItem(c);
+
+        }
+
+
+    }
+
+
+
+
+
 
 }
