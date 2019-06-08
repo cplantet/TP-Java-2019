@@ -71,6 +71,12 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
 
 
     @Override
+    /**
+     * En fonction des boutons cliqués, on fait une action diffrente.
+     * retour : on ferme la fenêtre et on ouvre une nouvelle fenêtre InterfaceVehicule().
+     * ajout : on ferme la fenêtre et on ouvre une nouvelle fenêtre InterfaceAjoutMoto().
+     * fiche : on affiche une fenêtre InterfaceFicheMoto pour la moto selectionnée.
+     */
 
     public void actionPerformed(ActionEvent e){
 
@@ -97,6 +103,18 @@ public class InterfaceMoto  extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * Cette procdure permet de créer un objet de type Motoet de l'écrire dans un fichier .xml,  en faisant appel au
+     *Constructeur Moto() et à la procédure ecrireMoto() de la classe Moto.
+     * @param marque
+     * @param modele
+     * @param vitesseMax
+     * @param etat
+     * @param nbPlace
+     * @param km
+     * @param puissance
+     * @param prixLoc
+     */
     public static void ajoutMoto(String marque, String modele, String vitesseMax, String etat, String nbPlace ,String km,String puissance, String prixLoc) {
 
         Moto aMoto = new Moto(marque,modele,vitesseMax,etat,km,nbPlace,puissance,prixLoc);
