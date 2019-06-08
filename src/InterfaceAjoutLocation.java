@@ -31,7 +31,7 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
 
 
         fenetreAjout = new JFrame();
-        fenetreAjout.setBounds(350, 100, 800, 250);
+        fenetreAjout.setBounds(350, 100, 800, 125);
         fenetreAjout.setTitle("Ajout Location");
         vehiculeLoc = new ArrayList<>();
         clientLoc = new ArrayList<>();
@@ -68,13 +68,13 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
 
     panglobal.add(clientJComboBox);
 
-    JPanel panvehicule = new JPanel();
-    panvehicule.add(vehiculeJComboBox);
+
+    panglobal.add(vehiculeJComboBox);
 
         //JPanel panListeVeh = new JPanel();
        // panListeVeh.add(vehiculeJList);
         //panglobal.add(panListeClient);
-    panglobal.add(panvehicule);
+
 
     JPanel panBouton = new JPanel();
     GridLayout grillebouton = new GridLayout(2,1);
@@ -128,7 +128,7 @@ fenetreAjout.add(panglobal);
             String prenom = nomFichierh[1];
             String nom = nomFichierh[0];
             man= nom + " " + prenom;
-            System.out.println(man);
+
 
             clientLoc.add(man);
         }
@@ -163,7 +163,7 @@ fenetreAjout.add(panglobal);
             String prenom = nomFichierh[1];
             String nom = nomFichierh[0];
             vehicule= nom + " " + prenom;
-            System.out.println(vehicule);
+
 
             vehiculeLoc.add(vehicule);
         }

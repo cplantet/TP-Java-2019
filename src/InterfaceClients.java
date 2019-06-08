@@ -142,7 +142,7 @@ public class InterfaceClients extends JFrame implements ActionListener{
             String prenom = nomFichierh[1];
             String nom = nomFichierh[0];
             man= nom + " " + prenom;
-            System.out.println(man);
+
 
             client.add(man);
         }
