@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class InterfaceFicheClient extends JFrame {
 
     public InterfaceFicheClient(Client leGars){
-       // Client leGars = new Client("lo","l","kf","u","t");
+
         JLabel nom = new JLabel(leGars.getNom());
         JLabel prenom = new JLabel(leGars.getPrenom());
         JLabel  dateDeNaissance = new JLabel(leGars.getDateDeNaissance());
