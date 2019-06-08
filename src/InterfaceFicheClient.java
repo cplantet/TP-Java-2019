@@ -13,12 +13,12 @@ public class InterfaceFicheClient extends JFrame {
         JLabel  dateDeNaissance = new JLabel(leGars.getDateDeNaissance());
         JLabel adresse = new JLabel(leGars.getAdresse());
         JLabel telephone = new JLabel(leGars.getTelephone());
-        JLabel nomF = new JLabel("Nom");
-        JLabel prenomF = new JLabel("Prénom");
-        JLabel dateDeNaissanceF = new JLabel("Date de Naissance (jj/mm/aaaa)");
-        JLabel numPermisF = new JLabel("Numéro de Permis");
-        JLabel adresseF = new JLabel("Adresse");
-        JLabel telephoneF = new JLabel("Téléphone");
+        JLabel nomF = new JLabel("Nom :");
+        JLabel prenomF = new JLabel("Prénom :");
+        JLabel dateDeNaissanceF = new JLabel("Date de Naissance (jj/mm/aaaa) :");
+        JLabel numPermisF = new JLabel("Numéro de Permis :");
+        JLabel adresseF = new JLabel("Adresse :");
+        JLabel telephoneF = new JLabel("Téléphone :");
 
 
         JFrame fenetreFiche = new JFrame();

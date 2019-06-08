@@ -28,7 +28,7 @@ public class InterfaceAjoutVoiture extends JFrame implements ActionListener{
 
         fenetreAjout = new JFrame();
         fenetreAjout.setBounds(350, 100, 700, 700);
-        fenetreAjout.setTitle("Ajout Moto");
+        fenetreAjout.setTitle("Ajout Voiture");
         fenetreAjout.setResizable(false);
 
         // declaration des Jlabel
