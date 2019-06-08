@@ -6,13 +6,6 @@ import java.util.ArrayList;
 
 public class InterfaceFicheClient extends JFrame {
 
-    private JTextField textNom;
-    private JTextField textPrenom;
-    private JFrame fenetreAjout;
-    private JTextField textAdresse;
-    private JTextField textDateDeNaissance;
-    private JTextField textTelephone;
-
     public InterfaceFicheClient(Client leGars){
        // Client leGars = new Client("lo","l","kf","u","t");
         JLabel nom = new JLabel(leGars.getNom());
@@ -29,32 +22,33 @@ public class InterfaceFicheClient extends JFrame {
 
 
         JFrame fenetreFiche = new JFrame();
-        fenetreFiche.setBounds(200, 100, 300, 400);
+        JPanel panFiche = new JPanel();
+
+        fenetreFiche.setBounds(200, 100, 500, 400);
         fenetreFiche.setResizable(false);
         fenetreFiche.setTitle("Fiche Client");
-
+        fenetreFiche.add(panFiche);
         GridLayout grille = new GridLayout(6,2);
-        fenetreFiche.setLayout(grille);
+        panFiche.setLayout(grille);
+        panFiche.setBackground(Color.white);
 
-        fenetreFiche.add(nomF);
-        fenetreFiche.add(nom);
-        fenetreFiche.add(prenomF);
-        fenetreFiche.add(prenom);
+        panFiche.add(nomF);
+        panFiche.add(nom);
+        panFiche.add(prenomF);
+        panFiche.add(prenom);
+        panFiche.add(dateDeNaissanceF);
+        panFiche.add(dateDeNaissance);
+        panFiche.add(adresseF);
+        panFiche.add(adresse);
+        panFiche.add(telephoneF);
+        panFiche.add(telephone);
 
-        fenetreFiche.add(dateDeNaissanceF);
-        fenetreFiche.add(dateDeNaissance);
+        nomF.setBackground(Color.GRAY);
+        prenomF.setBackground(Color.GRAY);
+        dateDeNaissanceF.setBackground(Color.GRAY);
+        adresseF.setBackground(Color.GRAY);
+        telephoneF.setBackground(Color.GRAY);
 
-        fenetreFiche.add(adresseF);
-        fenetreFiche.add(adresse);
-
-        fenetreFiche.add(telephoneF);
-        fenetreFiche.add(telephone);
-
-        nomF.setBackground(Color.white);
-        prenomF.setBackground(Color.white);
-        dateDeNaissanceF.setBackground(Color.white);
-        adresseF.setBackground(Color.white);
-        telephoneF.setBackground(Color.white);
 
 
         nom.setBackground(Color.white.darker());

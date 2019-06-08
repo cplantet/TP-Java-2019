@@ -46,11 +46,8 @@ public class InterfaceClients extends JFrame implements ActionListener{
         retour = new JButton("Retour");
         retour.addActionListener(this);
 
-        JPanel panBoutons = new JPanel();
-        JPanel panBouton1 = new JPanel();
-        JPanel panBouton2 = new JPanel();
         JPanel panListe = new JPanel();
-        JPanel panRetour = new JPanel();
+
 
 
         GridLayout grilleListe = new GridLayout(4,1);
