@@ -1,3 +1,6 @@
+import java.beans.XMLEncoder;
+import java.io.FileOutputStream;
+
 public class Moto extends Vehicule{
 
     private String km;
@@ -12,6 +15,7 @@ public class Moto extends Vehicule{
         this.puissance = puissance;
         this.prixLoc = prixLoc;
     }
+    public Moto(){}
 
     //All of the get..();
 
@@ -64,4 +68,21 @@ public class Moto extends Vehicule{
 
                 '}';
     }
+
+    public static void ecrireMoto(Moto aMoto) {
+
+        try {
+            FileOutputStream moto = new FileOutputStream("./Vehicule/Moto/"+aMoto.getMarque()+" "+aMoto.getModele()+".xml");
+            XMLEncoder encoder = new XMLEncoder(moto);
+            encoder.writeObject(aMoto);
+            encoder.close();
+            moto.close();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+
+
+
 }

@@ -1,3 +1,6 @@
+import java.beans.XMLEncoder;
+import java.io.FileOutputStream;
+
 public class Voiture extends Vehicule{
 
     private String km;
@@ -12,6 +15,8 @@ public class Voiture extends Vehicule{
         this.puissance = puissance;
         this.prixLoc = prixLoc;
     }
+
+    public Voiture(){}
 
     /*--------------------------------------Accesseurs---------------------------------------*/
 
@@ -34,6 +39,25 @@ public class Voiture extends Vehicule{
         this.puissance = puissance;
     }
 
+    @Override
+    public void setEtat(String etat) {
+        super.setEtat(etat);
+    }
+
+    @Override
+    public void setMarque(String marque) {
+        super.setMarque(marque);
+    }
+
+    @Override
+    public void setModele(String modele) {
+        super.setModele(modele);
+    }
+
+    @Override
+    public void setVitesseMax(String vitesseMax) {
+        super.setVitesseMax(vitesseMax);
+    }
 
 
     /* ----------------------------------------Mutateurs--------------------------------------*/
@@ -56,6 +80,26 @@ public class Voiture extends Vehicule{
     }
 
     @Override
+    public String getVitesseMax() {
+        return super.getVitesseMax();
+    }
+
+    @Override
+    public String getMarque() {
+        return super.getMarque();
+    }
+
+    @Override
+    public String getEtat() {
+        return super.getEtat();
+    }
+
+    @Override
+    public String getModele() {
+        return super.getModele();
+    }
+
+    @Override
     public String toString() {
         return "Voiture{" +
                 "km=" + km +
@@ -66,4 +110,21 @@ public class Voiture extends Vehicule{
                 "}"
                ;
     }
+
+    public static void ecrireVoiture(Voiture aVoiture) {
+
+        try {
+            FileOutputStream car = new FileOutputStream("./Vehicule/Voiture/"+aVoiture.getMarque()+" "+aVoiture.getModele()+".xml");
+            XMLEncoder encoder = new XMLEncoder(car);
+            encoder.writeObject(aVoiture);
+            encoder.close();
+            car.close();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+
+
+
 }

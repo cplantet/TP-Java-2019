@@ -54,9 +54,10 @@ public class InterfaceFicheMoto extends JFrame {
         panFiche.add(prixLoc);
         panFiche.add(nbPlaceF);
         panFiche.add(nbPlace);
-
+        panFiche.add(nbPlace);
         fenetreFiche.setVisible(true);
 
     }
+
 
 }
