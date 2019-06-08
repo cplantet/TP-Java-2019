@@ -8,12 +8,9 @@ import java.awt.event.KeyListener;
 public class InterfaceAjoutLocation extends JFrame implements ActionListener{
 
     private JButton ajout ;
-    private JTextField textNom;
-    private JTextField textPrenom;
+  private JButton info;
     private JFrame fenetreAjout;
-    private JTextField textAdresse;
-    private JTextField textDateDeNaissance;
-    private JTextField textTelephone;
+
 
     public InterfaceAjoutLocation() {
 
@@ -23,59 +20,38 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
 
         fenetreAjout.setResizable(false);
 
-        JLabel client = new JLabel("Client");
-        JLabel vehicue = new JLabel("Vehicule");
-        JLabel dateDeDebut = new JLabel("Date de Début");
-        JLabel dateDeFin = new JLabel("Date de Fin");
-        JLabel prix = new JLabel("Prix");
 
+    JComboBox<Vehicule> vehiculeJComboBox = new JComboBox<Vehicule>();
+    JList<Client> clientJList=new JList<Client>();
+     ajout = new JButton("Ajout");
+     info = new JButton("Information");
+    ajout.addActionListener(this);
+    JList<Vehicule> vehiculeJList = new JList<Vehicule>();
+    GridLayout grilleGlobale = new GridLayout(1,3);
+    JPanel panglobal = new JPanel();
+    panglobal.setSize(700,500);
 
-        textNom = new JTextField();
-        textPrenom = new JTextField();
-        textDateDeNaissance = new JTextField();
+    JPanel panListeClient = new JPanel();
+    panListeClient.add(clientJList);
+    panglobal.add(panListeClient);
 
-        textAdresse = new JTextField();
-        textTelephone = new JTextField();
+    JPanel panvehicule = new JPanel();
+    GridLayout grilleVehicule = new GridLayout(2,1);
+    panvehicule.setLayout(grilleVehicule);
+    panvehicule.add(vehiculeJComboBox);
+        JPanel panListeVeh = new JPanel();
+        panListeVeh.add(vehiculeJList);
+        panglobal.add(panListeClient);
+    panvehicule.add(panListeVeh);
+    panglobal.add(panvehicule);
 
-        JPanel panInfos = new JPanel();
-        JPanel panAjout = new JPanel();
-
-        JPanel panNom =new JPanel();
-        JPanel panPrenom =new JPanel();
-        JPanel panAdresse =new JPanel();
-        JPanel panTelephone =new JPanel();
-        JPanel panPermis =new JPanel();
-        JPanel panNaissance =new JPanel();
-
-
-
-        panAjout.setBackground(Color.LIGHT_GRAY);
-
-        ajout = new JButton("Ajouter");
-        ajout.addActionListener(this);
-
-        fenetreAjout.add(panAjout);
-        fenetreAjout.add(panInfos);
-
-        panAjout.setBounds(0,425,700,100);
-        panAjout.add(ajout);
-
-        GridLayout grilleInfos = new GridLayout(6,2);
-
-        panInfos.setBounds(0,0,700,300);
-        panInfos.setLayout(grilleInfos);
-/*
-        panInfos.add(prenom);
-        panInfos.add(textPrenom);
-        panInfos.add(nom);
-        panInfos.add(textNom);
-        panInfos.add(dateDeNaissance);
-        panInfos.add(textDateDeNaissance);
-        panInfos.add(adresse);
-        panInfos.add(textAdresse);
-        panInfos.add(telephone);
-        panInfos.add(textTelephone);*/
-
+    JPanel panBouton = new JPanel();
+    GridLayout grillebouton = new GridLayout(2,1);
+    panBouton.setLayout(grillebouton);
+    panBouton.add(ajout);
+    panBouton.add(info);
+    panglobal.add(panBouton);
+fenetreAjout.add(panglobal);
 
         fenetreAjout.setVisible(true);
 
@@ -89,12 +65,11 @@ public class InterfaceAjoutLocation extends JFrame implements ActionListener{
         if(e.getSource()==ajout) {
 
 
-
-            //Client aClient =InterfaceClients.ajoutClient(textNom.getText(),textPrenom.getText(),textAdresse.getText(),textTelephone.getText(),textDateDeNaissance.getText());
-            //InterfaceClients.ajoutListe(aClient);
-
             fenetreAjout.dispose();
 
+        }
+        if(e.getSource()==info){
+            System.out.println("bouton info is ok");
         }
 
     }
