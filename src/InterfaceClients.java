@@ -46,45 +46,33 @@ public class InterfaceClients extends JFrame implements ActionListener{
         retour = new JButton("Retour");
         retour.addActionListener(this);
 
+
+        listeClients.setSize(100,20);
         JPanel panListe = new JPanel();
 
 
-
-        GridLayout grilleListe = new GridLayout(11,1);
-
-
-        panBouton1.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/4 - ajout.getHeight()/2));
-
-        panBouton2.setLayout(new FlowLayout(FlowLayout.CENTER, 0, fenetre.getHeight()/4- ajout.getHeight()/2));
-
-        //panListe.setLayout(new FlowLayout(FlowLayout.CENTER,0,fenetre.getHeight()/4 - ajout.getHeight()/2));
-
-
+        GridLayout grilleListe = new GridLayout(4,1);
 
         listeClients.setSize(100,20);
-        panBouton1.add(ajout);
-        panBouton2.add(ficheClient);
-
-        GridLayout grilleGlobale = new GridLayout(1,2);
-        GridLayout grilleBoutons = new GridLayout(2,1);
 
         panListe.setLayout(grilleListe);
-        panRetour.add(retour);
-
-        panBoutons.setLayout(grilleBoutons);
-        panBoutons.add(panBouton1);
-        panBoutons.add(panBouton2);
 
         panListe.add(listeClients);
-        panListe.add(panRetour);
+        panListe.add(ficheClient);
+        panListe.add(ajout);
 
-        fenetre.setLayout(grilleGlobale);
-        fenetre.add(panListe,0);
+        panListe.add(retour);
 
-        fenetre.add(panBoutons,1);
+        ficheClient.setBackground(Color.white);
+        ficheClient.setForeground(Color.black);
+        ajout.setBackground(Color.white);
+        ajout.setForeground(Color.black);
+        retour.setBackground(Color.white.darker());
+        retour.setForeground(Color.black);
 
-        panBouton1.setBackground(Color.LIGHT_GRAY);
-        panBouton2.setBackground(Color.GRAY);
+        fenetre.add(panListe);
+        fenetre.setVisible(true);
+
 
         fenetre.setVisible(true);
 

@@ -83,4 +83,66 @@ public class InterfaceVoiture extends JFrame implements ActionListener{
             fenetreV.dispose();
         }
     }
+    public static void ajoutVoiture(String marque, String modele, String vitesseMax, String etat, String nbPlaces , String km
+            ,String puissance,String prixloc) {
+
+        Voiture aVoiture = new Voiture(marque,modele,vitesseMax,etat,km,nbPlaces,puissance,prixloc);
+        Voiture.ecrireVoiture(aVoiture);
+
+    }
+
+
+    public static void ajoutListeVoiture(){
+
+        FilenameFilter filtre = new FilenameFilter() {
+            @Override
+            public boolean accept(File file, String s) {
+                return s.endsWith(".xml");
+            }
+        };
+
+        int i;
+        File dossier = new File("./Vehicule/Voiture/");
+        File[] fichiersVehicule = dossier.listFiles(filtre);
+        for (i = 0; i < fichiersVehicule.length; i++) {
+
+            String[] tab = fichiersVehicule[i].toString().split("/");
+            String[] nomFichier = tab[3].split(".xml");
+            String[] nomFichierh = nomFichier[0].split(" ");
+            String marque = nomFichierh[0];
+            String modele = nomFichierh[1];
+            chaineVoiture= marque + " " + modele;
+            voiture.add(chaineVoiture);
+        }
+        comboBoxInit();
+
+
+    }
+
+    private static void comboBoxInit(){
+
+        listeVoiture.removeAllItems();
+        for (String c: voiture){
+            listeVoiture.addItem(c);
+        }
+    }
+
+
+    public static Voiture ficheInitVoiture(String voiture) {
+
+        Voiture car = null;
+        try {
+            FileInputStream fichier = new FileInputStream("./Vehicule/Voiture/" + voiture + ".xml");
+            XMLDecoder decoder = new XMLDecoder(fichier);
+            car = (Voiture) decoder.readObject();
+            decoder.close();
+            fichier.close();
+            return car;
+        }
+
+        catch(Exception e){
+            System.out.println(e);
+        }
+        return car;
+    }
 }
