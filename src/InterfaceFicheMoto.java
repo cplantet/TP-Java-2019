@@ -34,7 +34,7 @@ public class InterfaceFicheMoto extends JFrame {
         fenetreFiche.setResizable(false);
         fenetreFiche.setTitle("Fiche Moto");
         fenetreFiche.add(panFiche);
-        GridLayout grille = new GridLayout(6,2);
+        GridLayout grille = new GridLayout(8,2);
         panFiche.setLayout(grille);
         panFiche.setBackground(Color.white);
 
@@ -53,7 +53,6 @@ public class InterfaceFicheMoto extends JFrame {
         panFiche.add(prixLocF);
         panFiche.add(prixLoc);
         panFiche.add(nbPlaceF);
-        panFiche.add(nbPlace);
         panFiche.add(nbPlace);
         fenetreFiche.setVisible(true);
 

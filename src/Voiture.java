@@ -8,6 +8,18 @@ public class Voiture extends Vehicule{
     private String puissance;
     private String prixLoc;
 
+    /**
+     * Le constructeur créé un objet voiture avec les informations passées en parmaètres, qui sont celles rentrées par l'utilisateur.
+     *
+     * @param marque
+     * @param modele
+     * @param vitesseMax
+     * @param etat
+     * @param km
+     * @param nbPlaces
+     * @param puissance
+     * @param prixLoc
+     */
     public Voiture(String marque, String modele, String vitesseMax, String etat, String km, String nbPlaces, String puissance, String prixLoc) {
         super(marque, modele, vitesseMax, etat);
         this.km = km;
@@ -110,6 +122,11 @@ public class Voiture extends Vehicule{
                 "}"
                ;
     }
+
+    /**
+     *Cette fonction écrit les informations contenues dans un objet Voiture dans un fichier .xml.
+     * @param aVoiture
+     */
 
     public static void ecrireVoiture(Voiture aVoiture) {
 

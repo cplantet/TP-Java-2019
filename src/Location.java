@@ -7,6 +7,13 @@ public class Location {
     private Date fin;
     private float kmprevu;
 
+    /**
+     * Le constructeur créé un objet Location avec les informations passées en paramètre, qui sont celles rentrées par l'utilisateur.
+     * @param vehicule
+     * @param debut
+     * @param fin
+     * @param kmprevu
+     */
 
     public Location(Vehicule vehicule, Date debut, Date fin, float kmprevu) {
         this.vehicule = vehicule;

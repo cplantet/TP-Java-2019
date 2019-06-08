@@ -19,6 +19,12 @@ public class InterfaceVoiture extends JFrame implements ActionListener{
 
     private JFrame fenetreV;
 
+    /**
+     * Constructeur de InterfaceVoiture.
+     * On créé une interface avec :
+     * des boutons : retour, ajout,ficheVoiture.
+     * Une JComboBox : listeVoiture.     *
+     */
 
     public InterfaceVoiture(){
 
@@ -46,9 +52,10 @@ public class InterfaceVoiture extends JFrame implements ActionListener{
 
 
 
-        GridLayout grilleListe = new GridLayout(11,1);
+        GridLayout grilleListe = new GridLayout(4,1);
 
         panListe.setLayout(grilleListe);
+        panListe.add(listeVoiture);
         panListe.add(ficheVoiture);
         panListe.add(ajout);
         panListe.add(retour);
@@ -70,6 +77,12 @@ public class InterfaceVoiture extends JFrame implements ActionListener{
 
 
     @Override
+    /**
+     * En fonction des boutons cliqués, on fait une action diffrente.
+     * retour : on ferme la fenêtre et on ouvre une nouvelle fenêtre InterfaceVehicule().
+     * ajout : on ferme la fenêtre et on ouvre une nouvelle fenêtre InterfaceAjoutVoiture().
+     * fiche : on affiche une fenêtre InterfaceFicheVoiture pour la voiture selectionnée.
+     */
 
     public void actionPerformed(ActionEvent e){
 
@@ -82,7 +95,25 @@ public class InterfaceVoiture extends JFrame implements ActionListener{
             InterfaceAjoutVoiture intVoiture = new InterfaceAjoutVoiture();
             fenetreV.dispose();
         }
+
+        if(e.getSource()==ficheVoiture){
+            InterfaceFicheVoiture ficheVit = new InterfaceFicheVoiture(ficheInitVoiture((String)listeVoiture.getSelectedItem()));
+
+        }
     }
+
+    /**
+     * Cette procdure permet de créer un objet de type Voiture et de l'écrire dans un fichier ;xml,  en faisant appelle au
+     * Constructeur Voiture() et à la procédure ecrireVoiture() de la classe Voiture.
+     * @param marque
+     * @param modele
+     * @param vitesseMax
+     * @param etat
+     * @param nbPlaces
+     * @param km
+     * @param puissance
+     * @param prixloc
+     */
     public static void ajoutVoiture(String marque, String modele, String vitesseMax, String etat, String nbPlaces , String km
             ,String puissance,String prixloc) {
 
@@ -119,6 +150,9 @@ public class InterfaceVoiture extends JFrame implements ActionListener{
 
     }
 
+    /**
+     * On remplit la JComboBox avec les informations contenues dans le tableau "voiture" contenant des objets Voiture.
+     */
     private static void comboBoxInit(){
 
         listeVoiture.removeAllItems();

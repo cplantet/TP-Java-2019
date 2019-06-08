@@ -8,6 +8,17 @@ public class Moto extends Vehicule{
     private String puissance;
     private String prixLoc;
 
+    /**
+     * Le constructeur créé un objet Moto avec les informations passées en parmaètres, qui sont celles rentrées par l'utilisateur.
+     * @param marque
+     * @param modele
+     * @param vitesseMax
+     * @param etat
+     * @param km
+     * @param nbPlace
+     * @param puissance
+     * @param prixLoc
+     */
     public Moto(String marque, String modele, String vitesseMax, String etat, String km, String nbPlace, String puissance, String prixLoc) {
         super(marque, modele, vitesseMax, etat);
         this.km = km;
@@ -69,6 +80,10 @@ public class Moto extends Vehicule{
                 '}';
     }
 
+    /**
+     *Cette fonction écrit les informations contenues dans un objet Moto dans un fichier .xml.
+     * @param aMoto
+     */
     public static void ecrireMoto(Moto aMoto) {
 
         try {

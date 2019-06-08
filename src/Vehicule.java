@@ -8,6 +8,13 @@ public class Vehicule {
     private String vitesseMax;
     private String etat;
 
+    /**
+     *Ce constructeur créé un objet Véhicule avec les informations passées en paramètres.
+     * @param marque
+     * @param modele
+     * @param vitesseMax
+     * @param etat
+     */
     public Vehicule(String marque, String modele,String vitesseMax,String etat){
         this.marque=marque;
         this.modele=modele;
