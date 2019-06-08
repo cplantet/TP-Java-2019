@@ -12,6 +12,7 @@ public class InterfaceVoiture extends JFrame implements ActionListener{
 
     private JButton retour;
     private JButton ajout;
+    private JButton modifier;
     private JButton ficheVoiture;
     private static ArrayList<String> voiture;
     private static JComboBox listeVoiture;
@@ -42,6 +43,10 @@ public class InterfaceVoiture extends JFrame implements ActionListener{
         ajout = new JButton("Ajouter Voiture");
         ajout.addActionListener(this);
 
+
+        modifier = new JButton("Modifier Voiture");
+        modifier.addActionListener(this);
+
         ficheVoiture = new JButton("Fiche Voiture");
         ficheVoiture.addActionListener(this);
 
@@ -50,20 +55,21 @@ public class InterfaceVoiture extends JFrame implements ActionListener{
 
         JPanel panListe = new JPanel();
 
-
-
-        GridLayout grilleListe = new GridLayout(4,1);
+        GridLayout grilleListe = new GridLayout(5,1);
 
         panListe.setLayout(grilleListe);
         panListe.add(listeVoiture);
         panListe.add(ficheVoiture);
         panListe.add(ajout);
+        panListe.add(modifier);
         panListe.add(retour);
 
         ficheVoiture.setBackground(Color.white);
         ficheVoiture.setForeground(Color.black);
         ajout.setBackground(Color.white);
         ajout.setForeground(Color.black);
+        modifier.setBackground(Color.white);
+        modifier.setForeground(Color.black);
         retour.setBackground(Color.white.darker());
         retour.setForeground(Color.black);
 
@@ -99,6 +105,12 @@ public class InterfaceVoiture extends JFrame implements ActionListener{
         if(e.getSource()==ficheVoiture){
             InterfaceFicheVoiture ficheVit = new InterfaceFicheVoiture(ficheInitVoiture((String)listeVoiture.getSelectedItem()));
 
+        }
+
+
+        if(e.getSource()==modifier){
+            InterfaceModifierVoiture intVoiture = new InterfaceModifierVoiture(ficheInitVoiture((String)listeVoiture.getSelectedItem()));
+            fenetreV.dispose();
         }
     }
 
