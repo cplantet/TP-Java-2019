@@ -16,7 +16,7 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
     private JTextField textModele ;
     private JTextField textVitesseMax;
     private JTextField textEtat ;
-    private JTextField textKm ;
+    private JTextField textHeureVol ;
     private JTextField textPrixLoc ;
     private JTextField textNbMoteur;
 
@@ -35,7 +35,7 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
         JLabel modele = new JLabel("modele");
         JLabel vitesseMax = new JLabel("vitesseMax");
         JLabel etat = new JLabel("etat");
-        JLabel km = new JLabel("km");
+        JLabel heuresDeVol = new JLabel("Heures de Vol");
         JLabel prixLoc = new JLabel("prixLoc");
         JLabel nbMoteur = new JLabel("nbMoteur");
 
@@ -45,7 +45,7 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
          textModele = new JTextField();
          textVitesseMax = new JTextField();
         textEtat = new JTextField();
-        textKm = new JTextField();
+        textHeureVol = new JTextField();
         textPrixLoc = new JTextField();
         textNbMoteur = new JTextField();
 
@@ -89,7 +89,7 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
              panInfos.add(panEtat);
             panInfos.add(textEtat);
              panInfos.add(panKm);
-             panInfos.add(textKm);
+             panInfos.add(textHeureVol);
             panInfos.add(panPrix);
             panInfos.add(textPrixLoc);
             panInfos.add(panMot);
@@ -98,7 +98,7 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
             panPrix.add(prixLoc);
             panEtat.add(etat);
             panVit.add(vitesseMax);
-            panKm.add(km);
+            panKm.add(heuresDeVol);
             panModele.add(modele);
             panMarque.add(marque);
             panMot.add(nbMoteur);
@@ -118,7 +118,7 @@ public class InterfaceAjoutAvion extends JFrame implements ActionListener{
 
 
 
-            InterfaceAvion.ajoutAvion(textMarque.getText(),textModele.getText(),textVitesseMax.getText(),textEtat.getText(),textNbMoteur.getText(),textPrixLoc.getText());
+            InterfaceAvion.ajoutAvion(textMarque.getText(),textModele.getText(),textVitesseMax.getText(),textEtat.getText(),textHeureVol.getText(),textNbMoteur.getText(),textPrixLoc.getText());
             InterfaceAvion.ajoutListeAvion();
             fenetreAjout.dispose();
             InterfaceAvion interfacePlane = new InterfaceAvion();

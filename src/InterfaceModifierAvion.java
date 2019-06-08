@@ -19,7 +19,7 @@ public class InterfaceModifierAvion extends JFrame implements ActionListener{
     private JTextField textPrixLoc ;
     private JTextField textNbMoteur;
 
-    public InterfaceModifierAvion(Avion lAvion) {
+    public InterfaceModifierAvion(Avion anAvion) {
 
         fenetreAjout = new JFrame();
         fenetreAjout.setBounds(350, 100, 700, 700);
@@ -44,6 +44,15 @@ public class InterfaceModifierAvion extends JFrame implements ActionListener{
         textKm = new JTextField();
         textPrixLoc = new JTextField();
         textNbMoteur = new JTextField();
+
+        textMarque.setText(anAvion.getMarque());
+        textModele.setText(anAvion.getModele());
+        textVitesseMax.setText(anAvion.getVitesseMax());
+        textEtat.setText(anAvion.getEtat());
+        textKm.setText(anAvion.getHeuresVol());
+        textPrixLoc.setText(anAvion.getPrixLoc());
+        textNbMoteur.setText(anAvion.getNbMoteur());
+
 
         textMarque.setForeground(Color.BLUE);
         JPanel panInfos = new JPanel();
@@ -107,8 +116,8 @@ public class InterfaceModifierAvion extends JFrame implements ActionListener{
 
 
 
-                InterfaceAvion.ajoutAvion(textMarque.getText(),textModele.getText(),textVitesseMax.getText(),textEtat.getText(),textNbMoteur.getText(),textPrixLoc.getText());
-                InterfaceAvion.ajoutListeAvion();
+                InterfaceAvion.ajoutAvion(textMarque.getText(),textModele.getText(),textVitesseMax.getText(),textEtat.getText(),textKm.getText(),textNbMoteur.getText(),textPrixLoc.getText());
+
                 this.fenetreAjout.dispose();
                 InterfaceAvion interfacePlane = new InterfaceAvion();
 
