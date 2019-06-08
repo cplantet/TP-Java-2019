@@ -80,6 +80,10 @@ public class Client {
         return numero;
     }
 
+    /**
+     * Cette fonction permet de Créer un fichier .xml avec toutes les informations du client
+     * @param aClient
+     */
 
 
      public static void ecrireClient(Client aClient) {

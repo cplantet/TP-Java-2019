@@ -22,7 +22,7 @@ public class InterfaceModifierMoto extends JFrame implements ActionListener{
     private JTextField textPuissance;
     private JFrame fenetreAjout;
 
-    public InterfaceModifierMoto(Moto laMoto) {
+    public InterfaceModifierMoto(Moto aMoto) {
 
         fenetreAjout = new JFrame();
         fenetreAjout.setBounds(350, 100, 700, 700);
@@ -47,6 +47,17 @@ public class InterfaceModifierMoto extends JFrame implements ActionListener{
         textPrixLoc = new JTextField();
         textNbPlace = new JTextField();
         textPuissance = new JTextField();
+
+        textMarque.setText(aMoto.getMarque());
+        textModele.setText(aMoto.getModele());
+        textVitesseMax.setText(aMoto.getVitesseMax());
+        textEtat.setText(aMoto.getEtat());
+        textKm.setText(aMoto.getKm());
+        textPrixLoc.setText(aMoto.getPrixLoc());
+        textNbPlace.setText(aMoto.getNbPlace());
+        textPuissance.setText(aMoto.getPuissance());
+
+
         JPanel panInfos = new JPanel();
 
         modifier = new JButton("Ajouter");
@@ -92,7 +103,6 @@ public class InterfaceModifierMoto extends JFrame implements ActionListener{
 
             InterfaceMoto.ajoutMoto(textMarque.getText(),textModele.getText(),textVitesseMax.getText(),textEtat.getText(),textNbPlace.getText(),textKm.getText(),textPuissance.getText(),textPrixLoc.getText());
 
-            InterfaceMoto.ajoutListeMoto();
             fenetreAjout.dispose();
             InterfaceMoto fenetreMoto = new InterfaceMoto();
 

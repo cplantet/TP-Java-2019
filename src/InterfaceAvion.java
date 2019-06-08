@@ -100,9 +100,9 @@ public class InterfaceAvion extends JFrame implements ActionListener{
 
     }
 
-    public static void ajoutAvion(String marque, String modele, String vitesseMax, String etat, String nbMoteur , String prixloc) {
+    public static void ajoutAvion(String marque, String modele, String vitesseMax, String etat,String heureVol, String nbMoteur , String prixloc) {
 
-        Avion anAvion = new Avion(marque,modele,vitesseMax,etat,prixloc,nbMoteur);
+        Avion anAvion = new Avion(marque,modele,vitesseMax,etat,heureVol,prixloc,nbMoteur);
         Avion.ecrireAvion(anAvion);
 
     }

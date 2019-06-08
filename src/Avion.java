@@ -11,7 +11,8 @@ public class Avion extends Vehicule{
     private String prixLoc;
     private String nbMoteur;
 
-    public Avion(String marque, String modele, String vitesseMax, String etat, String prixLoc, String nbMoteur) {
+
+    public Avion(String marque, String modele, String vitesseMax, String etat,String heuresVol,String prixLoc, String nbMoteur) {
         super(marque, modele, vitesseMax, etat);
         this.heuresVol = heuresVol;
         this.prixLoc = prixLoc;
@@ -37,7 +38,7 @@ public class Avion extends Vehicule{
 
     /* -------------------------------------------------Mutateurs-------------------------------------*/
 
-    public String getKm() {
+    public String getHeuresVol() {
         return heuresVol;
     }
 

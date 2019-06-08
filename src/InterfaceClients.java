@@ -1,3 +1,6 @@
+
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -130,12 +133,27 @@ public class InterfaceClients extends JFrame implements ActionListener{
 
     }
 
+    /**
+     * Cette fonction créée le nouveau client
+     * @param nom
+     * @param prenom
+     * @param adresse
+     * @param telephone
+     * @param dateDeNaissance
+     */
+
+
     public static void ajoutClient(String nom,String prenom,String adresse,String telephone,String dateDeNaissance){
 
         Client aClient = new Client(nom, prenom, dateDeNaissance, telephone, adresse);
 
         Client.ecrireClient(aClient);
     }
+
+    /**
+     *Cette fonction permet de récupérer les nom de tous les fichier .xml du dossier client et de les ajouter
+     * à la lsite de clients
+     */
 
     public static void ajoutListeClient(){
 
@@ -166,6 +184,11 @@ public class InterfaceClients extends JFrame implements ActionListener{
 
 
     }
+
+    /**
+     * Cette fonction permet de remplir la ComboBox des clients
+     */
+
     private static void comboBoxInit(){
         listeClients.removeAllItems();
         for (String c:client){
@@ -177,6 +200,12 @@ public class InterfaceClients extends JFrame implements ActionListener{
 
 
     }
+
+    /**
+     * Cette fonction transforme un fichier client.xml en une instance de la classe Client
+     * @param client
+     * @return
+     */
 
     public static Client ficheInit(String client) {
 

@@ -8,20 +8,12 @@ public class InterfaceFicheAvion extends JFrame {
 
     public InterfaceFicheAvion(Avion lAvion){
 
-        /*
-            private String kmS;
-    private String prixLocS;
-    private String nbMoteurS;
-    private String marqueS;
-    private String modeleS;
-    private String vitesseMaxS;
-    private String etatS;
-         */
+
         JLabel marque = new JLabel(lAvion.getMarque());
         JLabel modele = new JLabel(lAvion.getModele());
         JLabel  vitesseMax = new JLabel(lAvion.getVitesseMax());
         JLabel etat = new JLabel(lAvion.getEtat());
-        JLabel km = new JLabel(lAvion.getKm());
+        JLabel heuresVol = new JLabel(lAvion.getHeuresVol());
         JLabel prixLoc = new JLabel(lAvion.getPrixLoc());
         JLabel nbMoteur = new JLabel(lAvion.getNbMoteur());
 
@@ -29,7 +21,7 @@ public class InterfaceFicheAvion extends JFrame {
         JLabel modeleF = new JLabel("Modèle");
         JLabel vitesseMaxF = new JLabel("Vitesse Maximale");
         JLabel etatF = new JLabel("Etat");
-        JLabel kmF = new JLabel("Km");
+        JLabel HeuresVolF = new JLabel("Heures de vol");
         JLabel prixLocF = new JLabel("Prix de Location");
         JLabel nbMotF = new JLabel("Nombre de Moteurs");
 
@@ -53,8 +45,8 @@ public class InterfaceFicheAvion extends JFrame {
         panFiche.add(vitesseMax);
         panFiche.add(etatF);
         panFiche.add(etat);
-        panFiche.add(kmF);
-        panFiche.add(km);
+        panFiche.add(HeuresVolF);
+        panFiche.add(heuresVol);
         panFiche.add(prixLocF);
         panFiche.add(prixLoc);
         panFiche.add(nbMotF);
