@@ -109,7 +109,7 @@ public class InterfaceVoiture extends JFrame implements ActionListener{
 
 
         if(e.getSource()==modifier){
-            //InterfaceModifierVoiture intVoiture = new InterfaceModifierVoiture(ficheInitVoiture((String)listeVoiture.getSelectedItem()));
+            InterfaceModifierVoiture intVoiture = new InterfaceModifierVoiture(ficheInitVoiture((String)listeVoiture.getSelectedItem()));
             fenetreV.dispose();
         }
     }
