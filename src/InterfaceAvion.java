@@ -11,6 +11,7 @@ public class InterfaceAvion extends JFrame implements ActionListener{
 
     private JButton retour;
     private JButton ajout;
+    private JButton modifier;
     private JButton ficheAvion;
     private static JComboBox listeAvions;
     private JFrame fenetre;
@@ -46,20 +47,26 @@ public class InterfaceAvion extends JFrame implements ActionListener{
         retour = new JButton("Retour");
         retour.addActionListener(this);
 
+        modifier = new JButton("Modifier Avion");
+        modifier.addActionListener(this);
+
         JPanel panListe = new JPanel();
 
-        GridLayout grilleListe = new GridLayout(4,1);
+        GridLayout grilleListe = new GridLayout(5,1);
 
         panListe.setLayout(grilleListe);
         panListe.add(listeAvions);
         panListe.add(ficheAvion);
         panListe.add(ajout);
+        panListe.add(modifier);
         panListe.add(retour);
 
         ficheAvion.setBackground(Color.white);
         ficheAvion.setForeground(Color.black);
         ajout.setBackground(Color.white);
         ajout.setForeground(Color.black);
+        modifier.setBackground(Color.white);
+        modifier.setForeground(Color.black);
         retour.setBackground(Color.white.darker());
         retour.setForeground(Color.black);
         fenetre.add(panListe);
@@ -82,7 +89,10 @@ public class InterfaceAvion extends JFrame implements ActionListener{
             InterfaceAjoutAvion avion = new InterfaceAjoutAvion();
             fenetre.dispose();
         }
-
+        if(e.getSource()==modifier){
+            InterfaceModifierAvion avion = new InterfaceModifierAvion();
+            fenetre.dispose();
+        }
 
         if(e.getSource()==ficheAvion){
             InterfaceFicheAvion interfaceFicheAvion = new InterfaceFicheAvion(ficheInitAvion((String)listeAvions.getSelectedItem()));
