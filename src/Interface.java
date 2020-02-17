@@ -22,7 +22,7 @@ public class Interface extends JFrame implements ActionListener{//KeyListener{
 
 
         //JFrame fenetre = new JFrame();
-        this.setBounds(500, 10, 800, 150);
+        this.setBounds(500, 10, 800, 150); //Taille fenêtre
         this.setTitle("Location de Véhicules");
         this.setLocationRelativeTo(null);
         this.setResizable(false);
